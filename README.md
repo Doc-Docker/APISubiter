@@ -78,7 +78,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 ## :hourglass_flowing_sand: Planejamento de Entregas
 
-- [x] [Kickoff]() - 15/08/2022 a 19/08/2022
+- [x] [Kickoff](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Requisitos%20de%20Cliente%204BD%20Subiter%20-%20V1.pdf) - 15/08/2022 a 19/08/2022
 
 - [x] [SPRINT 1]() - 29/08/2022 a 18/08/2022
 
