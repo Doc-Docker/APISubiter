@@ -121,7 +121,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 ## :page_facing_up: Licença MIT
 
-Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://github.com/Doc-Docker/APISubiter/blob/main/LICENSE) para mais detalhes.
+Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://github.com/Doc-Docker/APISubiter/blob/main/LICENSE) para mais detalhes
 
 <br>
 
