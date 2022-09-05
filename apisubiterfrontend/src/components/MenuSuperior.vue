@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="">
         <img src="../assets/logo.png" alt="" width="100" height="56" />
       </a>
 
@@ -18,8 +18,8 @@
               Cadastros
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/#/cadastroServicoInstalacao">Serviço de instalação</a></li>
-              <li><a class="dropdown-item" href="/#/cadastroServicoManutencao">Serviço de manutenção</a></li>
+              <li><router-link class="dropdown-item" to="/cadastroServicoInstalacao">Serviço de instalação</router-link></li>
+              <li><router-link class="dropdown-item" to="/cadastroServicoManutencao">Serviço de manutenção</router-link></li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#">Equipamentos</a></li>
               <li><hr class="dropdown-divider" /></li>
