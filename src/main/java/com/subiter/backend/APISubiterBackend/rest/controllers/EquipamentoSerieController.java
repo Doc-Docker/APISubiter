@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.subiter.backend.APISubiterBackend.model.entity.Equipamento;
 import com.subiter.backend.APISubiterBackend.model.entity.EquipamentoSerie;
 import com.subiter.backend.APISubiterBackend.service.EquipamentoSerieService;
 
