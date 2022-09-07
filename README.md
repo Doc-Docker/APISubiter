@@ -72,7 +72,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 <br>
 
 **:link: Clique no link abaixo para visualizar o *Wireframe*:** 
-> [Figma]()
+> [Protótipo no Figma](https://www.figma.com/file/shltF34JqoLij48r6qigXP/Wireframe-Subiter?node-id=0%3A1)
 
 <br>
 
