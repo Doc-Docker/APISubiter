@@ -1,23 +1,23 @@
 <template>
-  <main>
+  <div>
+    <CabecalhoComponent/>
     <div class="container">
-      <MenuSuperior/>
-      <router-view></router-view>
+      <router-view/>
     </div>
-  </main>
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import MenuSuperior from './components/MenuSuperior.vue'
+<script>
+import CabecalhoComponent from './components/CabecalhoComponent.vue'
 
-export default defineComponent({
-  name: "App",
-  components: {
-    MenuSuperior
-  },
-});
+export default {
+  components:{
+    CabecalhoComponent
+  }
+}
 </script>
 
+
 <style>
+
 </style>
