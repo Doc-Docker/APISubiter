@@ -7,5 +7,9 @@ export default{
 
     salvar:(servico)=>{
         return http.post('/servicos', servico)
+    },
+
+    deletar:(id)=>{
+        return http.delete('/servicos/' + id)
     }
 }

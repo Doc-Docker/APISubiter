@@ -13,6 +13,7 @@
           <th scope="col">Tipo de serviço</th>
           <th scope="col">Descrição</th>
           <th scope="col">Data Inclusão</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody >
@@ -21,6 +22,9 @@
           <td>{{servico.tipo_servico}}</td>
           <td>{{servico.descricao}}</td>
           <td>{{servico.empresa}}</td>
+          <td>
+            <button class="btn btn-danger" @click="deletar(servico.id)">Deletar</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -39,9 +43,21 @@ export default{
     }
   },
   mounted(){
-    Servico.listar().then(resposta => {
+    this.listar();
+  },
+  methods:{
+    listar(){
+      Servico.listar().then(resposta => {
         this.servicos = resposta.data
     })
+    },
+    deletar(id){
+      Servico.deletar(id).then(resposta =>{
+        this.listar();
+        alert('Deletado com Sucesso' + resposta)
+      })
+      
+    }
   }
 };
 </script>

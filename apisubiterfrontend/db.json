@@ -1,52 +1,10 @@
 {
   "servicos": [
     {
-      "id": 1,
-      "tipo_servico": "Instalação",
-      "descricao": "teste",
-      "empresa": "Embraer"
-    },
-    {
-      "id": 2,
-      "tipo_servico": "Manutenção",
-      "descricao": "teste2",
-      "empresa": "Embraer"
-    },
-    {
-      "id": 3,
-      "tipo_servico": "Instalação",
-      "descricao": "teste3",
-      "empresa": "Embraer"
-    },
-    {
-      "tipo_servico": "",
-      "descricao": "asdasd",
-      "empresa": "dasd",
-      "id": 4
-    },
-    {
-      "tipo_servico": "",
-      "descricao": "asdasddasdasdasd",
-      "empresa": "dasdasdasdasdawsd",
-      "id": 5
-    },
-    {
-      "tipo_servico": "",
-      "descricao": "testando sa porra",
-      "empresa": "teste",
-      "id": 6
-    },
-    {
       "tipo_servico": "Instalacao",
-      "descricao": "afasfsd",
-      "empresa": "dasdasd",
-      "id": 7
-    },
-    {
-      "tipo_servico": "Manutencao",
-      "descricao": "wefwefw",
-      "empresa": "ewrfwef",
-      "id": 8
+      "descricao": "sdfs",
+      "empresa": "dsfs",
+      "id": 2
     }
   ]
 }
