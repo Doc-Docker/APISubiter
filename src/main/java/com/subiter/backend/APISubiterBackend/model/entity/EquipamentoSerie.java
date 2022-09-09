@@ -41,9 +41,9 @@ public class EquipamentoSerie {
 	@Column(name="serie_data_entrada")
 	private Date dataEntrada;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "codigo_equipamento")
+	// @OneToMany(cascade = CascadeType.ALL)
+	// @JoinColumn(name = "codigo_equipamento")
 	@Column(name="serie_codigo_equipamento")
- 	private Equipamento codigoEquipamento;
+ 	// private Equipamento codigoEquipamento;
 	private Integer codigoEquipamento;
 }
