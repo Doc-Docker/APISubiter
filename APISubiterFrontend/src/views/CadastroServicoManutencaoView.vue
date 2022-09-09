@@ -69,8 +69,8 @@ export default{
   },
   methods:{
     salvar(){
-      Servico.salvar(this.servico).then(resposta => {
-        alert('Salvo com sucesso' + resposta)
+      Servico.salvar(this.servico).then(() => {
+        alert('Salvo com sucesso')
       })
       
     }
