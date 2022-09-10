@@ -33,7 +33,7 @@
                 >
               </li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Equipamentos</a></li>
+              <li><a class="dropdown-item" href="#/cadastroEquipamentos">Equipamentos</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#">Usuários</a></li>
             </ul>
@@ -54,7 +54,7 @@
                 <a class="dropdown-item" href="/#/servicos">Serviços</a>
               </li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Equipamentos</a></li>
+              <li><a class="dropdown-item" href="#/equipamentos">Equipamentos</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#">Usuários</a></li>
             </ul>
