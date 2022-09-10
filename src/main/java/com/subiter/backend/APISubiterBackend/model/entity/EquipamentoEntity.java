@@ -12,24 +12,23 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class EquipamentoEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(name="nome_equipamento")
+
+	@Column(name = "nome_equipamento")
 	private String nomeEquipamento;
-	@Column(name="descricao_equipamento")
+
+	@Column(name = "descricao_equipamento")
 	private String descricao;
-	@Column(name="fabricante_equipamento")
+
+	@Column(name = "fabricante_equipamento")
 	private String fabricante;
-	
-	
-	
+
 }
