@@ -66,5 +66,11 @@ Em prol de um melhor aproveitamento das habilidades de cada integrante, o time f
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/User_Stories1.png" /></h1>
 
 <br>
+
+## :dart: Backlog das Sprints
+
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Sprints1.png" /></h1>
+    
+<br>
   
 → [Voltar ao topo](#topo)
