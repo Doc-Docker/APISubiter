@@ -31,4 +31,5 @@ public class EquipamentoEntity {
 	private String fabricante;
 	
 	
+	
 }
