@@ -1,8 +1,8 @@
-## :bookmark: Primeira Entrega - SPRINT 1
+## 29/08/2022 a 18/09/2022
 
 <span id="topo">
 
-<h1 align="center">29/08/2022 a 18/09/2022</h1>
+<h1 align="center">:bookmark: Primeira Entrega - SPRINT 1</h1>
 
 <p align="center">
     <a href="#objetivos">Objetivos da sprint</a> &nbsp |&nbsp &nbsp
