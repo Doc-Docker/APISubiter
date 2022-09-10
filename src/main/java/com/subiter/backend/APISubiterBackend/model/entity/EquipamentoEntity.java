@@ -30,4 +30,5 @@ public class EquipamentoEntity {
 	@Column(name="fabricante_equipamento")
 	private String fabricante;
 	
+	
 }
