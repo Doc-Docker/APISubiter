@@ -9,5 +9,4 @@ public class ApiSubiterBackendApplication {
     public static void main(String[] args) {
         SpringApplication.run(ApiSubiterBackendApplication.class, args);
     }
-
 }
