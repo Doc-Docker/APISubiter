@@ -17,6 +17,7 @@ const routes = [
     name: 'home',
     component: HomeView
   },
+  // Listagem
   {
     path: '/servicos',
     name: 'listagemServicos',
@@ -27,6 +28,7 @@ const routes = [
     name: 'listagemEquipamentos',
     component: ListagemEquipamentoView
   },
+  // Cadastros
   {
     path: '/cadastroServicoManutencao',
     name: 'cadastroServicoManutencao',
