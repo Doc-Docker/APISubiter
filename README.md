@@ -51,6 +51,8 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 **Pré-requisitos:**
 
+<img align="right" width="190" height="300" src="https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Imagem9.png">
+
  > **Requisitos Funcionais**
 
  - [x]  Cadastros de Usuários, Equipamentos e Horários
@@ -77,6 +79,8 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 <br>
 
 ## :hourglass_flowing_sand: Planejamento de Entregas
+
+<img align="right" width="400" height="250" src="https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Imagem4.png">
 
 - [x] [Kickoff](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Requisitos%20de%20Cliente%204BD%20Subiter%20-%20V1.pdf) - 15/08/2022 a 19/08/2022
 
