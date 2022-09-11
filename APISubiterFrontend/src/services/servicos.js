@@ -11,5 +11,9 @@ export default{
 
     deletar:(id)=>{
         return http.delete('/servicos/' + id)
+    },
+
+    atualizar:(servico)=>{
+        return http.put('/servicos/' + servico.id , servico)
     }
 }

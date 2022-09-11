@@ -1,11 +1,6 @@
 <template>
   <div class="mb-3 mt-3">
-    <div class="row">
-      <div class="col-md-6">
-        <h3>Serviço de manutenção</h3>
-      </div>
-    </div>
-
+    
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -23,10 +18,12 @@
           <td>{{ servico.descricao }}</td>
           <td>{{ servico.empresa }}</td>
           <td>
+            <button class="btn btn-primary m-1" @click="editar(servico)">Editar</button>
+
             <button class="btn btn-danger" @click="deletar(servico.id)">
               Deletar
             </button>
-            <button class="btn" @click="editar(servico)">Editar</button>
+            
           </td>
         </tr>
       </tbody>
@@ -35,13 +32,6 @@
   <!---->
 
   <form @submit.prevent="salvar">
-      <div class="mb-3 mt-3">
-        <div class="row">
-          <div class="col-md-6">
-            <h3>Serviço de manutenção</h3>
-          </div>  
-        </div>
-      </div>
 
       <div class="mb-3">
         <div class="row">
@@ -73,7 +63,7 @@
           </div>
         </div>
       </div>
-      <button>Salvar</button>
+      <button class="btn btn-success">Salvar</button>
     </form>
 
   </div>
@@ -114,6 +104,14 @@ export default {
     editar(servico) {
       this.servico = servico;
     },
+
+    salvar(){
+      Servico.atualizar(this.servico).then(()=>{
+        this.servico = {}
+        alert('Atualizado com sucesso!')
+        this.listar()
+      })
+    }
   },
 };
 </script>

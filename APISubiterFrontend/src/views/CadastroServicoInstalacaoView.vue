@@ -1,5 +1,8 @@
 <template>
   <div class="cadastroServicos">
+    <div v-for="(erro, e) in erros" :key="e" class="alert alert-danger" role="alert">
+      
+    </div>
     <form @submit.prevent="salvar">
       <div class="mb-3 mt-3">
         <div class="row">
@@ -64,13 +67,18 @@ export default{
             tipo_servico:'Instalacao',
             descricao:'',
             empresa:''
-        }
+        },
+        erros:[]
     }
   },
   methods:{
     salvar(){
       Servico.salvar(this.servico).then(() => {
+        this.servico = {}
         alert('Salvo com sucesso')
+        this.erros = []
+      }).catch( e => {
+        console.log(e.response.status)
       })
       
     }
