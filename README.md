@@ -78,6 +78,11 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 <br>
 
+**:link: Clique no link abaixo para visualizar o *Kanban* de atividades da equipe:** 
+> [Kanban Projects GitHub](https://github.com/orgs/Doc-Docker/projects/16)
+
+<br>
+
 ## :hourglass_flowing_sand: Planejamento de Entregas
 
 <img align="right" width="400" height="250" src="https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Imagem4.png">
