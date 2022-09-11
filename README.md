@@ -98,6 +98,8 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 ## :date: As Sprints
 
+<img align="right" width="200" height="180" src="https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Imagem6.png">
+
 🔖 SPRINT 1 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-1.md)):  Em andamento 🕗
 
 🔖 SPRINT 2 ([Link da Pasta]()):  Aguardando 🚧
@@ -109,6 +111,8 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 <br>
 
 ## :computer: Tecnologias Utilizadas
+
+<img align="right" width="250" height="190" src="https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Imagem14.png">
 
 * **Banco de Dados:** Oracle Cloud (Requisito Desejável Fatec)
 * **Back-end:** Java e Spring Boot
