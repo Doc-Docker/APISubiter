@@ -1,25 +1,25 @@
 package com.subiter.backend.APISubiterBackend.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
-import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.web.bind.annotation.GetMapping;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 
-@Entity
+@Entity(name = "USUARIO")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Usuario {
+public class Usuario implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "codigo_usuario")
     private Integer id;
 
-    @Column(nullable = false, length = 150)
+    @Column(name = "nome_usuario",nullable = false, length = 150)
     @NotEmpty(message = "O Campo nome é obrigatório")
     private String name;
 
@@ -27,6 +27,8 @@ public class Usuario {
 
     // private String senha_usuario;
 
-    // private Integer empresa
+    @JoinColumn(name="codigo_empresa")
+    @ManyToOne()
+    private Empresa empresa;
     
 }
