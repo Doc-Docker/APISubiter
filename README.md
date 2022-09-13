@@ -3,7 +3,7 @@
 <br>
 
 <p align="center">
-      <h3 align="center"> API-Subiter </h3>
+      <h3 align="center"> API-Subiter  </h3>
 <p align="center">
 <hr>
 
@@ -51,8 +51,6 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 **Pré-requisitos:**
 
-<img align="right" width="190" height="300" src="https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Imagem9.png">
-
  > **Requisitos Funcionais**
 
  - [x]  Cadastros de Usuários, Equipamentos e Horários
@@ -74,38 +72,29 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 <br>
 
 **:link: Clique no link abaixo para visualizar o *Wireframe*:** 
-> [Protótipo no Figma](https://www.figma.com/file/shltF34JqoLij48r6qigXP/Wireframe-Subiter?node-id=0%3A1)
-
-<br>
-
-**:link: Clique no link abaixo para visualizar o *Kanban* de atividades da equipe:** 
-> [Kanban Projects GitHub](https://github.com/orgs/Doc-Docker/projects/16)
+> [Figma]()
 
 <br>
 
 ## :hourglass_flowing_sand: Planejamento de Entregas
 
-<img align="right" width="400" height="250" src="https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Imagem4.png">
-
 - [x] [Kickoff](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Requisitos%20de%20Cliente%204BD%20Subiter%20-%20V1.pdf) - 15/08/2022 a 19/08/2022
 
-- [x] [SPRINT 1](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-1.md) - 29/08/2022 a 18/09/2022
+- [x] [SPRINT 1](https://github.com/Doc-Docker/APISubiter/tree/sprint-1) - 29/08/2022 a 18/09/2022
 
-- [ ] [SPRINT 2]() - 19/09/2022 a 09/10/2022
+- [x] [SPRINT 2]() - 19/09/2022 a 09/10/2022
 
-- [ ] [SPRINT 3]() - 13/10/2022 a 06/11/2022
+- [x] [SPRINT 3]() - 13/10/2022 a 06/11/2022
 
-- [ ] [SPRINT 4]() - 07/11/2022 a 27/11/2022
+- [x] [SPRINT 4]() - 07/11/2022 a 27/11/2022
 
-- [ ] Feira de Soluções - 08/12/2022 às 19h
+- [x] Feira de Soluções - 08/12/2022 às 19h
 
 <br>
 
 ## :date: As Sprints
 
-<img align="right" width="200" height="180" src="https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Imagem6.png">
-
-🔖 SPRINT 1 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-1.md)):  Em andamento 🕗
+🔖 SPRINT 1 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/tree/sprint-1)):  Em andamento 🕗
 
 🔖 SPRINT 2 ([Link da Pasta]()):  Aguardando 🚧
 
@@ -116,8 +105,6 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 <br>
 
 ## :computer: Tecnologias Utilizadas
-
-<img align="right" width="250" height="190" src="https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Imagem14.png">
 
 * **Banco de Dados:** Oracle Cloud (Requisito Desejável Fatec)
 * **Back-end:** Java e Spring Boot
@@ -138,17 +125,8 @@ Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://gith
 
 <br>
 
-## 📦 Backlogs & User Stories
-
-<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto.png" /></h1>
-
-<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/User_Stories1.png" /></h1>
-
-<br>
-
 ## :dart: Backlog das Sprints
 
-<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Sprints1.png" /></h1>
 
 <br>
 
