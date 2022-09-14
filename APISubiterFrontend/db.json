@@ -1,0 +1,42 @@
+{
+  "servicos": [
+    {
+      "tipo_servico": "Instalacao",
+      "descricao": "Teste empresa",
+      "empresa": "Embraer",
+      "id": 1
+    },
+    {
+      "tipo_servico": "Manutencao",
+      "descricao": "asdas",
+      "empresa": "asdad",
+      "id": 3
+    },
+    {
+      "tipo_servico": "Manutencao",
+      "descricao": "asdasdasd",
+      "empresa": "asdadasdasdas",
+      "id": 4
+    },
+    {
+      "tipo_servico": "Instalacao",
+      "descricao": "asdasdasdasda",
+      "empresa": "Teste",
+      "id": 5
+    },
+    {
+      "tipo_servico": "Instalacao",
+      "descricao": "asdasd",
+      "empresa": "adasd",
+      "id": 7
+    }
+  ],
+  "equipamentos": [
+    {
+      "nome": "Teste",
+      "fabricante": "asdasd",
+      "descricao": "asdasd",
+      "id": 2
+    }
+  ]
+}
