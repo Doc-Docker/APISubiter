@@ -17,7 +17,11 @@ public class Servico {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name ="servico_descricao",nullable = false, length = 120)
+    @OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "tipo_servico_codigo")
+    private TipoServico tipoServico;
+
+    @Column(name ="servico_descricao", nullable = false, length = 120)
     @NotEmpty(message = "O Campo nome é obrigatório")
     private String descricao;
 
