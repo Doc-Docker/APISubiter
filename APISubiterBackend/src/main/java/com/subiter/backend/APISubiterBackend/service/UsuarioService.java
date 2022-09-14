@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import com.subiter.backend.APISubiterBackend.model.entity.Empresa;
 import com.subiter.backend.APISubiterBackend.model.entity.Usuario;
 import com.subiter.backend.APISubiterBackend.model.repository.UsuarioRepository;
 import java.util.List;
@@ -13,10 +14,21 @@ public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private EmpresaService empresaService;
     
     public Usuario save (Usuario usuario){
 
-        return usuarioRepository.save(usuario);
+        usuario.setId(null);
+
+        Empresa empresa = empresaService.getEnterpriseById(usuario.getEmpresa().getId());
+
+        usuario.setEmpresa(empresa);
+
+        usuarioRepository.save(usuario);
+
+        return usuario;
     }
 
     public List<Usuario> getAllUsers (){

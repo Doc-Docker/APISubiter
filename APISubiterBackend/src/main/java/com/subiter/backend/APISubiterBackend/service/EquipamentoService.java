@@ -15,19 +15,19 @@ public class EquipamentoService {
     private EquipamentoRepository equipamentoRepository;
 
     public Equipamento save(Equipamento equipamento) {
-        return equipamentoRepository.save(equipamento);
 
+        return equipamentoRepository.save(equipamento);
     }
 
     public List<Equipamento> fidAll() {
 
         return equipamentoRepository.findAll();
-
     }
 
     public Equipamento getEquipamnetoById(Integer id) {
-        return equipamentoRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamento não encontrado."));
+        
+        return equipamentoRepository.findById(id).orElseThrow(() -> 
+        new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamento não encontrado."));
     }
 
 }
