@@ -6,7 +6,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CNPJ;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name = "EMPRESA")
@@ -20,7 +19,7 @@ public class Empresa implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name = "codigo_empresa")
+    @Column(name = "codigo_empresa")
     private Integer id;
 
     @CNPJ(message = "CNPJ inválido")
@@ -43,5 +42,5 @@ public class Empresa implements Serializable{
     @JsonIgnore
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
     private List<Usuario> usuario;
-    
+
 }
