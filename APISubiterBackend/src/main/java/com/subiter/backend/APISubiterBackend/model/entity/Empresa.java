@@ -43,4 +43,8 @@ public class Empresa implements Serializable{
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
     private List<Usuario> usuario;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "empresaServico", cascade = CascadeType.ALL)
+    private List<Servico> servicos;
+
 }
