@@ -12,11 +12,11 @@ import java.util.List;
 public class ServicoService {
 
     @Autowired
-    private ServicoRepository ServicoRepository;
+    private ServicoRepository servicoRepository;
     
     public Servico save (Servico servico){
 
-        return ServicoRepository.save(servico);
+        return servicoRepository.save(servico);
     }
 
     public List<Servico> getAllServices (){

@@ -9,7 +9,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Servico")
+@RequestMapping("/api/servico")
 public class ServicoController {
 
     @Autowired

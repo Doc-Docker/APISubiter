@@ -2,13 +2,11 @@ package com.subiter.backend.APISubiterBackend.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
-import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.web.bind.annotation.GetMapping;
-
+import java.time.LocalDate;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
-@Entity
+@Entity(name = "SERVICO")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,19 +17,25 @@ public class Servico {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, length = 254)
-    @NotEmpty(message = "O Campo nome é obrigatório");
-    private String Servico_Descricao;
+    @Column(name ="servico_descricao",nullable = false, length = 120)
+    @NotEmpty(message = "O Campo nome é obrigatório")
+    private String descricao;
 
-    @Column(nullable = false, length = 10)
-    @NotEmpty(message = "Data de Inclusão é obrigatória");
-    private DateTime Servico_Data_Inclusao;
+    @Column(name ="servico_data_inclusao", updatable = false)
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate inclusao;
 
-    @Column(nullable = false, length = 10)
-    @NotEmpty(message = "Data de Agendamento é obrigatória");
-    private DateTime Servico_Data_Agendamento;
+    // @Column(name ="servico_data_agendamento", nullable = false, length = 10)
+    // @NotEmpty(message = "Data de Agendamento é obrigatória")
+    // @JsonFormat(pattern = "dd/MM/yyyy")
+    // private LocalDate agendamento;
 
-    @Column(nullable = false, length = 10)
-    //@NotEmpty(message = "Data de Finalização obrigatória");
-    private DateTime Servico_Data_Finalizacao;
+    // @Column(name ="servico_data_realizacao", nullable = false, length = 10)
+    // @JsonFormat(pattern = "dd/MM/yyyy")
+    // private LocalDate realizacao;
+
+    @PrePersist
+    public void presPersist(){
+        setInclusao(LocalDate.now());
+    }
 }
