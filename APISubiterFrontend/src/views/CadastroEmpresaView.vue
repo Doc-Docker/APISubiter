@@ -1,5 +1,5 @@
 <template>
-    <div class="cadastroequipamentos">
+    <div class="cadastroempresas">
       <form @submit.prevent="salvar">
         <div class="mb-3 mt-3">
           <div class="row">
@@ -47,9 +47,24 @@
                 >Cnpj</label
               >
               <input
-                type="number"
+                type="text"
                 class="form-control"
                 v-model="empresa.cnpj"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="exampleFormControlTextarea1" class="form-label"
+                >Contato</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                v-model="empresa.contato"
               />
             </div>
           </div>
@@ -63,29 +78,30 @@
   </template>
   
   <style scoped>
-  .cadastroequipamentos {
+  .cadastroempresas {
     padding: 1.25rem;
   }
   </style>
   
   <script>
-  import Equipamento from '../services/equipamentos'
+  import Empresa from '../services/empresas'
   
   export default{
-    name: "CadastroEquipamentoView",
+    name: "CadastroEmpresaView",
   
     data(){
       return{
-          equipamento:{
+          empresa:{
               nome:'',
-              fabricante:'',
-              descricao:''
+              endereco:'',
+              cnpj:'',
+              contato:''
           }
       }
     },
     methods:{
       salvar(){
-        Equipamento.salvar(this.equipamento).then(() => {
+        Empresa.salvar(this.empresa).then(() => {
           alert('Salvo com sucesso')
         })
         

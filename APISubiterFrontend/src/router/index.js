@@ -4,10 +4,12 @@ import HomeView from '../views/HomeView.vue'
 // Listagens
 import ListagemServicosView from '../views/ListagemServicosView.vue'
 import ListagemEquipamentoView from '../views/ListagemEquipamentoView.vue'
+import ListagemEmpresaView from '../views/ListagemEmpresaView.vue'
 // Cadastros
 import CadastroServicoManutencao from '../views/CadastroServicoManutencaoView.vue'
 import CadastroServicoInstalacao from '../views/CadastroServicoInstalacaoView.vue'
 import CadastroEquipamento from '../views/CadastroEquipamentoView.vue'
+import CadastroEmpresa from '../views/CadastroEmpresaView.vue'
 
 Vue.use(VueRouter)
 
@@ -28,6 +30,11 @@ const routes = [
     component: ListagemEquipamentoView
   },
   {
+    path: '/empresas',
+    name: 'listagemEmpresas',
+    component: ListagemEmpresaView
+  },
+  {
     path: '/cadastroServicoManutencao',
     name: 'cadastroServicoManutencao',
     component: CadastroServicoManutencao
@@ -41,6 +48,11 @@ const routes = [
     path: '/cadastroEquipamentos',
     name: 'cadastroEquipamentos',
     component: CadastroEquipamento
+  },
+  {
+    path: '/cadastroEmpresas',
+    name: 'cadastroEmpresas',
+    component: CadastroEmpresa
   }
   
 ]
