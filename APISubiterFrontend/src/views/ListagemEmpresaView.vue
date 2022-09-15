@@ -2,7 +2,7 @@
     <div class="mb-3 mt-3">
       <div class="row">
         <div class="col-md-6">
-          <h3>Equipamentos</h3>
+          <h3>Empresas</h3>
         </div>
       </div>
   
@@ -11,33 +11,34 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nome</th>
-            <th scope="col">Fabricante</th>
-            <th scope="col">Descrição</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">CNPJ</th>
+            <th scope="col">Contato</th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(equipamento, i) in equipamentos" :key="i">
-            <td>{{ equipamento.id }}</td>
-            <td>{{ equipamento.nome }}</td>
-            <td>{{ equipamento.fabricante }}</td>
-            <td>{{ equipamento.descricao }}</td>
+          <tr v-for="(empresa, i) in empresas" :key="i">
+            <td>{{ empresa.id }}</td>
+            <td>{{ empresa.nome }}</td>
+            <td>{{ empresa.endereco }}</td>
+            <td>{{ empresa.cnpj }}</td>
+            <td>{{ empresa.contato }}</td>
             <td>
-              <button class="btn btn-danger" @click="deletar(equipamento.id)">
+              <button class="btn btn-danger" @click="deletar(empresa.id)">
                 Deletar
               </button>
-              <button class="btn" @click="editar(equipamento)">Editar</button>
+              <button class="btn" @click="editar(empresa)">Editar</button>
             </td>
           </tr>
         </tbody>
       </table>
   
-  
     <form @submit.prevent="salvar">
         <div class="mb-3 mt-3">
           <div class="row">
             <div class="col-md-6">
-              <h3>Equipamentos</h3>
+              <h3>empresas</h3>
             </div>  
           </div>
         </div>
@@ -51,22 +52,21 @@
               <input
                 type="text"
                 class="form-control"
-                v-model="equipamento.nome"
+                v-model="empresa.nome"
               />
             </div>
           </div>
         </div>
   
-  
         <div class="mb-5">
           <div class="row">
             <div class="col-md-6">
               <label for="exampleFormControlTextarea1" class="form-label"
-                >Fabricante</label
+                >Endereço</label
               >
               <textarea
                 class="form-control"
-                v-model="equipamento.fabricante"
+                v-model="empresa.endereco"
                 rows="3"
               ></textarea>
             </div>
@@ -77,11 +77,26 @@
           <div class="row">
             <div class="col-md-6">
               <label for="exampleFormControlTextarea1" class="form-label"
-                >Descrição</label
+                >Cnpj</label
               >
               <textarea
                 class="form-control"
-                v-model="equipamento.descricao"
+                v-model="empresa.cnpj"
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="exampleFormControlTextarea1" class="form-label"
+                >Contato</label
+              >
+              <textarea
+                class="form-control"
+                v-model="empresa.contato"
                 rows="3"
               ></textarea>
             </div>
@@ -94,19 +109,20 @@
   </template>
   
   <script>
-  import Equipamento from "../services/equipamentos";
+  import Empresa from "../services/empresas";
   
   export default {
-    name: "ListagemequipamentosView",
+    name: "ListagemempresasView",
   
     data() {
       return {
-        equipamentos: [],
-        equipamento: {
+        empresas: [],
+        empresa: {
           id: "",
           nome: "",
-          fabricante: "",
-          descricao: "",
+          endereco: "",
+          cnpj: "",
+          contato: "",
         },
       };
     },
@@ -115,18 +131,18 @@
     },
     methods: {
       listar() {
-        Equipamento.listar().then((resposta) => {
-          this.equipamentos = resposta.data;
+        Empresa.listar().then((resposta) => {
+          this.empresas = resposta.data;
         });
       },
       deletar(id) {
-        Equipamento.deletar(id).then(() => {
+        Empresa.deletar(id).then(() => {
           this.listar();
           alert("Deletado com Sucesso");
         });
       },
-      editar(equipamento) {
-        this.equipamento = equipamento;
+      editar(empresa) {
+        this.empresa = empresa;
       },
     },
   };
