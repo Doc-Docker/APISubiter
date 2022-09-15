@@ -35,9 +35,13 @@
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#/cadastroEquipamentos">Equipamentos</a></li>
               <li><hr class="dropdown-divider" /></li>
+
               <li><a class="dropdown-item" href="#">Usuários</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#/cadastroEmpresas">Empresas</a></li>
+              
+              <li><a class="dropdown-item" href="#/cadastroUsuario">Usuários</a></li>
+
             </ul>
           </li>
 
@@ -58,9 +62,13 @@
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#/equipamentos">Equipamentos</a></li>
               <li><hr class="dropdown-divider" /></li>
+
               <li><a class="dropdown-item" href="#">Usuários</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#/empresas">Empresas</a></li>
+
+              <li><a class="dropdown-item" href="#/usuarios">Usuários</a></li>
+
             </ul>
           </li>
 

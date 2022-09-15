@@ -1,4 +1,4 @@
-# apisubiterfrontend
+# APISubiterFrontend
 
 ## Project setup
 ```
