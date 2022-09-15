@@ -4,10 +4,12 @@ import HomeView from '../views/HomeView.vue'
 // Listagens
 import ListagemServicosView from '../views/ListagemServicosView.vue'
 import ListagemEquipamentoView from '../views/ListagemEquipamentoView.vue'
+import ListagemUsuarios from '../views/ListagemUsuariosView.vue'
 // Cadastros
 import CadastroServicoManutencao from '../views/CadastroServicoManutencaoView.vue'
 import CadastroServicoInstalacao from '../views/CadastroServicoInstalacaoView.vue'
 import CadastroEquipamento from '../views/CadastroEquipamentoView.vue'
+import CadastroUsuario from '../views/CadastroUsuarioView.vue'
 
 Vue.use(VueRouter)
 
@@ -41,8 +43,17 @@ const routes = [
     path: '/cadastroEquipamentos',
     name: 'cadastroEquipamentos',
     component: CadastroEquipamento
+  },
+  {
+    path: '/cadastroUsuario',
+    name: 'cadastroUsuario',
+    component: CadastroUsuario
+  },
+  {
+    path: '/usuarios',
+    name: 'listagemUsuarios',
+    component: ListagemUsuarios
   }
-  
 ]
 
 const router = new VueRouter({
