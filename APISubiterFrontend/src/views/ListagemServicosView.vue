@@ -58,7 +58,6 @@
               v-model="servico.descricao"
               rows="3"
             ></textarea>
-            <div>{{servico}}</div>
           </div>
         </div>
       </div>
@@ -81,7 +80,7 @@ export default {
       empresas: [],
       servico: {
         id:"",
-        tipoServico: "3",
+        tipoServico: "",
         descricao: "",
         empresaServico: ""
       },
@@ -106,10 +105,15 @@ export default {
     editar(servico, idEmpresa) {
       this.servico = servico;
       this.servico.empresaServico = idEmpresa;
-      this.servico.tipoServico = 3;
     },
 
     salvar(){
+      if(this.servico.tipoServico == 'Manutenção'){
+        this.servico.tipoServico = 3
+      }
+      else if(this.servico.tipoServico == 'Instalação'){
+        this.servico.tipoServico = 2
+      }
       Servico.atualizar(this.servico).then(()=>{
         this.servico = {}
         alert('Atualizado com sucesso!')

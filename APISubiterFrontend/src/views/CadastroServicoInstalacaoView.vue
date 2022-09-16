@@ -78,7 +78,7 @@ export default {
   data() {
     return {
       servico: {
-        tipoServico: "3",
+        tipoServico: "2",
         descricao: "",
         empresaServico: ""
       },
@@ -95,7 +95,7 @@ export default {
       Servico.salvar(this.servico)
         .then(() => {
           this.servico = {};
-          this.servico.tipoServico = 3;
+          this.servico.tipoServico = 2;
           alert("Salvo com sucesso");
           this.erros = [];
         })
