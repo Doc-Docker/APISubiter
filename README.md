@@ -73,11 +73,6 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 <br>
 
-**:link: Clique no link abaixo para visualizar o *Wireframe*:** 
-> [Protótipo no Figma](https://www.figma.com/community/file/1151916443098739750)
-
-<br>
-
 **:link: Clique no link abaixo para visualizar o *Kanban* de atividades da equipe:** 
 > [Kanban Projects GitHub](https://github.com/orgs/Doc-Docker/projects/16)
 
