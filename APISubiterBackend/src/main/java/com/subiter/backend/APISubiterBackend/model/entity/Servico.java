@@ -17,7 +17,7 @@ public class Servico {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
 	@JoinColumn(name = "tipo_servico_codigo")
     private TipoServico tipoServico;
 

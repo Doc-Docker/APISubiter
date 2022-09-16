@@ -1,14 +1,32 @@
 <template>
   <div class="cadastroServicos">
-    <div v-for="(erro, e) in erros" :key="e" class="alert alert-danger" role="alert">
-      
-    </div>
+    <div
+      v-for="(erro, e) in erros"
+      :key="e"
+      class="alert alert-danger"
+      role="alert"
+    ></div>
     <form @submit.prevent="salvar">
       <div class="mb-3 mt-3">
         <div class="row">
           <div class="col-md-6">
             <h3>Serviço de instalação</h3>
-          </div>  
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >Id Serviço</label
+            >
+            <input
+              class="form-control"
+              type="text"
+              v-model="servico.tipoServico"
+              disabled
+            >
+          </div>
         </div>
       </div>
 
@@ -18,15 +36,12 @@
             <label for="exampleFormControlInput1" class="form-label"
               >Empresa</label
             >
-            <input
-              type="text"
-              class="form-control"
-              v-model="servico.empresa"
-            />
+            <select v-model="servico.empresaServico" class="form-select" aria-label="Default select example" >
+              <option v-for="(empresa, e) in empresas" :key="e" v-bind:value="empresa.id" >{{empresa.name}}</option>
+            </select>
           </div>
         </div>
       </div>
-
 
       <div class="mb-5">
         <div class="row">
@@ -44,8 +59,6 @@
       </div>
       <button>Salvar</button>
     </form>
-
-    
   </div>
 </template>
 
@@ -56,32 +69,45 @@
 </style>
 
 <script>
-import Servico from '../services/servicos'
+import Servico from "../services/servicos";
+import Empresa from "../services/empresas";
 
-export default{
+export default {
   name: "CadastroServicosInstalacaoView",
 
-  data(){
-    return{
-        servico:{
-            tipo_servico:'Instalacao',
-            descricao:'',
-            empresa:''
-        },
-        erros:[]
+  data() {
+    return {
+      servico: {
+        tipoServico: "3",
+        descricao: "",
+        empresaServico: ""
+      },
+      TiposServicos:[],
+      empresas: [],
+      erros: [],
+    };
+  },
+  mounted() {
+    this.listarEmpresas();
+  },
+  methods: {
+    salvar() {
+      Servico.salvar(this.servico)
+        .then(() => {
+          this.servico = {};
+          this.servico.tipoServico = 3;
+          alert("Salvo com sucesso");
+          this.erros = [];
+        })
+        .catch((e) => {
+          console.log(e.response.status);
+        });
+    },
+    listarEmpresas() {
+      Empresa.listar().then((resposta) => {
+        this.empresas = resposta.data;
+      });
     }
   },
-  methods:{
-    salvar(){
-      Servico.salvar(this.servico).then(() => {
-        this.servico = {}
-        alert('Salvo com sucesso')
-        this.erros = []
-      }).catch( e => {
-        console.log(e.response.status)
-      })
-      
-    }
-  }
 };
 </script>
