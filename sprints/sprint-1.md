@@ -21,16 +21,17 @@ Temos um desafio de sincronização dos dados administrativos, financeiros e ope
 Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para primeira sprint são:
 - **RF 01:** Cadastro de Usuário
 - **RF 02:** Cadastro de Equipamento
-- **RF 03:** Cadastro da Empresa
-- **RF 04:** Listagem dos Cadastros
-- **RF 05:** Modelagem do Banco de Dados
-- **RF 06:** Front-end para entrada e interpretação de dados
-- **RF 07:** Wireframe (Protótipo no Figma)
-- **RNF 08:** Linguagem Java Web Server-Side (Requisito Exigido Fatec)
-- **RNF 09:** PL / SQL (Requisito Exigido Fatec)
-- **RNF 10:** GIT (Requisito Exigido Fatec)
-- **RNF 11:** Vue.js (FrontEnd)
-- **RNF 12:** Oracle Cloud (Requisito Exigido Fatec)
+- **RF 03:** Cadastro de Serviço
+- **RF 04:** Cadastro da Empresa
+- **RF 05:** Listagem dos Cadastros
+- **RF 06:** Modelagem do Banco de Dados
+- **RF 07:** Front-end para entrada e interpretação de dados
+- **RF 08:** Wireframe (Protótipo no Figma)
+- **RNF 09:** Linguagem Java Web Server-Side (Requisito Exigido Fatec)
+- **RNF 10:** PL / SQL (Requisito Exigido Fatec)
+- **RNF 11:** GIT (Requisito Exigido Fatec)
+- **RNF 12:** Vue.js (FrontEnd)
+- **RNF 13:** Oracle Cloud (Requisito Exigido Fatec)
 
 <br>
 
@@ -38,7 +39,27 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
   
 ## :heavy_check_mark: Entregas
   
+### RF 01: Cadastro de Usuário
 (Aguardando 🚧)
+    
+### RF 02: Cadastro de Equipamento
+(Aguardando 🚧)
+    
+### RF 03: Cadastro de Serviço
+(Aguardando 🚧)
+    
+### RF 04: Cadastro da Empresa
+(Aguardando 🚧)
+    
+### RF 06: Modelagem do Banco de Dados
+    
+Utilizando o serviço da Oracle Cloud, fizemos a modelagem do banco de dados para relacionamento das tabelas de cadastro conforme abaixo. Nas próximas sprints iremos vincular os dados da aplicação na nuvem, pois no momento estamos utilizando o H2 (sistema de gerenciamento de banco de dados relacional escrito em Java) para armazenamento dos dados.
+    
+<h1 align="center"> <img src = "link" /></h1>
+
+<h1 align="center"> <img src = "link" /></h1>    
+
+<h1 align="center"> <img src = "link" /></h1>
 
 <br>
 
