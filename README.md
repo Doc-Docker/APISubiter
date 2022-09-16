@@ -74,7 +74,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 <br>
 
 **:link: Clique no link abaixo para visualizar o *Wireframe*:** 
-> [Protótipo no Figma](https://www.figma.com/file/shltF34JqoLij48r6qigXP/Wireframe-Subiter?node-id=0%3A1)
+> [Protótipo no Figma](https://www.figma.com/community/file/1151916443098739750)
 
 <br>
 
@@ -121,7 +121,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 * **Banco de Dados:** Oracle Cloud (Requisito Desejável Fatec)
 * **Back-end:** Java e Spring Boot
-* **Front-end:** Vue.js, CSS, Bootstrap
+* **Front-end:** HTML, JavaScript (Vue.js), CSS, Bootstrap
 * **Ferramentas:** IntelliJ IDEA, Visual Studio Code, GitHub e Figma
 
 <br>
