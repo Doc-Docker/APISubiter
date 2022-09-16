@@ -39,24 +39,39 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
   
 ## :heavy_check_mark: Entregas
   
+    
 ### RF 01: Cadastro de Usuário
 (Aguardando 🚧)
+    
     
 ### RF 02: Cadastro de Equipamento
 (Aguardando 🚧)
     
+    
 ### RF 03: Cadastro de Serviço
 (Aguardando 🚧)
     
+    
 ### RF 04: Cadastro da Empresa
 (Aguardando 🚧)
+    
     
 ### RF 06: Modelagem do Banco de Dados
     
 Fizemos a modelagem do banco de dados para relacionamento das tabelas de cadastro conforme abaixo. Nas próximas sprints iremos vincular os dados da aplicação na nuvem, pois no momento estamos utilizando o H2 (sistema de gerenciamento de banco de dados relacional escrito em Java) para armazenamento dos dados.
  
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Modelo_Banco_Subiter.png" /></h1>  
-  
+
+    
+### RF 08: Wireframe (Protótipo no Figma)
+    
+Para extrair e entender os desejos do cliente, foi construído um protótipo inicial no Figma, criando a identidade visual e design do sistema e apresentando para validação com o cliente. 
+    
+Clique no link abaixo para visualizar o Wireframe do projeto:
+
+> :link: [Link Figma](https://www.figma.com/community/file/1151916443098739750)
+    
+    
 ### RNF 13: Oracle Cloud (Requisito Exigido Fatec)
     
 Utilizando o serviço da Oracle Cloud, criamos a conta e as tabelas relacionais para utilização do Banco de Dados no projeto:
@@ -65,6 +80,8 @@ Utilizando o serviço da Oracle Cloud, criamos a conta e as tabelas relacionais 
 
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/banco1.png" /></h1>
 
+→ [Voltar ao topo](#topo)    
+    
 <br>
 
 <span id="burndown">
