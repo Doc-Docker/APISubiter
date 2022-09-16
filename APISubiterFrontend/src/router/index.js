@@ -61,6 +61,8 @@ const routes = [
     path: '/cadastroEmpresas',
     name: 'cadastroEmpresas',
     component: CadastroEmpresa
+  },
+  {
 
     path: '/cadastroUsuario',
     name: 'cadastroUsuario',

@@ -3,6 +3,9 @@ package com.subiter.backend.APISubiterBackend.rest.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import com.subiter.backend.APISubiterBackend.model.dto.ServicoDto;
+import com.subiter.backend.APISubiterBackend.model.dto.ServicoForm;
 import com.subiter.backend.APISubiterBackend.model.entity.Servico;
 import com.subiter.backend.APISubiterBackend.service.ServicoService;
 import javax.validation.Valid;
@@ -16,22 +19,34 @@ public class ServicoController {
     private ServicoService servicoService;
 
     @GetMapping
-    public List<Servico> getAllSdervices(){
+    public List<ServicoDto> getAllSdervices(){
 
         return servicoService.getAllServices();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Servico saveService(@RequestBody @Valid Servico servico){
+    public Servico saveService(@RequestBody ServicoForm servicoForm){
 
-        return servicoService.save(servico);
+        return servicoService.save(servicoForm);
     }
 
     @GetMapping("/{id}")
     public Servico getServiceById(@PathVariable Integer id){
 
         return servicoService.getServiceById(id);
+    }
+    
+    @DeleteMapping("/{id}")
+    public void deleteServiceById(@PathVariable Integer id){
+
+        servicoService.deleteServiceById(id);
+    }
+    
+    @PutMapping("/{id}")
+    public Servico dupdateServiceById(@PathVariable Integer id, @RequestBody ServicoForm servicoForm){
+
+        return servicoService.updateServiceById(id, servicoForm);
     }
 
 }

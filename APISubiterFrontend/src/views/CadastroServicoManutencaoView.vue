@@ -12,17 +12,32 @@
       <div class="mb-3">
         <div class="row">
           <div class="col-md-6">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Empresa</label
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >Id Serviço</label
             >
             <input
-              type="text"
               class="form-control"
-              v-model="servico.empresa"
-            />
+              type="text"
+              v-model="servico.tipoServico"
+              disabled
+            >
           </div>
         </div>
       </div>
+
+      <div class="mb-3">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Empresa</label
+            >
+            <select v-model="servico.empresaServico" class="form-select" aria-label="Default select example" >
+              <option v-for="(empresa, e) in empresas" :key="e" v-bind:value="empresa.id" >{{empresa.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
 
 
       <div class="mb-5">
@@ -54,25 +69,40 @@
 
 <script>
 import Servico from '../services/servicos'
+import Empresa from "../services/empresas";
 
 export default{
   name: "CadastroServicosManutencaoView",
 
   data(){
     return{
-        servico:{
-            tipo_servico:'Manutencao',
-            descricao:'',
-            empresa:''
-        }
+        servico: {
+        tipoServico: "3",
+        descricao: "",
+        empresaServico: ""
+      },
+      TiposServicos:[],
+      empresas: [],
+      erros: []
     }
+  },
+  mounted() {
+    this.listarEmpresas();
   },
   methods:{
     salvar(){
       Servico.salvar(this.servico).then(() => {
         alert('Salvo com sucesso')
+        
+        this.servico = {}
+        this.servico.tipoServico = 3;
       })
       
+    },
+    listarEmpresas() {
+      Empresa.listar().then((resposta) => {
+        this.empresas = resposta.data;
+      });
     }
   }
 };

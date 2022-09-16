@@ -2,18 +2,18 @@ import {http} from './config'
 
 export default{
     listar:() =>{
-        return http.get('/servicos')
+        return http.get('/servico')
     },
 
     salvar:(servico)=>{
-        return http.post('/servicos', servico)
+        return http.post('/servico', servico)
     },
 
     deletar:(id)=>{
-        return http.delete('/servicos/' + id)
+        return http.delete('/servico/' + id)
     },
 
     atualizar:(servico)=>{
-        return http.put('/servicos/' + servico.id , servico)
+        return http.put('/servico/' + servico.id , servico)
     }
 }

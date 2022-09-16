@@ -1,6 +1,9 @@
 package com.subiter.backend.APISubiterBackend.model.entity;
 
 import lombok.*;
+
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
@@ -25,8 +28,8 @@ public class TipoServico {
     @Column(name = "tipo_servico_descricao", nullable = false, length = 40)
     private String descricao;
 
-    @OneToOne(mappedBy = "tipoServico")
+    @OneToMany(mappedBy = "tipoServico" , cascade = CascadeType.ALL)
     @JsonIgnore
-    private Servico servico;
+    private List<Servico> servicos;
 
 }

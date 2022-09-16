@@ -14,11 +14,11 @@
       <tbody>
         <tr v-for="(servico, i) in servicos" :key="i">
           <td>{{ servico.id }}</td>
-          <td>{{ servico.tipo_servico }}</td>
+          <td>{{ servico.tipoServico }}</td>
           <td>{{ servico.descricao }}</td>
-          <td>{{ servico.empresa }}</td>
+          <td>{{ servico.empresaServico }}</td>
           <td>
-            <button class="btn btn-primary m-1" @click="editar(servico)">Editar</button>
+            <button class="btn btn-primary m-1" @click="editar(servico, servico.idEmpresaServico)">Editar</button>
 
             <button class="btn btn-danger" @click="deletar(servico.id)">
               Deletar
@@ -39,11 +39,9 @@
             <label for="exampleFormControlInput1" class="form-label"
               >Empresa</label
             >
-            <input
-              type="text"
-              class="form-control"
-              v-model="servico.empresa"
-            />
+             <select v-model="servico.empresaServico" class="form-select" aria-label="Default select example" >
+              <option v-for="(empresa, e) in empresas" :key="e" v-bind:value="empresa.id" >{{empresa.name}}</option>
+            </select>
           </div>
         </div>
       </div>
@@ -71,6 +69,7 @@
 
 <script>
 import Servico from "../services/servicos";
+import Empresa from "../services/empresas";
 
 export default {
   name: "ListagemServicosView",
@@ -78,16 +77,18 @@ export default {
   data() {
     return {
       servicos: [],
+      empresas: [],
       servico: {
-        id: "",
-        tipo_servico: "",
+        id:"",
+        tipoServico: "",
         descricao: "",
-        empresa: "",
+        empresaServico: ""
       },
     };
   },
   mounted() {
     this.listar();
+    this.listarEmpresas();
   },
   methods: {
     listar() {
@@ -101,16 +102,29 @@ export default {
         alert("Deletado com Sucesso");
       });
     },
-    editar(servico) {
+    editar(servico, idEmpresa) {
       this.servico = servico;
+      this.servico.empresaServico = idEmpresa;
     },
 
     salvar(){
+      if(this.servico.tipoServico == 'Manutenção'){
+        this.servico.tipoServico = 3
+      }
+      else if(this.servico.tipoServico == 'Instalação'){
+        this.servico.tipoServico = 2
+      }
       Servico.atualizar(this.servico).then(()=>{
         this.servico = {}
         alert('Atualizado com sucesso!')
         this.listar()
       })
+    },
+
+    listarEmpresas() {
+      Empresa.listar().then((resposta) => {
+        this.empresas = resposta.data;
+      });
     }
   },
 };
