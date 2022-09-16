@@ -53,7 +53,7 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
     
 ### RF 06: Modelagem do Banco de Dados
     
-Utilizando o serviço da Oracle Cloud, fizemos a modelagem do banco de dados para relacionamento das tabelas de cadastro conforme abaixo. Nas próximas sprints iremos vincular os dados da aplicação na nuvem, pois no momento estamos utilizando o H2 (sistema de gerenciamento de banco de dados relacional escrito em Java) para armazenamento dos dados.
+Utilizando o serviço da Oracle Cloud, fizemos a modelagem do banco de dados para relacionamento das tabelas de cadastro conforme abaixo. Nas próximas sprints iremos vincular os dados da aplicação na nuvem, pois no momento estamos utilizando o H2 (sistema de gerenciamento de banco de dados relacional escrito em Java) para armazenamento dos dados. **RNF 13:** Oracle Cloud (Requisito Exigido Fatec)
     
 <h1 align="center"> <img src = "link" /></h1>
 
