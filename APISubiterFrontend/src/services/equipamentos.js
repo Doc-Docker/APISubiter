@@ -11,5 +11,9 @@ export default{
 
     deletar:(id)=>{
         return http.delete('/equipamentos/' + id)
+    },
+
+    atualizar:(equipamento)=>{
+        return http.put('/equipamentos/' + equipamento.id , equipamento)
     }
 }
