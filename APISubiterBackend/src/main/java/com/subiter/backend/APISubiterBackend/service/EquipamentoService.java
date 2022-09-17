@@ -47,13 +47,13 @@ public class EquipamentoService {
     }
 
     public Equipamento updateEquipamentoById(Integer id, Equipamento equipamento){
-    	Equipamento equipamento_N = this.getServiceById(id);
+    	Equipamento equipamento_N = this.getEquipamnetoById(id);
     
-        equipamento_N.setDescricao(equipamento.getDescricao);
-        equipamento_N.setFabricante(equipamento.getFabricante);
-        equipamento_N.setNome(equipamento.getNomeEquipamento);
+        equipamento_N.setDescricao(equipamento.getDescricao());
+        equipamento_N.setFabricante(equipamento.getFabricante());
+        equipamento_N.setNomeEquipamento(equipamento.getNomeEquipamento());
 
-    	return EquipamentoRepository.save(equipamento_N);
+    	return equipamentoRepository.save(equipamento_N);
     }
 
     public void deleteEquipamentoById(Integer id){

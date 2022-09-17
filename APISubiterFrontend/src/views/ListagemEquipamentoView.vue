@@ -51,7 +51,7 @@
               <input
                 type="text"
                 class="form-control"
-                v-model="equipamento.nome"
+                v-model="equipamento.nomeEquipamento"
               />
             </div>
           </div>
@@ -128,6 +128,14 @@
       editar(equipamento) {
         this.equipamento = equipamento;
       },
+      salvar(){
+      Equipamento.atualizar(this.equipamento).then(()=>{
+        this.equipamento = {}
+        alert('Atualizado com sucesso!')
+        this.listar()
+      })
+    },
+
     },
   };
   </script>
