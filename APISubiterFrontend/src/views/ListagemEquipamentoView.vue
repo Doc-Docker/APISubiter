@@ -19,7 +19,7 @@
         <tbody>
           <tr v-for="(equipamento, i) in equipamentos" :key="i">
             <td>{{ equipamento.id }}</td>
-            <td>{{ equipamento.nome }}</td>
+            <td>{{ equipamento.nomeEquipamento }}</td>
             <td>{{ equipamento.fabricante }}</td>
             <td>{{ equipamento.descricao }}</td>
             <td>

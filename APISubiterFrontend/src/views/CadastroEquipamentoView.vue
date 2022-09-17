@@ -18,7 +18,7 @@
               <input
                 type="text"
                 class="form-control"
-                v-model="equipamento.nome"
+                v-model="equipamento.nomeEquipamento"
               />
             </div>
           </div>
@@ -55,6 +55,21 @@
           </div>
         </div>
 
+        <div class="mb-3">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Equipamentos Série</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                v-model="equipamento.equipamentoSerie.id"
+              />
+            </div>
+          </div>
+        </div>
+
         <button>Salvar</button>
       </form>
   
@@ -77,9 +92,13 @@
     data(){
       return{
           equipamento:{
-              nome:'',
+              nomeEquipamento:'',
               fabricante:'',
-              descricao:''
+              descricao:'',
+              equipamentoSerie:{
+                id: ''
+
+              }
           }
       }
     },
