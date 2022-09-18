@@ -46,4 +46,19 @@ public class EquipamentoService {
         new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamento não encontrado."));
     }
 
+    public Equipamento updateEquipamentoById(Integer id, Equipamento equipamento){
+    	Equipamento equipamento_N = this.getEquipamnetoById(id);
+    
+        equipamento_N.setDescricao(equipamento.getDescricao());
+        equipamento_N.setFabricante(equipamento.getFabricante());
+        equipamento_N.setNomeEquipamento(equipamento.getNomeEquipamento());
+
+    	return equipamentoRepository.save(equipamento_N);
+    }
+
+    public void deleteEquipamentoById(Integer id){
+
+        equipamentoRepository.deleteById(id);
+    }
 }
+

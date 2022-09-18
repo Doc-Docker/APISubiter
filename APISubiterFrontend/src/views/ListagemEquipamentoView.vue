@@ -19,7 +19,7 @@
         <tbody>
           <tr v-for="(equipamento, i) in equipamentos" :key="i">
             <td>{{ equipamento.id }}</td>
-            <td>{{ equipamento.nome }}</td>
+            <td>{{ equipamento.nomeEquipamento }}</td>
             <td>{{ equipamento.fabricante }}</td>
             <td>{{ equipamento.descricao }}</td>
             <td>
@@ -51,7 +51,7 @@
               <input
                 type="text"
                 class="form-control"
-                v-model="equipamento.nome"
+                v-model="equipamento.nomeEquipamento"
               />
             </div>
           </div>
@@ -128,6 +128,14 @@
       editar(equipamento) {
         this.equipamento = equipamento;
       },
+      salvar(){
+      Equipamento.atualizar(this.equipamento).then(()=>{
+        this.equipamento = {}
+        alert('Atualizado com sucesso!')
+        this.listar()
+      })
+    },
+
     },
   };
   </script>
