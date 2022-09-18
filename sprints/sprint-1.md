@@ -35,6 +35,11 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
 - **RNF 13:** Oracle Cloud (Requisito Exigido Fatec)
     
 <br>
+ 
+**:link: Clique no link abaixo para visualizar o *Kanban* de atividades da equipe:** 
+> [Kanban Projects GitHub](https://github.com/orgs/Doc-Docker/projects/16)
+  
+<br>
     
 <span id="entregas">
   
@@ -49,7 +54,7 @@ Nessa tela o admin poderá cadastrar novos usuários (Cliente, Suporte, Administ
 Segue listagem dos usuários cadastrados, foi implementado as opções de editar/excluir as informações, conforme abaixo:
 <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela8.jpeg" width="900" height="600"/></h1>
     
-### RF 02: Cadastro de Equipamento
+### :heavy_check_mark: RF 02: Cadastro de Equipamento
 
 Nessa tela o admin poderá cadastrar equipamentos (Câmeras, Notebooks, Ferramentas) com as seguintes opções:
 <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela1.jpeg" width="900" height="600"/></h1>
@@ -123,7 +128,7 @@ Em prol de um melhor aproveitamento das habilidades de cada integrante, o time f
     
 <div align="center">
     
-![Burndown Chart]()
+![Burndown Chart](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/burndown1.png)
 </div>
 
 <br>
