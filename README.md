@@ -100,7 +100,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 <img align="right" width="200" height="180" src="https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Imagem6.png">
 
-🔖 SPRINT 1 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-1.md)):  Em andamento 🕗
+🔖 SPRINT 1 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-1.md)):  Concluído ☑️
 
 🔖 SPRINT 2 ([Link da Pasta]()):  Aguardando 🚧
 
