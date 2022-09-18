@@ -1,9 +1,10 @@
-<h5 align="center"> <img src = "https://github.com/Time-1-ADS/ProjetoGSW/blob/sprints/Imagens%20Geral/Fatec_logo.png" width="20" height="20" /> Projeto Integrador - DocDocker | BD </h5>
+<h5 align="center"> <img src = "https://github.com/Time-1-ADS/ProjetoGSW/blob/sprints/Imagens%20Geral/Fatec_logo.png" width="20" height="20" /> Equipe - Doc Docker | 4° BD </h5>
 
 <br>
 
 <p align="center">
-      <h3 align="center"> API-Subiter </h3>
+<img src ="https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/logosubiter.png" width="250" height="120"/>
+ </h3>
 <p align="center">
 <hr>
 
