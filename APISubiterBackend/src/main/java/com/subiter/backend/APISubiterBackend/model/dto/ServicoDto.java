@@ -9,7 +9,6 @@ public class ServicoDto {
 	
 	private String descricao;
 	
-	
 	private String empresaServico;
 	
 	private Integer idEmpresaServico;
