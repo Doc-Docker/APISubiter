@@ -7,6 +7,7 @@
 <p align="center">
     <a href="#objetivos">Objetivos da sprint</a> &nbsp |&nbsp &nbsp
     <a href="#entregas">Entregas</a> &nbsp |&nbsp &nbsp
+    <a href="#apresentacao">Vídeo</a> &nbsp |&nbsp &nbsp
     <a href="#burndown">Burndown</a> &nbsp |&nbsp &nbsp
     <a href="#backlogs">Backlogs</a>
 </p>
@@ -32,47 +33,65 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
 - **RNF 11:** GIT (Requisito Exigido Fatec)
 - **RNF 12:** Vue.js (FrontEnd)
 - **RNF 13:** Oracle Cloud (Requisito Exigido Fatec)
-
+    
 <br>
-
+    
 <span id="entregas">
   
 ## :heavy_check_mark: Entregas
   
     
-### RF 01: Cadastro de Usuário
-(Aguardando 🚧)
+### :heavy_check_mark: RF 01: Cadastro de Usuário
+
+Nessa tela o admin poderá cadastrar novos usuários (Cliente, Suporte, Administrador) com as seguintes opções:
+<img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela4.jpeg" width="900" height="600"/></h1>
     
+Segue listagem dos usuários cadastrados, foi implementado as opções de editar/excluir as informações, conforme abaixo:
+<img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela8.jpeg" width="900" height="600"/></h1>
     
 ### RF 02: Cadastro de Equipamento
-(Aguardando 🚧)
+
+Nessa tela o admin poderá cadastrar equipamentos (Câmeras, Notebooks, Ferramentas) com as seguintes opções:
+<img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela1.jpeg" width="900" height="600"/></h1>
+
+Segue listagem dos equipamentos cadastrados, foi implementado as opções de editar/excluir as informações, conforme abaixo:
+<img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela6.jpeg" width="900" height="600"/></h1>
     
     
-### RF 03: Cadastro de Serviço
-(Aguardando 🚧)
+### :heavy_check_mark: RF 03: Cadastro de Serviço
+
+Nessas telas o admin poderá cadastrar novos serviços, com as seguintes opções:
+
+Lembrando que temos 2 tipos de serviço (Instalação e Manutenção).
+
+<img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela2.jpeg" width="900" height="600"/></h1>
+<img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela3.jpeg" width="900" height="600"/></h1>
+
+Segue listagem dos serviços cadastrados, foi implementado as opções de editar/excluir as informações, conforme abaixo:
+<img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela7.jpeg" width="900" height="600"/></h1>
     
     
-### RF 04: Cadastro da Empresa
-(Aguardando 🚧)
+### :heavy_check_mark: RF 04: Cadastro da Empresa
+
+Nessa tela o admin poderá cadastrar novas empresas (Subiter, Clientes) com as seguintes opções:
+<img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela5.jpeg" width="900" height="600"/></h1>
     
     
-### RF 06: Modelagem do Banco de Dados
+### :heavy_check_mark: RF 06: Modelagem do Banco de Dados
     
 Fizemos a modelagem do banco de dados para relacionamento das tabelas de cadastro conforme abaixo. Nas próximas sprints iremos vincular os dados da aplicação na nuvem, pois no momento estamos utilizando o H2 (sistema de gerenciamento de banco de dados relacional escrito em Java) para armazenamento dos dados.
  
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Modelo_Banco_Subiter.png" /></h1>  
 
     
-### RF 08: Wireframe (Protótipo no Figma)
+### :heavy_check_mark: RF 08: Wireframe (Protótipo no Figma)
     
 Para extrair e entender os desejos do cliente, foi construído um protótipo inicial no Figma, criando a identidade visual e design do sistema e apresentando para validação com o cliente. 
     
-Clique no link abaixo para visualizar o Wireframe do projeto:
-
-> :link: [Link Figma](https://www.figma.com/community/file/1151916443098739750)
+:link: **[Clique aqui](https://www.figma.com/community/file/1151916443098739750)** para visualizar o Wireframe do projeto.
+   
     
-    
-### RNF 13: Oracle Cloud (Requisito Exigido Fatec)
+### :heavy_check_mark: RNF 13: Oracle Cloud (Requisito Exigido Fatec)
     
 Utilizando o serviço da Oracle Cloud, criamos a conta e as tabelas relacionais para utilização do Banco de Dados no projeto:
   
@@ -84,6 +103,16 @@ Utilizando o serviço da Oracle Cloud, criamos a conta e as tabelas relacionais 
     
 <br>
 
+<span id="apresentacao">
+    
+## 🚀 Apresentação SPRINT 1
+
+**:link: Para visualizar a apresentação da Sprint 1 [clique aqui](https://www.youtube.com/watch?v=_yQc6W3zIGs)** 
+
+[![](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/youtubelogo.png)](https://www.youtube.com/watch?v=_yQc6W3zIGs) 
+
+<br>
+    
 <span id="burndown">
     
 ## :chart_with_upwards_trend: Burndown
