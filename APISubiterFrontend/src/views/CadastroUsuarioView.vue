@@ -12,10 +12,8 @@
       <div class="mb-3">
         <div class="row">
           <div class="col-md-6">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Nome</label
-            >
-            <input type="text" class="form-control" v-model="usuario.nome" />
+            <label for="exampleFormControlInput1" class="form-label">Nome</label>
+            <input type="text" class="form-control" v-model="usuario.name" />
           </div>
         </div>
       </div>
@@ -23,10 +21,8 @@
       <div class="mb-3">
         <div class="row">
           <div class="col-md-6">
-            <label for="exampleFormControlInput2" class="form-label"
-              >E-mail</label
-            >
-            <input type="text" class="form-control" v-model="usuario.email" />
+            <label for="exampleFormControlInput2" class="form-label">E-mail</label>
+            <input type="text" class="form-control" />
           </div>
         </div>
       </div>
@@ -34,10 +30,8 @@
       <div class="mb-3">
         <div class="row">
           <div class="col-md-6">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Senha</label
-            >
-            <input type="password" class="form-control" v-model="usuario.senha" />
+            <label for="exampleFormControlInput1" class="form-label">Senha</label>
+            <input type="password" class="form-control" />
           </div>
         </div>
       </div>
@@ -45,13 +39,11 @@
       <div class="mb-3">
         <div class="row">
           <div class="col-md-6">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Empresa</label
-            >
-            <select class="form-control" v-model="usuario.empresa" default="" >
-              <option id="1">Subiter</option>
-              <option id="2">Syndarma</option>
-              <option id="3">FMM</option>
+            <label for="exampleFormControlInput1" class="form-label">Empresa</label>
+            <select class="form-control" v-model="usuario.empresa.id" default="" >
+              <option v-for="empresa in empresas" v-bind:key="empresa.id" v-bind:value="empresa.id">
+                {{ empresa.name }}
+              </option>
             </select>
           </div>
         </div>
@@ -61,10 +53,8 @@
       <div class="mb-3">
         <div class="row">
           <div class="col-md-6">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Tipo usuário</label
-            >
-            <select class="form-control" v-model="usuario.tipo" default="" >
+            <label for="exampleFormControlInput1" class="form-label">Tipo usuário</label>
+            <select class="form-control" default="" >
               <option id="CLI">Cliente</option>
               <option id="SUPORTE">Suporte</option>
               <option id="ADMIN">Administrador</option>
@@ -87,26 +77,37 @@
 <script>
 
 import Usuario from "../services/usuarios";
+import Empresa from "../services/empresas";
 
 export default {
   name: "CadastroUsuarioView",
 
   data() {
     return {
+      empresas: [],
       usuario: {
-        nome: "",
-        email: "",
-        senha: "",
-        empresa: "",
-        tipo: ""
-      },
+        name: "",
+        empresa: {
+          "id" : ""
+        }
+      }
     };
+  },
+
+  mounted() {
+    this.listarEmpresas();
   },
 
   methods: {
     salvar(){
       Usuario.salvar(this.usuario).then(() => {
         alert('Salvo com sucesso')
+      });
+    },
+
+    listarEmpresas(){
+      Empresa.listar().then((resp) => {
+        this.empresas = resp.data;
       })
     }
   }

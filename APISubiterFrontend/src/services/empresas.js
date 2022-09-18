@@ -11,5 +11,9 @@ export default{
 
     deletar:(id)=>{
         return http.delete('/empresas/' + id)
+    },
+
+    buscar:(id) => {
+        return http.get('/empresas/' + id)
     }
 }
