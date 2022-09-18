@@ -18,7 +18,7 @@
               <input
                 type="text"
                 class="form-control"
-                v-model="empresa.nome"
+                v-model="empresa.name"
               />
             </div>
           </div>
@@ -92,7 +92,7 @@
     data(){
       return{
           empresa:{
-              nome:'',
+              name:'',
               endereco:'',
               cnpj:'',
               contato:''

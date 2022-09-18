@@ -20,7 +20,7 @@
         <tbody>
           <tr v-for="(empresa, i) in empresas" :key="i">
             <td>{{ empresa.id }}</td>
-            <td>{{ empresa.nome }}</td>
+            <td>{{ empresa.name }}</td>
             <td>{{ empresa.endereco }}</td>
             <td>{{ empresa.cnpj }}</td>
             <td>{{ empresa.contato }}</td>
@@ -52,7 +52,7 @@
               <input
                 type="text"
                 class="form-control"
-                v-model="empresa.nome"
+                v-model="empresa.name"
               />
             </div>
           </div>
@@ -119,7 +119,7 @@
         empresas: [],
         empresa: {
           id: "",
-          nome: "",
+          name: "",
           endereco: "",
           cnpj: "",
           contato: "",
@@ -144,6 +144,13 @@
       editar(empresa) {
         this.empresa = empresa;
       },
+      salvar(){
+        Empresa.atualizar(this.empresa).then(()=>{
+        this.empresa = {}
+        alert('Atualizado com sucesso!')
+        this.listar()
+      })
+    },
     },
   };
   </script>

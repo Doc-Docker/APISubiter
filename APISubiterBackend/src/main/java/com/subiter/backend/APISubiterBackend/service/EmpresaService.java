@@ -4,9 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.subiter.backend.APISubiterBackend.model.dto.ServicoForm;
 import com.subiter.backend.APISubiterBackend.model.entity.Empresa;
+import com.subiter.backend.APISubiterBackend.model.entity.Servico;
+import com.subiter.backend.APISubiterBackend.model.entity.TipoServico;
 import com.subiter.backend.APISubiterBackend.model.repository.EmpresaRepository;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmpresaService {
@@ -28,5 +33,21 @@ public class EmpresaService {
 
         return empresaRepository.findById(id).orElseThrow(()-> 
         new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado."));
+    }
+    
+    public Empresa updateEmpresaById(Integer id, Empresa empresaNova){
+    	Empresa empresa = this.getEnterpriseById(id);
+
+    	empresa.setCnpj(empresaNova.getCnpj());
+    	empresa.setContato(empresaNova.getContato());
+    	empresa.setEndereco(empresaNova.getEndereco());
+    	empresa.setName(empresaNova.getName());
+    	
+    	return empresaRepository.save(empresa);
+    }
+    
+    public void deleteEmpresaById(Integer id){
+
+    	empresaRepository.deleteById(id);
     }
 }

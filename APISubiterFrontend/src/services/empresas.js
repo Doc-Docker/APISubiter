@@ -15,5 +15,8 @@ export default{
 
     buscar:(id) => {
         return http.get('/empresas/' + id)
+    },
+    atualizar:(empresa)=>{
+        return http.put('/empresas/' + empresa.id , empresa)
     }
 }
