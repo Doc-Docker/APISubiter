@@ -7,6 +7,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CNPJ;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.subiter.backend.APISubiterBackend.config.View;
 
 @Entity(name = "EMPRESA")
 @Data
@@ -20,15 +22,18 @@ public class Empresa implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_empresa")
+    @JsonView({View.EmpresaView.class, View.UsuarioView.class})
     private Integer id;
 
     @CNPJ(message = "CNPJ inválido")
     @NotEmpty(message = "O campo CNPJ é obrigatório")
     @Column(name = "cnpj_empresa")
+    @JsonView({View.EmpresaView.class, View.UsuarioView.class})
     private String cnpj;
 
     @Column(name = "nome_empresa", nullable = false, length = 150)
     @NotEmpty(message = "O Campo nome é obrigatório")
+    @JsonView({View.EmpresaView.class, View.UsuarioView.class})
     private String name;
 
     @Column(name = "endereco_empresa", nullable = false, length = 60)
@@ -43,8 +48,8 @@ public class Empresa implements Serializable{
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
     private List<Usuario> usuario;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "empresaServico", cascade = CascadeType.ALL)
+    @JsonView({View.EmpresaView.class})
     private List<Servico> servicos;
 
 }

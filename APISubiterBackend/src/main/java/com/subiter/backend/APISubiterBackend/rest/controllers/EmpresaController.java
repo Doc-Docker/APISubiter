@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import com.subiter.backend.APISubiterBackend.model.dto.ServicoForm;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.subiter.backend.APISubiterBackend.config.View;
 import com.subiter.backend.APISubiterBackend.model.entity.Empresa;
-import com.subiter.backend.APISubiterBackend.model.entity.Servico;
 import com.subiter.backend.APISubiterBackend.service.EmpresaService;
 import javax.validation.Valid;
 import java.util.List;
@@ -32,6 +32,7 @@ public class EmpresaController {
     }
 
     @GetMapping("/{id}")
+    @JsonView(View.EmpresaView.class)
     public Empresa getEnterpriseById(@PathVariable Integer id){
 
         return empresaService.getEnterpriseById(id);

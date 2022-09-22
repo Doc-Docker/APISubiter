@@ -3,9 +3,9 @@ package com.subiter.backend.APISubiterBackend.rest.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
+import com.fasterxml.jackson.annotation.JsonView;
+import com.subiter.backend.APISubiterBackend.config.View;
 import com.subiter.backend.APISubiterBackend.model.dto.ServicoDto;
-import com.subiter.backend.APISubiterBackend.model.dto.ServicoForm;
 import com.subiter.backend.APISubiterBackend.model.entity.Servico;
 import com.subiter.backend.APISubiterBackend.service.ServicoService;
 import javax.validation.Valid;
@@ -19,19 +19,22 @@ public class ServicoController {
     private ServicoService servicoService;
 
     @GetMapping
-    public List<ServicoDto> getAllSdervices(){
+    @JsonView(View.ServicoView.class)
+    public List<Servico> getAllSdervices(){
 
         return servicoService.getAllServices();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Servico saveService(@RequestBody ServicoForm servicoForm){
+    @JsonView(View.ServicoView.class)
+    public Servico saveService(@RequestBody @Valid ServicoDto servicoDto){
 
-        return servicoService.save(servicoForm);
+        return servicoService.save(servicoDto);
     }
 
     @GetMapping("/{id}")
+    @JsonView(View.ServicoView.class)
     public Servico getServiceById(@PathVariable Integer id){
 
         return servicoService.getServiceById(id);
@@ -44,7 +47,7 @@ public class ServicoController {
     }
     
     @PutMapping("/{id}")
-    public Servico dupdateServiceById(@PathVariable Integer id, @RequestBody ServicoForm servicoForm){
+    public Servico dupdateServiceById(@PathVariable Integer id, @RequestBody ServicoDto servicoForm){
 
         return servicoService.updateServiceById(id, servicoForm);
     }

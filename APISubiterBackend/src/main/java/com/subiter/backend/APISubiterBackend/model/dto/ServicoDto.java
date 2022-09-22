@@ -1,76 +1,29 @@
 package com.subiter.backend.APISubiterBackend.model.dto;
 
-import java.util.List;
+import java.time.LocalDate;
 
+import com.subiter.backend.APISubiterBackend.model.entity.Empresa;
+import com.subiter.backend.APISubiterBackend.model.entity.TipoServico;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ServicoDto {
-	private Integer id;
 	
-	private String tipoServico;
+    private Integer id;
+
+    private TipoServico tipoServico;
+
+    private Empresa empresaServico;
+
+    private String descricao;
 	
-	private String descricao;
+    private LocalDate inclusao;
 	
-	private String empresaServico;
-	
-	private Integer idEmpresaServico;
-	
-
-
-	public ServicoDto(Integer id, String tipo_servico, String descricao, String empresa, Integer idEmpresaServico) {
-		this.id = id;
-		this.tipoServico = tipo_servico;
-		this.descricao = descricao;
-		this.empresaServico = empresa;
-		this.idEmpresaServico = idEmpresaServico;
-	}
-	
-	public Integer getIdEmpresaServico() {
-		return idEmpresaServico;
-	}
-
-	public void setIdEmpresaServico(Integer idEmpresaServico) {
-		this.idEmpresaServico = idEmpresaServico;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public String getTipoServico() {
-		return tipoServico;
-	}
-
-	public void setTipoServico(String tipoServico) {
-		this.tipoServico = tipoServico;
-	}
-
-	public String getEmpresaServico() {
-		return empresaServico;
-	}
-
-	public void setEmpresaServico(String empresaServico) {
-		this.empresaServico = empresaServico;
-	}
-	
-	
-
-
-
-
-	
-	
-
 }

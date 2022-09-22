@@ -8,6 +8,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.subiter.backend.APISubiterBackend.config.View;
 
 @Entity(name = "TIPO_SERVICO")
 @Data
@@ -19,17 +21,20 @@ public class TipoServico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "tipo_servico_codigo")
+    @JsonView({View.TipoServicoView.class, View.ServicoView.class})
     private Integer id;
 
     @Column(name = "tipo_servico_nome", nullable = false, length = 20)
     @NotEmpty(message = "O nome do serviço é obrigatório")
+    @JsonView({View.TipoServicoView.class, View.ServicoView.class})
     private String nome;
 
     @Column(name = "tipo_servico_descricao", nullable = false, length = 40)
+    @JsonView({View.TipoServicoView.class})
     private String descricao;
 
     @OneToMany(mappedBy = "tipoServico" , cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonView({View.TipoServicoView.class})
     private List<Servico> servicos;
 
 }

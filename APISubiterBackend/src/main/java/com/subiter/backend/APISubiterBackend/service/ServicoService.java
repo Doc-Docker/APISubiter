@@ -4,17 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import com.subiter.backend.APISubiterBackend.model.dto.ServicoDto;
-import com.subiter.backend.APISubiterBackend.model.dto.ServicoForm;
 import com.subiter.backend.APISubiterBackend.model.entity.Empresa;
 import com.subiter.backend.APISubiterBackend.model.entity.Servico;
 import com.subiter.backend.APISubiterBackend.model.entity.TipoServico;
 import com.subiter.backend.APISubiterBackend.model.repository.EmpresaRepository;
 import com.subiter.backend.APISubiterBackend.model.repository.ServicoRepository;
 import com.subiter.backend.APISubiterBackend.model.repository.TipoServicoRepository;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,44 +26,31 @@ public class ServicoService {
     @Autowired
     private EmpresaRepository empresaRepository;
     
-    public Servico save (ServicoForm servicoForm){
+    public Servico save (ServicoDto servicoDto){
 
     	Servico servico = new Servico();
-        Optional<TipoServico> tipoServico = tipoServicoRepository.findById(servicoForm.getTipoServico());
+
+        Optional<TipoServico> tipoServico = tipoServicoRepository.findById(servicoDto.getTipoServico().getId());
 
         servico.setTipoServico(tipoServico.get());
         
-        Optional<Empresa> empresaQuerySelector = empresaRepository.findById(servicoForm.getEmpresaServico());
+        Optional<Empresa> empresaQuerySelector = empresaRepository.findById(servicoDto.getEmpresaServico().getId());
 
         Empresa empresa = empresaQuerySelector.get();
 
         servico.setEmpresaServico(empresa);
 
-        servico.setDescricao(servicoForm.getDescricao());
+        servico.setDescricao(servicoDto.getDescricao());
         
 
         return servicoRepository.save(servico);
     }
 
-    public List<ServicoDto> getAllServices (){
+    public List<Servico> getAllServices (){
         
     	List<Servico> servicos = servicoRepository.findAll();
-    	List<ServicoDto> servicosDto = new ArrayList<>();
     	
-    	for (Servico servico : servicos) {
-			ServicoDto servicoDto = new ServicoDto(
-													servico.getId(),
-													servico.getTipoServico().getNome(),
-													servico.getDescricao(),
-													servico.getEmpresaServico().getName(),
-													servico.getEmpresaServico().getId()
-													);
-			
-			
-			servicosDto.add(servicoDto);
-		}
-    	
-        return servicosDto;
+        return servicos;
     }
     
     public Servico getServiceById(Integer id){
@@ -81,20 +64,21 @@ public class ServicoService {
         servicoRepository.deleteById(id);
     }
     
-    public Servico updateServiceById(Integer id, ServicoForm servicoForm){
+    public Servico updateServiceById(Integer id, ServicoDto servicoDto){
+
     	Servico servico = this.getServiceById(id);
     	
-    	Optional<TipoServico> tipoServico = tipoServicoRepository.findById(servicoForm.getTipoServico());
+    	Optional<TipoServico> tipoServico = tipoServicoRepository.findById(servicoDto.getTipoServico().getId());
 
         servico.setTipoServico(tipoServico.get());
         
-        Optional<Empresa> empresaQuerySelector = empresaRepository.findById(servicoForm.getEmpresaServico());
+        Optional<Empresa> empresaQuerySelector = empresaRepository.findById(servicoDto.getEmpresaServico().getId());
 
         Empresa empresa = empresaQuerySelector.get();
 
         servico.setEmpresaServico(empresa);
     	
-    	servico.setDescricao(servicoForm.getDescricao());
+    	servico.setDescricao(servicoDto.getDescricao());
     	
     	return servicoRepository.save(servico);
     }
