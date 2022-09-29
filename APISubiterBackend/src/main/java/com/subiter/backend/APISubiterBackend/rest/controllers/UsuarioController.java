@@ -18,6 +18,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @JsonView(View.UsuarioView.class)
     @GetMapping
     public List<Usuario> getAllUsers(){
 
@@ -26,6 +27,7 @@ public class UsuarioController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @JsonView(View.UsuarioView.class)
     public Usuario saveUser(@RequestBody @Valid Usuario usuario){
 
         return usuarioService.save(usuario);  

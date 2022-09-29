@@ -6,6 +6,8 @@ import com.subiter.backend.APISubiterBackend.config.View;
 
 import lombok.*;
 import java.time.LocalDate;
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
@@ -19,6 +21,7 @@ public class Servico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView({View.EmpresaView.class, View.ServicoView.class, View.TipoServicoView.class})
+    @Column(name ="servico_codigo")
     private Integer id;
 
     @ManyToOne()
@@ -48,6 +51,9 @@ public class Servico {
     // @Column(name ="servico_data_realizacao", nullable = false, length = 10)
     // @JsonFormat(pattern = "dd/MM/yyyy")
     // private LocalDate realizacao;
+
+    @OneToMany(mappedBy = "servicoIntalacao", cascade = CascadeType.ALL)
+    private List<Instalacao> instalacaos;
 
     @PrePersist
     public void presPersist(){

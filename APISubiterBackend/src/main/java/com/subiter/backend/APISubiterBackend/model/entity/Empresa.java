@@ -1,6 +1,8 @@
 package com.subiter.backend.APISubiterBackend.model.entity;
 
 import lombok.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
 import javax.persistence.*;
@@ -44,7 +46,6 @@ public class Empresa implements Serializable{
     @NotEmpty(message = "O Campo contato é obrigatório")
     private String contato;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
     private List<Usuario> usuario;
 
@@ -52,4 +53,7 @@ public class Empresa implements Serializable{
     @JsonView({View.EmpresaView.class})
     private List<Servico> servicos;
 
+    @OneToMany(mappedBy = "empresaInstalacao", cascade = CascadeType.ALL)
+    @JsonView({View.EmpresaView.class})
+    private List<Instalacao> instalacaos;
 }
