@@ -87,7 +87,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 - [x] [SPRINT 1](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-1.md) - 29/08/2022 a 18/09/2022
 
-- [ ] [SPRINT 2]() - 19/09/2022 a 09/10/2022
+- [x] [SPRINT 2](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-2.md) - 19/09/2022 a 09/10/2022
 
 - [ ] [SPRINT 3]() - 13/10/2022 a 06/11/2022
 
@@ -103,7 +103,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 🔖 SPRINT 1 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-1.md)):  Concluído ☑️
 
-🔖 SPRINT 2 ([Link da Pasta]()):  Aguardando 🚧
+🔖 SPRINT 2 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-2.md)):  Em Andamento 🕗
 
 🔖 SPRINT 3 ([Link da Pasta]()):  Aguardando 🚧
 
@@ -136,7 +136,7 @@ Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://gith
 
 ## 📦 Backlogs & User Stories
 
-<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto.png" /></h1>
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto_2.png" /></h1>
 
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/User_Stories1.png" /></h1>
 
@@ -144,7 +144,7 @@ Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://gith
 
 ## :dart: Backlog das Sprints
 
-<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Sprints1.png" /></h1>
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Sprints2.png" /></h1>
 
 <br>
 
