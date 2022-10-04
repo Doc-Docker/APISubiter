@@ -19,11 +19,11 @@ public class EmpresaController {
     private EmpresaService empresaService;
 
     @GetMapping
-    public List<Empresa> getAllEnterprises(){
+    public List<Empresa> getAllEnterprises(Boolean status){
 
-        return empresaService.getAllEnterprises();
+        return empresaService.getAllEnterprises(status);
     }
-
+    @JsonView(View.EmpresaView.class)
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Empresa saveEnterprise(@RequestBody @Valid Empresa empresa){
@@ -38,16 +38,16 @@ public class EmpresaController {
         return empresaService.getEnterpriseById(id);
     }
     
-    @PutMapping("/{id}")
+    @PutMapping("{id}")
     public Empresa updateEmpresaById(@PathVariable Integer id, @RequestBody Empresa empresa){
 
         return empresaService.updateEmpresaById(id, empresa);
     }
     
-    @DeleteMapping("/{id}")
-    public void deleteEmpresaById(@PathVariable Integer id){
+    @PatchMapping("/arquivar/{id}/{status}")
+    public void arquivaEmpresaById(@PathVariable Integer id, @PathVariable("status") Boolean status){
 
-    	empresaService.deleteEmpresaById(id);
+    	empresaService.arquivaEmpresaById(id, status);
     }
     
 }

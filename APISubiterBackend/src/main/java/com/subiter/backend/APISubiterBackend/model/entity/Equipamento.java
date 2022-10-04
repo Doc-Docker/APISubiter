@@ -38,6 +38,9 @@ public class Equipamento implements Serializable{
 
 	@Column(name = "fabricante_equipamento", length = 30)
 	private String fabricante;
+	
+	@Column(name = "equipamento_status")
+	private Boolean status = true;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "serie_equipamento")

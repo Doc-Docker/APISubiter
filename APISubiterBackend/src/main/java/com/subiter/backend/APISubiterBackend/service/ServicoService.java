@@ -46,9 +46,9 @@ public class ServicoService {
         return servicoRepository.save(servico);
     }
 
-    public List<Servico> getAllServices (){
+    public List<Servico> getAllServices (Boolean status){
         
-    	List<Servico> servicos = servicoRepository.findAll();
+    	List<Servico> servicos = servicoRepository.findByStatus(status);
     	
         return servicos;
     }
@@ -81,6 +81,13 @@ public class ServicoService {
     	servico.setDescricao(servicoDto.getDescricao());
     	
     	return servicoRepository.save(servico);
+    }
+    
+    public void arquivaServicoById(Integer id, Boolean status){
+        Servico servico = this.getServiceById(id);
+        servico.setStatus(status);
+        
+        servicoRepository.save(servico);
     }
     
     

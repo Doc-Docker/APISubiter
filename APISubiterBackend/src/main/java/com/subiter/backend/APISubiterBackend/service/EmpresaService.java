@@ -19,10 +19,13 @@ public class EmpresaService {
         return empresaRepository.save(empresa);
     }
 
-    public List<Empresa> getAllEnterprises (){
+    public List<Empresa> getAllEnterprises (Boolean status){
         
-        return empresaRepository.findAll();
+        List<Empresa> empresas = empresaRepository.findByStatus(status);
+        
+        return  empresas;
     }
+    
     
     public Empresa getEnterpriseById(Integer id){
 
@@ -41,8 +44,10 @@ public class EmpresaService {
     	return empresaRepository.save(empresa);
     }
     
-    public void deleteEmpresaById(Integer id){
-
-    	empresaRepository.deleteById(id);
+    public void arquivaEmpresaById(Integer id, Boolean status){
+        Empresa empresa = this.getEnterpriseById(id);
+        empresa.setStatus(status);
+        
+    	empresaRepository.save(empresa);
     }
 }

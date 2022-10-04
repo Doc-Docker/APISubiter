@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.subiter.backend.APISubiterBackend.model.entity.Empresa;
+import com.subiter.backend.APISubiterBackend.model.entity.Equipamento;
 import com.subiter.backend.APISubiterBackend.model.entity.EquipamentoSerie;
 
 import com.subiter.backend.APISubiterBackend.model.repository.EquipamentoSerieRepository;
@@ -26,9 +28,10 @@ public class EquipamentoSerieService {
         return equipamentoSerieRepository.findAll();
     }
 
-    public EquipamentoSerie getUserById(Integer id) {
+    public EquipamentoSerie getEquipamentoById(Integer id) {
 
         return equipamentoSerieRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamneto não encontrado."));
     }
+       
 }

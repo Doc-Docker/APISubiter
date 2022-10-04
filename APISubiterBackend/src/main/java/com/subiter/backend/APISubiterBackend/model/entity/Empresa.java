@@ -1,14 +1,11 @@
 package com.subiter.backend.APISubiterBackend.model.entity;
 
 import lombok.*;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CNPJ;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.subiter.backend.APISubiterBackend.config.View;
 
@@ -26,6 +23,9 @@ public class Empresa implements Serializable{
     @Column(name = "codigo_empresa")
     @JsonView({View.EmpresaView.class, View.UsuarioView.class})
     private Integer id;
+    
+    @Column(name = "empresa_status")
+    private Boolean status  = true; 
 
     @CNPJ(message = "CNPJ inválido")
     @NotEmpty(message = "O campo CNPJ é obrigatório")

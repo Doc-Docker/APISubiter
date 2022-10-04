@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,15 +33,15 @@ public class EquipamentoController {
     }
 
     @GetMapping
-    public List<Equipamento> getAllEquipamentos() {
+    public List<Equipamento> getAllEquipamentos(Boolean status) {
 
-        return equipamentoService.fidAll();
+        return equipamentoService.fidAll(status);
     }
 
     @GetMapping("/{id}")
     public Equipamento getByEquipamentoId(@PathVariable Integer id) {
 
-        return equipamentoService.getEquipamnetoById(id);
+        return equipamentoService.getEquipamentoById(id);
     }
 
     @PutMapping("/{id}")
@@ -49,10 +50,17 @@ public class EquipamentoController {
         return equipamentoService.updateEquipamentoById(id, equipamento);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteEquipamentoById(@PathVariable Integer id){
+//    @DeleteMapping("/{id}")
+//    public void deleteEquipamentoById(@PathVariable Integer id){
+//
+//        equipamentoService.deleteEquipamentoById(id);
+//    }
+    
+    
+    @PatchMapping("/arquivar/{id}/{status}")
+    public void arquivaEquipamentoById(@PathVariable Integer id, @PathVariable("status") Boolean status){
 
-        equipamentoService.deleteEquipamentoById(id);
+        equipamentoService.arquivaEquipamentoById(id, status);
     }
 
 }
