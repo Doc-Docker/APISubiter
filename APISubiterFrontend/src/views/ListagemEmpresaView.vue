@@ -33,6 +33,9 @@
           </tr>
         </tbody>
       </table>
+      <div>{{empresas}}</div>
+
+      
   
     <form @submit.prevent="salvar">
         <div class="mb-3 mt-3">
@@ -104,6 +107,8 @@
         </div>
         <button>Salvar</button>
       </form>
+
+      <div>{{empresa}}</div>
   
     </div>
   </template>
