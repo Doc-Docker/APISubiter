@@ -19,6 +19,7 @@ public class EmpresaController {
     private EmpresaService empresaService;
 
     @GetMapping
+    @JsonView(View.EmpresaView.class)
     public List<Empresa> getAllEnterprises(){
 
         return empresaService.getAllEnterprises();
@@ -26,6 +27,7 @@ public class EmpresaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @JsonView(View.EmpresaView.class)
     public Empresa saveEnterprise(@RequestBody @Valid Empresa empresa){
 
         return empresaService.save(empresa);  
@@ -39,12 +41,14 @@ public class EmpresaController {
     }
     
     @PutMapping("/{id}")
+    @JsonView(View.EmpresaView.class)
     public Empresa updateEmpresaById(@PathVariable Integer id, @RequestBody Empresa empresa){
 
         return empresaService.updateEmpresaById(id, empresa);
     }
     
     @DeleteMapping("/{id}")
+    @JsonView(View.EmpresaView.class)
     public void deleteEmpresaById(@PathVariable Integer id){
 
     	empresaService.deleteEmpresaById(id);

@@ -34,7 +34,6 @@ public class TipoServico {
     private String descricao;
 
     @OneToMany(mappedBy = "tipoServico" , cascade = CascadeType.ALL)
-    @JsonView({View.TipoServicoView.class})
     private List<Servico> servicos;
 
 }

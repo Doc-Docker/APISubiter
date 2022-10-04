@@ -18,8 +18,8 @@ public class TipoServicoController {
     @Autowired
     private TipoServicoService tipoServicoService;
 
-    @JsonView(View.TipoServicoView.class)
     @GetMapping
+    @JsonView(View.TipoServicoView.class)
     public List<TipoServico> getAllServicos(){
 
         return tipoServicoService.getAllServicos();

@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.annotation.JsonView;
+import com.subiter.backend.APISubiterBackend.config.View;
 import com.subiter.backend.APISubiterBackend.model.entity.EquipamentoSerie;
 import com.subiter.backend.APISubiterBackend.service.EquipamentoSerieService;
 
@@ -25,6 +28,7 @@ public class EquipamentoSerieController {
     private EquipamentoSerieService equipamentoSerieService;
 
     @GetMapping
+    @JsonView(View.EquipamentoSerieView.class)
     public List<EquipamentoSerie> getAllEquipamentoSerie() {
 
         return equipamentoSerieService.getAllEquipamentoSerie();
@@ -32,13 +36,15 @@ public class EquipamentoSerieController {
     }
 
     @PostMapping
-    // @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.CREATED)
+    @JsonView(View.EquipamentoSerieView.class)
     public EquipamentoSerie sava(@RequestBody EquipamentoSerie equipamentoSerie) {
         return equipamentoSerieService.save(equipamentoSerie);
 
     }
 
     @GetMapping("/{id}")
+    @JsonView(View.EquipamentoSerieView.class)
     public EquipamentoSerie getByIdEquipamentoSerie(@PathVariable Integer id) {
 
         return equipamentoSerieService.getUserById(id);

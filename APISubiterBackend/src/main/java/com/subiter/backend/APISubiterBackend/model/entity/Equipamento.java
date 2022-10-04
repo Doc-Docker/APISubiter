@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonView;
+import com.subiter.backend.APISubiterBackend.config.View;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,16 +31,20 @@ public class Equipamento implements Serializable{
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "codigo_equipamento")
+	@JsonView({View.EquipamentoView.class})
 	private Integer id;
 
 	@Column(name = "nome_equipamento", nullable = false, length = 40)
 	@NotEmpty(message = "O Campo nome é obrigatório")
+	@JsonView({View.EquipamentoView.class})
 	private String nomeEquipamento;
 
 	@Column(name = "descricao_equipamento", length = 60)
+	@JsonView({View.EquipamentoView.class})
 	private String descricao;
 
 	@Column(name = "fabricante_equipamento", length = 30)
+	@JsonView({View.EquipamentoView.class})
 	private String fabricante;
 
 	@OneToOne(cascade = CascadeType.ALL)

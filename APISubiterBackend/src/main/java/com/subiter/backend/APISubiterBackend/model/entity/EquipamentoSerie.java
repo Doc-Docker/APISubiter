@@ -40,20 +40,24 @@ public class EquipamentoSerie implements Serializable{
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @Column(name = "serie_equipamento")
+    @JsonView({View.EquipamentoSerieView.class, View.InstalacaoView.class})
     private String id;
 
     @OneToOne(mappedBy = "equipamentoSerie")
-    @JsonIgnore
+    @JsonView({View.EquipamentoSerieView.class, View.InstalacaoView.class})
     private Equipamento equipamento;
 
     @Column(name = "serie_disponivel")
+    @JsonView({View.EquipamentoSerieView.class})
     private Boolean disponibilidade;
 
     @Column(name = "serie_data_entrada", updatable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonView({View.EquipamentoSerieView.class})
     private LocalDate dataCadastro;
 
     @OneToMany(mappedBy = "equipamentoSerieInstalacao", cascade = CascadeType.ALL)
+    @JsonView({View.EquipamentoSerieView.class})
     private List<Instalacao> instalacaos;
 
     @PrePersist

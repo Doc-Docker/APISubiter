@@ -41,13 +41,15 @@ public class ServicoController {
     }
     
     @DeleteMapping("/{id}")
+    @JsonView(View.ServicoView.class)
     public void deleteServiceById(@PathVariable Integer id){
 
         servicoService.deleteServiceById(id);
     }
     
     @PutMapping("/{id}")
-    public Servico dupdateServiceById(@PathVariable Integer id, @RequestBody ServicoDto servicoForm){
+    @JsonView(View.ServicoView.class)
+    public Servico updateServiceById(@PathVariable Integer id, @RequestBody ServicoDto servicoForm){
 
         return servicoService.updateServiceById(id, servicoForm);
     }

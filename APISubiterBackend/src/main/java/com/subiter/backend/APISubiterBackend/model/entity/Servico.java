@@ -20,13 +20,13 @@ public class Servico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView({View.EmpresaView.class, View.ServicoView.class, View.TipoServicoView.class})
+    @JsonView({View.ServicoView.class, View.EmpresaView.class, View.TipoServicoView.class})
     @Column(name ="servico_codigo")
     private Integer id;
 
     @ManyToOne()
 	@JoinColumn(name = "tipo_servico_codigo")
-    @JsonView({View.EmpresaView.class, View.ServicoView.class})
+    @JsonView({View.ServicoView.class, View.EmpresaView.class})
     private TipoServico tipoServico;
 
     @JoinColumn(name="codigo_empresa")
@@ -35,12 +35,12 @@ public class Servico {
 
     @Column(name ="servico_descricao", nullable = false, length = 120)
     @NotEmpty(message = "O Campo nome é obrigatório")
-    @JsonView({View.EmpresaView.class, View.ServicoView.class})
+    @JsonView({View.ServicoView.class})
     private String descricao;
 
     @Column(name ="servico_data_inclusao", updatable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
-    @JsonView({View.EmpresaView.class, View.ServicoView.class})
+    @JsonView({View.ServicoView.class})
     private LocalDate inclusao;
 
     // @Column(name ="servico_data_agendamento", nullable = false, length = 10)
@@ -53,6 +53,7 @@ public class Servico {
     // private LocalDate realizacao;
 
     @OneToMany(mappedBy = "servicoIntalacao", cascade = CascadeType.ALL)
+    @JsonView({View.ServicoView.class})
     private List<Instalacao> instalacaos;
 
     @PrePersist
