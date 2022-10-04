@@ -14,9 +14,9 @@
       <tbody>
         <tr v-for="(servico, i) in servicos" :key="i">
           <td>{{ servico.id }}</td>
-          <td>{{ servico.tipoServico }}</td>
+          <td>{{ servico.tipoServico.nome }}</td>
           <td>{{ servico.descricao }}</td>
-          <td>{{ servico.empresaServico }}</td>
+          <td>{{ servico }}</td>
           <td>
             <button class="btn btn-primary m-1" @click="editar(servico, servico.idEmpresaServico)">Editar</button>
 
@@ -40,7 +40,7 @@
               >Empresa</label
             >
              <select v-model="servico.empresaServico" class="form-select" aria-label="Default select example" >
-              <option v-for="(empresa, e) in empresas" :key="e" v-bind:value="empresa.id" >{{empresa.name}}</option>
+              <option v-for="(empresa, e) in empresas" :key="e" v-bind:value="empresa" >{{empresa.name}}</option>
             </select>
           </div>
         </div>
@@ -63,6 +63,8 @@
       </div>
       <button class="btn btn-success">Salvar</button>
     </form>
+
+    <div>{{servico}}</div>
 
   </div>
 </template>
@@ -109,10 +111,10 @@ export default {
 
     salvar(){
       if(this.servico.tipoServico == 'Manutenção'){
-        this.servico.tipoServico = 3
+        this.servico.tipoServico.id = 3
       }
       else if(this.servico.tipoServico == 'Instalação'){
-        this.servico.tipoServico = 2
+        this.servico.tipoServico.id = 2
       }
       Servico.atualizar(this.servico).then(()=>{
         this.servico = {}
