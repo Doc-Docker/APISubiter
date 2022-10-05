@@ -16,6 +16,7 @@ public class EmpresaService {
     
     public Empresa save(Empresa empresa){
         empresa.setId(null);
+        
         return empresaRepository.save(empresa);
     }
 
