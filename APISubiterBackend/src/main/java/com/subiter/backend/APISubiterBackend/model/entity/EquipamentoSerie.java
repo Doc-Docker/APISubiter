@@ -40,7 +40,7 @@ public class EquipamentoSerie implements Serializable{
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @Column(name = "serie_equipamento")
-    @JsonView({View.EquipamentoSerieView.class, View.InstalacaoView.class})
+    @JsonView({View.EquipamentoSerieView.class, View.InstalacaoView.class, View.EquipamentoView.class})
     private String id;
 
     @OneToOne(mappedBy = "equipamentoSerie")
@@ -48,7 +48,7 @@ public class EquipamentoSerie implements Serializable{
     private Equipamento equipamento;
 
     @Column(name = "serie_disponivel")
-    @JsonView({View.EquipamentoSerieView.class})
+    @JsonView({View.EquipamentoSerieView.class, View.EquipamentoView.class})
     private Boolean disponibilidade;
 
     @Column(name = "serie_data_entrada", updatable = false)
