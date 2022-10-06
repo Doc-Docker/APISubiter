@@ -17,6 +17,8 @@ import CadastroEmpresa from '../views/CadastroEmpresaView.vue'
 
 import CadastroUsuario from '../views/CadastroUsuarioView.vue'
 
+import CadastroChamado from '../views/CadastroChamadoView.vue'
+
 
 Vue.use(VueRouter)
 
@@ -73,6 +75,11 @@ const routes = [
     name: 'listagemUsuarios',
     component: ListagemUsuarios
 
+  },
+  {
+    path: '/cadastroChamado',
+    name: 'cadastroChamado',
+    component: CadastroChamado
   }
 ]
 
