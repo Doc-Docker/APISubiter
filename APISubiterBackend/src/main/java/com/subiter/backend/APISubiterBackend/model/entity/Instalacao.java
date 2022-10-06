@@ -20,14 +20,17 @@ public class Instalacao {
 
     @JoinColumn(name="codigo_empresa")
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonView({View.InstalacaoView.class})
     private Empresa empresaInstalacao;
 
     @JoinColumn(name="serie_equipamento")
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonView({View.InstalacaoView.class})
     private EquipamentoSerie equipamentoSerieInstalacao;
 
     @JoinColumn(name="servico_codigo")
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonView({View.InstalacaoView.class})
     private Servico servicoIntalacao;
     
 }
