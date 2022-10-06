@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import com.subiter.backend.APISubiterBackend.model.entity.Chamado;
+import com.subiter.backend.APISubiterBackend.model.entity.TipoServico;
 import com.subiter.backend.APISubiterBackend.model.entity.Usuario;
 import com.subiter.backend.APISubiterBackend.model.repository.ChamadoRepository;
 
@@ -19,6 +20,9 @@ public class ChamadoService {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private TipoServicoService tipoServicoService;
+
     public Chamado save(Chamado chamado){
 
         chamado.setId(null);
@@ -27,6 +31,10 @@ public class ChamadoService {
         
         chamado.setUsuarioChamado(usuario);
 
+        TipoServico tipoChamado = tipoServicoService.getServicoById(chamado.getTipoChamado().getId());
+
+        chamado.setTipoChamado(tipoChamado);
+        
         return chamadoRepository.save(chamado);
     }
 

@@ -21,18 +21,18 @@ public class Chamado implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "numero_chamado")
-    @JsonView({View.ChamadoView.class, View.UsuarioView.class})
+    @JsonView({View.ChamadoView.class, View.UsuarioView.class, View.TipoServicoView.class})
     private Integer id;
 
     @JoinColumn(name="codigo_usuario")
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonView({View.ChamadoView.class})
     private Usuario usuarioChamado;
-
-    @Column(name = "tipo_chamado", nullable = false, length = 20)
-    @NotEmpty(message = "O Campo tipo é obrigatório")
+    
     @JsonView({View.ChamadoView.class, View.UsuarioView.class})
-    private String tipoChamado;
+    @ManyToOne()
+	@JoinColumn(name = "tipo_servico_codigo")
+    private TipoServico tipoChamado;
 
     @Column(name = "criticidade_chamado", nullable = false)
     @NotEmpty(message = "O Campo criticidade é obrigatório")
@@ -46,7 +46,7 @@ public class Chamado implements Serializable{
 
     @Column(name = "assunto_chamado", nullable = false, length = 120)
     @NotEmpty(message = "O Campo assunto é obrigatório")
-    @JsonView({View.ChamadoView.class, View.UsuarioView.class})
+    @JsonView({View.ChamadoView.class, View.UsuarioView.class, View.TipoServicoView.class})
     private String assuntoChamado;
 
     @Column(name = "descricao_chamado", nullable = false, length = 300)
