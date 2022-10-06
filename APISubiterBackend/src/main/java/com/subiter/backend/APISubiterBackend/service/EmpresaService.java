@@ -13,36 +13,52 @@ public class EmpresaService {
 
     @Autowired
     private EmpresaRepository empresaRepository;
-    
-    public Empresa save(Empresa empresa){
+
+    public Empresa save(Empresa empresa) {
         empresa.setId(null);
         return empresaRepository.save(empresa);
     }
 
-    public List<Empresa> getAllEnterprises (){
-        
-        return empresaRepository.findAll();
-    }
-    
-    public Empresa getEnterpriseById(Integer id){
+//    public List<Empresa> getAllEnterprises() {
+//
+//        return empresaRepository.findAll();
+//    }
 
-        return empresaRepository.findById(id).orElseThrow(()-> 
-        new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado."));
-    }
-    
-    public Empresa updateEmpresaById(Integer id, Empresa empresaNova){
-    	Empresa empresa = this.getEnterpriseById(id);
+    public List<Empresa> getAllEnterprises(Boolean status, Integer id) {
 
-    	empresa.setCnpj(empresaNova.getCnpj());
-    	empresa.setContato(empresaNova.getContato());
-    	empresa.setEndereco(empresaNova.getEndereco());
-    	empresa.setName(empresaNova.getName());
-    	
-    	return empresaRepository.save(empresa);
-    }
-    
-    public void deleteEmpresaById(Integer id){
+     
+        List<Empresa> empresas = empresaRepository.findByStatusAndId(status, id);
 
-    	empresaRepository.deleteById(id);
+        return empresas;
     }
+
+    public Empresa getEnterpriseById(Integer id) {
+
+        return empresaRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado."));
+    }
+
+    public Empresa updateEmpresaById(Integer id, Empresa empresaNova) {
+        Empresa empresa = this.getEnterpriseById(id);
+
+        empresa.setCnpj(empresaNova.getCnpj());
+        empresa.setContato(empresaNova.getContato());
+        empresa.setEndereco(empresaNova.getEndereco());
+        empresa.setName(empresaNova.getName());
+
+        return empresaRepository.save(empresa);
+    }
+
+    public void deleteEmpresaById(Integer id) {
+
+        empresaRepository.deleteById(id);
+    }
+
+    public void arquivaEmpresaById(Integer id, Boolean status) {
+        Empresa empresa = this.getEnterpriseById(id);
+        empresa.setStatus(status);
+
+        empresaRepository.save(empresa);
+    }
+
 }

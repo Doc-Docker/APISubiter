@@ -20,9 +20,9 @@ public class UsuarioController {
 
     @JsonView(View.UsuarioView.class)
     @GetMapping
-    public List<Usuario> getAllUsers(){
+    public List<Usuario> getAllUsers(Boolean status){
 
-        return usuarioService.getAllUsers();
+        return usuarioService.getUsuarioById(status);
     }
 
     @PostMapping
@@ -38,6 +38,12 @@ public class UsuarioController {
     public Usuario getUserById(@PathVariable Integer id){
 
         return usuarioService.getUserById(id);
+    }
+    
+    @PatchMapping("/arquivar/{id}/{status}")
+    public void arquivaUsuarioById(@PathVariable Integer id, @PathVariable("status") Boolean status){
+
+        usuarioService.arquivaUsuarioById(id, status);
     }
 
 }

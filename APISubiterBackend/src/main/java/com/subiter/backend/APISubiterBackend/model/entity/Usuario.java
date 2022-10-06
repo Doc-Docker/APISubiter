@@ -24,6 +24,9 @@ public class Usuario implements Serializable{
     @Column(name = "codigo_usuario")
     @JsonView({View.UsuarioView.class, View.ChamadoView.class})
     private Integer id;
+    
+    @Column(name = "usuario_status")
+    private Boolean status  = true;
 
     @Column(name = "nome_usuario",nullable = false, length = 150)
     @NotEmpty(message = "O Campo nome é obrigatório")

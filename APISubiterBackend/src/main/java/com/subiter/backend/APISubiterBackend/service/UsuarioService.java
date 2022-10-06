@@ -31,9 +31,16 @@ public class UsuarioService {
         return usuario;
     }
 
-    public List<Usuario> getAllUsers (){
-        
-        return usuarioRepository.findAll();
+//    public List<Usuario> getAllUsers (){
+//        
+//        return usuarioRepository.findAll();
+//    }
+    
+    public List<Usuario> getUsuarioById(Boolean status) {
+
+        List<Usuario> usuario = usuarioRepository.findByStatus(status);
+
+        return usuario;
     }
     
     public Usuario getUserById(Integer id){
@@ -41,4 +48,13 @@ public class UsuarioService {
         return usuarioRepository.findById(id).orElseThrow(()-> 
         new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado."));
     }
+    
+    
+    public void arquivaUsuarioById(Integer id, Boolean status) {
+     Usuario usuario = this.getUserById(id);
+        usuario.setStatus(status);
+
+        usuarioRepository.save(usuario);
+    }
+    
 }

@@ -18,12 +18,20 @@ public class EmpresaController {
     @Autowired
     private EmpresaService empresaService;
 
+//    @GetMapping
+//    @JsonView(View.EmpresaView.class)
+//    public List<Empresa> getAllEnterprises(){
+//
+//        return empresaService.getAllEnterprises();
+//    }
+    
     @GetMapping
     @JsonView(View.EmpresaView.class)
-    public List<Empresa> getAllEnterprises(){
+    public List<Empresa> getAllEnterprises(Boolean status, Integer id){
 
-        return empresaService.getAllEnterprises();
+        return empresaService.getAllEnterprises(status, id);
     }
+    
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -52,6 +60,12 @@ public class EmpresaController {
     public void deleteEmpresaById(@PathVariable Integer id){
 
     	empresaService.deleteEmpresaById(id);
+    }
+    
+    @PatchMapping("/arquivar/{id}/{status}")
+    public void arquivaEmpresaById(@PathVariable Integer id, @PathVariable("status") Boolean status){
+
+        empresaService.arquivaEmpresaById(id, status);
     }
     
 }

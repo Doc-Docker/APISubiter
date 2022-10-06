@@ -23,6 +23,9 @@ public class Empresa implements Serializable{
     @Column(name = "codigo_empresa")
     @JsonView({View.EmpresaView.class, View.UsuarioView.class, View.InstalacaoView.class})
     private Integer id;
+    
+    @Column(name = "empresa_status")
+    private Boolean status  = true; 
 
     @CNPJ(message = "CNPJ inválido")
     @NotEmpty(message = "O campo CNPJ é obrigatório")
