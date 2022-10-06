@@ -20,9 +20,9 @@ public class ServicoController {
 
     @GetMapping
     @JsonView(View.ServicoView.class)
-    public List<Servico> getAllSdervices(){
+    public List<Servico> getAllSdervices(Boolean status){
 
-        return servicoService.getAllServices();
+        return servicoService.getAllServices(status);
     }
 
     @PostMapping
@@ -40,18 +40,32 @@ public class ServicoController {
         return servicoService.getServiceById(id);
     }
     
+<<<<<<< HEAD
     @DeleteMapping("/{id}")
     @JsonView(View.ServicoView.class)
     public void deleteServiceById(@PathVariable Integer id){
 
         servicoService.deleteServiceById(id);
     }
+=======
+//    @DeleteMapping("/{id}")
+//    public void deleteServiceById(@PathVariable Integer id){
+//
+//        servicoService.deleteServiceById(id);
+//    }
+>>>>>>> 01858a5e72ed5cbd06882d2bc399f154ac43aef1
     
     @PutMapping("/{id}")
     @JsonView(View.ServicoView.class)
     public Servico updateServiceById(@PathVariable Integer id, @RequestBody ServicoDto servicoForm){
 
         return servicoService.updateServiceById(id, servicoForm);
+    }
+    
+    @PatchMapping("/arquivar/{id}/{status}")
+    public void arquivaServicoById(@PathVariable Integer id, @PathVariable("status") Boolean status){
+
+        servicoService.arquivaServicoById(id, status);
     }
 
 }

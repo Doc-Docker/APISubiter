@@ -11,6 +11,8 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Entity(name = "SERVICO")
 @Data
 @NoArgsConstructor
@@ -42,6 +44,9 @@ public class Servico {
     @JsonFormat(pattern = "dd/MM/yyyy")
     @JsonView({View.ServicoView.class})
     private LocalDate inclusao;
+    
+    @Column(name = "servico_status")
+    private Boolean status = true;
 
     // @Column(name ="servico_data_agendamento", nullable = false, length = 10)
     // @NotEmpty(message = "Data de Agendamento é obrigatória")

@@ -26,6 +26,7 @@ public class EmpresaController {
 //    }
     
     @GetMapping
+<<<<<<< HEAD
     @JsonView(View.EmpresaView.class)
     public List<Empresa> getAllEnterprises(Boolean status, Integer id){
 
@@ -33,6 +34,13 @@ public class EmpresaController {
     }
     
 
+=======
+    public List<Empresa> getAllEnterprises(Boolean status){
+
+        return empresaService.getAllEnterprises(status);
+    }
+    @JsonView(View.EmpresaView.class)
+>>>>>>> 01858a5e72ed5cbd06882d2bc399f154ac43aef1
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.EmpresaView.class)
@@ -48,18 +56,27 @@ public class EmpresaController {
         return empresaService.getEnterpriseById(id);
     }
     
+<<<<<<< HEAD
     @PutMapping("/{id}")
     @JsonView(View.EmpresaView.class)
+=======
+    @PutMapping("{id}")
+>>>>>>> 01858a5e72ed5cbd06882d2bc399f154ac43aef1
     public Empresa updateEmpresaById(@PathVariable Integer id, @RequestBody Empresa empresa){
 
         return empresaService.updateEmpresaById(id, empresa);
     }
     
+<<<<<<< HEAD
     @DeleteMapping("/{id}")
     @JsonView(View.EmpresaView.class)
     public void deleteEmpresaById(@PathVariable Integer id){
+=======
+    @PatchMapping("/arquivar/{id}/{status}")
+    public void arquivaEmpresaById(@PathVariable Integer id, @PathVariable("status") Boolean status){
+>>>>>>> 01858a5e72ed5cbd06882d2bc399f154ac43aef1
 
-    	empresaService.deleteEmpresaById(id);
+    	empresaService.arquivaEmpresaById(id, status);
     }
     
     @PatchMapping("/arquivar/{id}/{status}")

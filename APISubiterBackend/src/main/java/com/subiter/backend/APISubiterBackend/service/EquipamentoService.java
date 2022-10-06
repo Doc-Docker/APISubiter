@@ -35,19 +35,19 @@ public class EquipamentoService {
         return equipamentoRepository.save(equipamento);
     }
 
-    public List<Equipamento> fidAll() {
+    public List<Equipamento> fidAll(Boolean status) {
 
-        return equipamentoRepository.findAll();
+        return equipamentoRepository.findByStatus(status);
     }
 
-    public Equipamento getEquipamnetoById(Integer id) {
+    public Equipamento getEquipamentoById(Integer id) {
         
         return equipamentoRepository.findById(id).orElseThrow(() -> 
         new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamento não encontrado."));
     }
 
     public Equipamento updateEquipamentoById(Integer id, Equipamento equipamento){
-    	Equipamento equipamento_N = this.getEquipamnetoById(id);
+    	Equipamento equipamento_N = this.getEquipamentoById(id);
     
         equipamento_N.setDescricao(equipamento.getDescricao());
         equipamento_N.setFabricante(equipamento.getFabricante());
@@ -56,9 +56,16 @@ public class EquipamentoService {
     	return equipamentoRepository.save(equipamento_N);
     }
 
-    public void deleteEquipamentoById(Integer id){
-
-        equipamentoRepository.deleteById(id);
+//    public void deleteEquipamentoById(Integer id){
+//
+//        equipamentoRepository.deleteById(id);
+//    }
+    
+    public void arquivaEquipamentoById(Integer id, Boolean status){
+        Equipamento equipamento = this.getEquipamentoById(id);
+        equipamento.setStatus(status);
+        
+        equipamentoRepository.save(equipamento);
     }
 }
 

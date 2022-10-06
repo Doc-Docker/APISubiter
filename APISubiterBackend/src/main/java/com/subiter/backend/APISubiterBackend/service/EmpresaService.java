@@ -19,17 +19,45 @@ public class EmpresaService {
         return empresaRepository.save(empresa);
     }
 
+<<<<<<< HEAD
 //    public List<Empresa> getAllEnterprises() {
 //
 //        return empresaRepository.findAll();
 //    }
+=======
+    public List<Empresa> getAllEnterprises (Boolean status){
+        
+        List<Empresa> empresas = empresaRepository.findByStatus(status);
+        
+        return  empresas;
+    }
+    
+    
+    public Empresa getEnterpriseById(Integer id){
+>>>>>>> 01858a5e72ed5cbd06882d2bc399f154ac43aef1
 
     public List<Empresa> getAllEnterprises(Boolean status, Integer id) {
 
+<<<<<<< HEAD
      
         List<Empresa> empresas = empresaRepository.findByStatusAndId(status, id);
 
         return empresas;
+=======
+    	empresa.setCnpj(empresaNova.getCnpj());
+    	empresa.setContato(empresaNova.getContato());
+    	empresa.setEndereco(empresaNova.getEndereco());
+    	empresa.setName(empresaNova.getName());
+    	
+    	return empresaRepository.save(empresa);
+    }
+    
+    public void arquivaEmpresaById(Integer id, Boolean status){
+        Empresa empresa = this.getEnterpriseById(id);
+        empresa.setStatus(status);
+        
+    	empresaRepository.save(empresa);
+>>>>>>> 01858a5e72ed5cbd06882d2bc399f154ac43aef1
     }
 
     public Empresa getEnterpriseById(Integer id) {

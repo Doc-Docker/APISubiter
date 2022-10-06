@@ -47,7 +47,7 @@ public class EquipamentoSerieController {
     @JsonView(View.EquipamentoSerieView.class)
     public EquipamentoSerie getByIdEquipamentoSerie(@PathVariable Integer id) {
 
-        return equipamentoSerieService.getUserById(id);
+        return equipamentoSerieService.getEquipamentoById(id);
 
     }
 
