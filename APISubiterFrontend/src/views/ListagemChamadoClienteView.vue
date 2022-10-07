@@ -24,7 +24,7 @@
           <tr v-for="(chamado_cliente, i) in chamado_clientes" :key="i">
             <td>{{ chamado_cliente.id }}</td>
             <td>{{ chamado_cliente.usuarioChamado.name }}</td>
-            <td>{{ chamado_cliente.tipoChamado }}</td>
+            <td>{{ chamado_cliente.tipoChamado.nome }}</td>
             <td>{{ chamado_cliente.criticidadeChamado }}</td>
             <td>{{ chamado_cliente.dataChamado }}</td>
             <td>{{ chamado_cliente.descricaoChamado }}</td>
@@ -40,7 +40,6 @@
         </tbody>
       </table>
     <div>
-      {{chamado_clientes}}
     </div>
     <form @submit.prevent="salvar">
         <div class="mb-3 mt-3">
@@ -74,7 +73,7 @@
               >
               <textarea
                 class="form-control"
-                v-model="chamado_cliente.tipoChamado"
+                v-model="chamado_cliente.tipoChamado.nome"
                 rows="3"
               ></textarea>
             </div>
