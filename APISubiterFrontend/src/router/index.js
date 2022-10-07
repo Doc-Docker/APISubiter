@@ -44,7 +44,7 @@ const routes = [
   },
   {
     path: '/ChamadoCliente',
-    name: '/ChamadoCiente',
+    name: 'ChamadoCliente',
     component: ListagemChamadoCliente
   },
   {
