@@ -21,7 +21,7 @@ public class Empresa implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_empresa")
-    @JsonView({View.EmpresaView.class, View.UsuarioView.class, View.InstalacaoView.class})
+    @JsonView({View.EmpresaView.class, View.UsuarioView.class, View.InstalacaoView.class, View.ServicoView.class})
     private Integer id;
     
     @Column(name = "empresa_status")
@@ -30,23 +30,26 @@ public class Empresa implements Serializable{
     @CNPJ(message = "CNPJ inválido")
     @NotEmpty(message = "O campo CNPJ é obrigatório")
     @Column(name = "cnpj_empresa")
-    @JsonView({View.EmpresaView.class, View.UsuarioView.class, View.InstalacaoView.class})
+    @JsonView({View.EmpresaView.class, View.UsuarioView.class, View.InstalacaoView.class, View.ServicoView.class})
     private String cnpj;
 
     @Column(name = "nome_empresa", nullable = false, length = 150)
     @NotEmpty(message = "O Campo nome é obrigatório")
-    @JsonView({View.EmpresaView.class, View.UsuarioView.class, View.InstalacaoView.class})
+    @JsonView({View.EmpresaView.class, View.UsuarioView.class, View.InstalacaoView.class, View.ServicoView.class})
     private String name;
 
     @Column(name = "endereco_empresa", nullable = false, length = 60)
     @NotEmpty(message = "O Campo endereço é obrigatório")
+    @JsonView({View.EmpresaView.class})
     private String endereco;
 
     @Column(name = "contato_empresa", nullable = false, length = 30)
     @NotEmpty(message = "O Campo contato é obrigatório")
+    @JsonView({View.EmpresaView.class})
     private String contato;
 
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+    @JsonView({View.EmpresaView.class})
     private List<Usuario> usuario;
 
     @OneToMany(mappedBy = "empresaServico", cascade = CascadeType.ALL)

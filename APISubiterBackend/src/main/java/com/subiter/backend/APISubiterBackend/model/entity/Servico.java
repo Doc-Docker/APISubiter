@@ -22,22 +22,23 @@ public class Servico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView({View.ServicoView.class, View.EmpresaView.class, View.TipoServicoView.class})
+    @JsonView({View.ServicoView.class, View.EmpresaView.class, View.TipoServicoView.class, View.InstalacaoView.class})
     @Column(name ="servico_codigo")
     private Integer id;
 
     @ManyToOne()
 	@JoinColumn(name = "tipo_servico_codigo")
-    @JsonView({View.ServicoView.class, View.EmpresaView.class})
+    @JsonView({View.ServicoView.class, View.EmpresaView.class, View.InstalacaoView.class})
     private TipoServico tipoServico;
 
     @JoinColumn(name="codigo_empresa")
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonView({View.ServicoView.class})
     private Empresa empresaServico;
 
     @Column(name ="servico_descricao", nullable = false, length = 120)
     @NotEmpty(message = "O Campo nome é obrigatório")
-    @JsonView({View.ServicoView.class})
+    @JsonView({View.ServicoView.class, View.InstalacaoView.class, View.TipoServicoView.class})
     private String descricao;
 
     @Column(name ="servico_data_inclusao", updatable = false)

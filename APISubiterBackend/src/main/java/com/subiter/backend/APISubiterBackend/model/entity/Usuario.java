@@ -20,7 +20,7 @@ public class Usuario implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_usuario")
-    @JsonView({View.UsuarioView.class, View.ChamadoView.class})
+    @JsonView({View.UsuarioView.class, View.ChamadoView.class, View.EmpresaView.class})
     private Integer id;
     
     @Column(name = "usuario_status")
@@ -28,7 +28,7 @@ public class Usuario implements Serializable{
 
     @Column(name = "nome_usuario",nullable = false, length = 150)
     @NotEmpty(message = "O Campo nome é obrigatório")
-    @JsonView({View.UsuarioView.class, View.ChamadoView.class})
+    @JsonView({View.UsuarioView.class, View.ChamadoView.class, View.EmpresaView.class})
     private String name;
 
     // private String tipo_user;
