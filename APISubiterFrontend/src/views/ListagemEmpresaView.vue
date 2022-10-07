@@ -33,7 +33,6 @@
           </tr>
         </tbody>
       </table>
-      <div>{{empresas}}</div>
 
       
   
@@ -108,7 +107,6 @@
         <button>Salvar</button>
       </form>
 
-      <div>{{empresa}}</div>
   
     </div>
   </template>
