@@ -5,7 +5,7 @@ import HomeView from '../views/HomeView.vue'
 // Listagens
 import ListagemServicosView from '../views/ListagemServicosView.vue'
 import ListagemEquipamentoView from '../views/ListagemEquipamentoView.vue'
-import ListagemChamadosView from '../views/ListagemChamadosView.vue'
+import ListagemChamadoSuporteView from '../views/ListagemChamadoSuporteView.vue'
 import ListagemEmpresaView from '../views/ListagemEmpresaView.vue'
 import ListagemUsuarios from '../views/ListagemUsuariosView.vue'
 
@@ -36,8 +36,8 @@ const routes = [
   },
   {
     path: '/SuporteChamados',
-    name: '/suporteChamados',
-    component: ListagemChamadosView
+    name: 'suporteChamados',
+    component: ListagemChamadoSuporteView
   },
   {
     path: '/empresas',
