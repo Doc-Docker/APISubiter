@@ -20,52 +20,44 @@ public class ServicoController {
 
     @GetMapping
     @JsonView(View.ServicoView.class)
-    public List<Servico> getAllSdervices(Boolean status){
+    public List<Servico> getAllSdervices() {
 
-        return servicoService.getAllServices(status);
+        return servicoService.getAllServices();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.ServicoView.class)
-    public Servico saveService(@RequestBody @Valid ServicoDto servicoDto){
+    public Servico saveService(@RequestBody @Valid ServicoDto servicoDto) {
 
         return servicoService.save(servicoDto);
     }
 
     @GetMapping("/{id}")
     @JsonView(View.ServicoView.class)
-    public Servico getServiceById(@PathVariable Integer id){
+    public Servico getServiceById(@PathVariable Integer id) {
 
         return servicoService.getServiceById(id);
     }
-    
-<<<<<<< HEAD
+
     @DeleteMapping("/{id}")
     @JsonView(View.ServicoView.class)
-    public void deleteServiceById(@PathVariable Integer id){
+    public void deleteServiceById(@PathVariable Integer id) {
 
         servicoService.deleteServiceById(id);
     }
-=======
+
 //    @DeleteMapping("/{id}")
 //    public void deleteServiceById(@PathVariable Integer id){
 //
 //        servicoService.deleteServiceById(id);
 //    }
->>>>>>> 01858a5e72ed5cbd06882d2bc399f154ac43aef1
-    
+
     @PutMapping("/{id}")
     @JsonView(View.ServicoView.class)
-    public Servico updateServiceById(@PathVariable Integer id, @RequestBody ServicoDto servicoForm){
+    public Servico updateServiceById(@PathVariable Integer id, @RequestBody ServicoDto servicoForm) {
 
         return servicoService.updateServiceById(id, servicoForm);
-    }
-    
-    @PatchMapping("/arquivar/{id}/{status}")
-    public void arquivaServicoById(@PathVariable Integer id, @PathVariable("status") Boolean status){
-
-        servicoService.arquivaServicoById(id, status);
     }
 
 }

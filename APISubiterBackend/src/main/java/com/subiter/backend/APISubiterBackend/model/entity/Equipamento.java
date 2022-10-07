@@ -9,10 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
-
 import com.fasterxml.jackson.annotation.JsonView;
 import com.subiter.backend.APISubiterBackend.config.View;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -47,9 +45,6 @@ public class Equipamento implements Serializable{
 	@JsonView({View.EquipamentoView.class})
 	private String fabricante;
 	
-	@Column(name = "equipamento_status")
-	private Boolean status = true;
-
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "serie_equipamento")
 	private EquipamentoSerie equipamentoSerie;

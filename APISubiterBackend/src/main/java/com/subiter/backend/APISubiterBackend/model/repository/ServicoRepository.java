@@ -9,6 +9,5 @@ import com.subiter.backend.APISubiterBackend.model.entity.Servico;
 @Repository
 public interface ServicoRepository extends JpaRepository<Servico, Integer>{
     
-    List<Servico> findByStatus(Boolean statusServico);
     
 }

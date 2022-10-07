@@ -3,10 +3,8 @@ package com.subiter.backend.APISubiterBackend.model.entity;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-
 import com.fasterxml.jackson.annotation.JsonView;
 import com.subiter.backend.APISubiterBackend.config.View;
-
 import java.io.Serializable;
 import java.util.List;
 

@@ -25,15 +25,15 @@ public class ServicoService {
 
     @Autowired
     private EmpresaRepository empresaRepository;
-    
-    public Servico save (ServicoDto servicoDto){
 
-    	Servico servico = new Servico();
+    public Servico save(ServicoDto servicoDto) {
+
+        Servico servico = new Servico();
 
         Optional<TipoServico> tipoServico = tipoServicoRepository.findById(servicoDto.getTipoServico().getId());
 
         servico.setTipoServico(tipoServico.get());
-        
+
         Optional<Empresa> empresaQuerySelector = empresaRepository.findById(servicoDto.getEmpresaServico().getId());
 
         Empresa empresa = empresaQuerySelector.get();
@@ -41,54 +41,45 @@ public class ServicoService {
         servico.setEmpresaServico(empresa);
 
         servico.setDescricao(servicoDto.getDescricao());
-        
 
         return servicoRepository.save(servico);
     }
 
-    public List<Servico> getAllServices (Boolean status){
-        
-    	List<Servico> servicos = servicoRepository.findByStatus(status);
-    	
+    public List<Servico> getAllServices() {
+
+        List<Servico> servicos = servicoRepository.findAll();
+
         return servicos;
     }
-    
-    public Servico getServiceById(Integer id){
 
-        return servicoRepository.findById(id).orElseThrow(()->
-        new ResponseStatusException(HttpStatus.NOT_FOUND, "Serviço não encontrado."));
+    public Servico getServiceById(Integer id) {
+
+        return servicoRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Serviço não encontrado."));
     }
-    
-    public void deleteServiceById(Integer id){
+
+    public void deleteServiceById(Integer id) {
 
         servicoRepository.deleteById(id);
     }
-    
-    public Servico updateServiceById(Integer id, ServicoDto servicoDto){
 
-    	Servico servico = this.getServiceById(id);
-    	
-    	Optional<TipoServico> tipoServico = tipoServicoRepository.findById(servicoDto.getTipoServico().getId());
+    public Servico updateServiceById(Integer id, ServicoDto servicoDto) {
+
+        Servico servico = this.getServiceById(id);
+
+        Optional<TipoServico> tipoServico = tipoServicoRepository.findById(servicoDto.getTipoServico().getId());
 
         servico.setTipoServico(tipoServico.get());
-        
+
         Optional<Empresa> empresaQuerySelector = empresaRepository.findById(servicoDto.getEmpresaServico().getId());
 
         Empresa empresa = empresaQuerySelector.get();
 
         servico.setEmpresaServico(empresa);
-    	
-    	servico.setDescricao(servicoDto.getDescricao());
-    	
-    	return servicoRepository.save(servico);
+
+        servico.setDescricao(servicoDto.getDescricao());
+
+        return servicoRepository.save(servico);
     }
-    
-    public void arquivaServicoById(Integer id, Boolean status){
-        Servico servico = this.getServiceById(id);
-        servico.setStatus(status);
-        
-        servicoRepository.save(servico);
-    }
-    
-    
+
 }

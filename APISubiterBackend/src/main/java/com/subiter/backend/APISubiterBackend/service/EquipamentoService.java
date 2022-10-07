@@ -35,9 +35,9 @@ public class EquipamentoService {
         return equipamentoRepository.save(equipamento);
     }
 
-    public List<Equipamento> fidAll(Boolean status) {
+    public List<Equipamento> fidAll() {
 
-        return equipamentoRepository.findByStatus(status);
+        return equipamentoRepository.findAll();
     }
 
     public Equipamento getEquipamentoById(Integer id) {
@@ -61,11 +61,6 @@ public class EquipamentoService {
 //        equipamentoRepository.deleteById(id);
 //    }
     
-    public void arquivaEquipamentoById(Integer id, Boolean status){
-        Equipamento equipamento = this.getEquipamentoById(id);
-        equipamento.setStatus(status);
-        
-        equipamentoRepository.save(equipamento);
-    }
+  
 }
 

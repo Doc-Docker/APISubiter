@@ -24,65 +24,45 @@ public class EmpresaController {
 //
 //        return empresaService.getAllEnterprises();
 //    }
-    
+
     @GetMapping
-<<<<<<< HEAD
+
     @JsonView(View.EmpresaView.class)
-    public List<Empresa> getAllEnterprises(Boolean status, Integer id){
+    public List<Empresa> getAllEnterprises(Boolean status, Integer id) {
 
         return empresaService.getAllEnterprises(status, id);
     }
-    
 
-=======
-    public List<Empresa> getAllEnterprises(Boolean status){
+    public List<Empresa> getAllEnterprises(Boolean status) {
 
         return empresaService.getAllEnterprises(status);
     }
-    @JsonView(View.EmpresaView.class)
->>>>>>> 01858a5e72ed5cbd06882d2bc399f154ac43aef1
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.EmpresaView.class)
-    public Empresa saveEnterprise(@RequestBody @Valid Empresa empresa){
+    public Empresa saveEnterprise(@RequestBody @Valid Empresa empresa) {
 
-        return empresaService.save(empresa);  
+        return empresaService.save(empresa);
     }
 
     @GetMapping("/{id}")
     @JsonView(View.EmpresaView.class)
-    public Empresa getEnterpriseById(@PathVariable Integer id){
+    public Empresa getEnterpriseById(@PathVariable Integer id) {
 
         return empresaService.getEnterpriseById(id);
     }
-    
-<<<<<<< HEAD
-    @PutMapping("/{id}")
+
     @JsonView(View.EmpresaView.class)
-=======
     @PutMapping("{id}")
->>>>>>> 01858a5e72ed5cbd06882d2bc399f154ac43aef1
-    public Empresa updateEmpresaById(@PathVariable Integer id, @RequestBody Empresa empresa){
+    public Empresa updateEmpresaById(@PathVariable Integer id, @RequestBody Empresa empresa) {
 
         return empresaService.updateEmpresaById(id, empresa);
     }
-    
-<<<<<<< HEAD
-    @DeleteMapping("/{id}")
-    @JsonView(View.EmpresaView.class)
-    public void deleteEmpresaById(@PathVariable Integer id){
-=======
-    @PatchMapping("/arquivar/{id}/{status}")
-    public void arquivaEmpresaById(@PathVariable Integer id, @PathVariable("status") Boolean status){
->>>>>>> 01858a5e72ed5cbd06882d2bc399f154ac43aef1
 
-    	empresaService.arquivaEmpresaById(id, status);
-    }
-    
     @PatchMapping("/arquivar/{id}/{status}")
-    public void arquivaEmpresaById(@PathVariable Integer id, @PathVariable("status") Boolean status){
-
+    public void arquivaEmpresaById(@PathVariable Integer id, @PathVariable("status") Boolean status) {
         empresaService.arquivaEmpresaById(id, status);
     }
-    
+
 }
