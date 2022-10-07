@@ -23,7 +23,7 @@
             <input
               class="form-control"
               type="text"
-              v-model="servico.tipoServico"
+              v-model="servico.tipoServico.id"
               disabled
             >
           </div>
@@ -37,7 +37,7 @@
               >Empresa</label
             >
             <select v-model="servico.empresaServico" class="form-select" aria-label="Default select example" >
-              <option v-for="(empresa, e) in empresas" :key="e" v-bind:value="empresa.id" >{{empresa.name}}</option>
+              <option v-for="(empresa, e) in empresas" :key="e" v-bind:value="empresa" >{{empresa.name}}</option>
             </select>
           </div>
         </div>
@@ -78,9 +78,13 @@ export default {
   data() {
     return {
       servico: {
-        tipoServico: "2",
+        tipoServico: {
+          id:"2"
+        },
         descricao: "",
-        empresaServico: ""
+        empresaServico: {
+          id:""
+        }
       },
       TiposServicos:[],
       empresas: [],
@@ -94,8 +98,6 @@ export default {
     salvar() {
       Servico.salvar(this.servico)
         .then(() => {
-          this.servico = {};
-          this.servico.tipoServico = 2;
           alert("Salvo com sucesso");
           this.erros = [];
         })
