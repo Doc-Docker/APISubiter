@@ -13,7 +13,7 @@
         <div class="row">
           <div class="col-md-6">
             <label for="exampleFormControlInput1" class="form-label">Nome do usuário</label>
-            <input type="text" class="form-control" v-model="chamado.nomeUsu" />
+            <input type="text" class="form-control" v-model="chamado.usuarioChamado.id" />
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col-md-6">
             <label for="exampleFormControlInput1" class="form-label">Título do chamado</label>
-            <input type="text" class="form-control" v-model="chamado.titulo" />
+            <input type="text" class="form-control" v-model="chamado.assuntoChamado" />
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@
         <div class="row">
           <div class="col-md-6">
             <label for="exampleFormControlInput1" class="form-label">Descrição do chamado</label>
-            <textarea class="form-control" v-model="chamado.descricao" ></textarea>
+            <textarea class="form-control" v-model="chamado.descricaoChamado" ></textarea>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
         <div class="row">
           <div class="col-md-6">
             <label for="exampleFormControlInput2" class="form-label">Criticidade do chamado</label>
-            <select class="form-control" default="" v-model="chamado.criticidade" >
+            <select class="form-control" default="" v-model="chamado.criticidadeChamado" >
               <option id="B">Baixo</option>
               <option id="M">Médio</option>
               <option id="A">Alto</option>
@@ -53,10 +53,10 @@
         <div class="row">
           <div class="col-md-6">
             <label for="exampleFormControlInput2" class="form-label">Tipo do chamado</label>
-            <select class="form-control" default="" v-model="chamado.tipo" @change="mostrarAgendamento()" >
-              <option id="INSTAL" value="INSTAL" >Instalação</option>
-              <option id="MANUT" value="MANUT" >Manutenção</option>
-              <option id="SUPORT" value="SUPORT" >Suporte</option>
+            <select class="form-control" default="" v-model="chamado.tipoChamado.id" @change="mostrarAgendamento()" >
+              <option id="INSTAL" :value="1" >Instalação</option>
+              <option id="MANUT" :value="2" >Manutenção</option>
+              <option id="SUPORT" :value="3" >Suporte</option>
             </select>
           </div>
         </div>
@@ -68,7 +68,7 @@
                 <div class="col-md-6">
                     <label for="exampleFormControlInput1" class="form-label">Data</label>
                     <br>
-                    <date-picker type="datetime" valueType="format"></date-picker>
+                    <date-picker type="datetime" valueType="format" v-model="data"></date-picker>
                 </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                 <div class="row">
                 <div class="col-md-6">
                     <label for="exampleFormControlInput1" class="form-label">Endereço</label>
-                    <textarea class="form-control" ></textarea>
+                    <textarea class="form-control" v-model="endereco"></textarea>
                 </div>
                 </div>
             </div>
@@ -96,6 +96,8 @@
 
 <script>
 
+import Chamado from "../services/chamado";
+
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/index.css';
 
@@ -107,24 +109,34 @@ export default {
   data() {
     return {
       mostrar: false,
+      data: "",
+      endereco: "",
       chamado: {
-        usuarioChamado: "",
-        tipoChamado: "",
-        tituloChamado: "",
+        usuarioChamado: {
+          id: 1
+        },
+        tipoChamado: {
+          id: ""
+        },
+        assuntoChamado: "",
         descricaoChamado: "",
         criticidadeChamado: "",
-        situacaoChamado: "A"
+        situacaoChamado: "A",
+        solucaoChamado: "Ainda não possui solução"
       }
     };
   },
 
   methods: {
     salvar(){
-      console.log(this.chamado);
+    console.log(this.chamado);
+      Chamado.salvar(this.chamado).then(() => {
+        alert('Salvo com sucesso')
+      });
     },
 
     mostrarAgendamento(){
-      if(this.chamado.tipo === 'INSTAL' || this.chamado.tipo === 'MANUT'){
+      if(this.chamado.tipoChamado.id === 1 || this.chamado.tipoChamado.id === 2){
         this.mostrar = true
       }else{
         this.mostrar = false
