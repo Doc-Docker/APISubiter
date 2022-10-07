@@ -196,11 +196,11 @@
         });
       },
       editar(chamado_cliente) {
-        this.chamado_cliente = chamado_cliente;
+        this.chamado_clientes = chamado_cliente;
       },
       salvar(){
         Chamado_Cliente.atualizar(this.chamado_cliente).then(()=>{
-        this.chamado_cliente = {}
+        this.chamado_clientes = {}
         alert('Atualizado com sucesso!')
         this.listar()
       })
