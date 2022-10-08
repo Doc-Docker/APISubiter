@@ -5,7 +5,6 @@
           <h3>Chamado Cliente</h3>
         </div>
       </div>
-  
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
@@ -59,23 +58,8 @@
               <input
                 type="text"
                 class="form-control"
-               
+                v-model="chamado_cliente.usuarioChamado.name"
               />
-            </div>
-          </div>
-        </div>
-  
-        <div class="mb-5">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Tipo de Chamado</label
-              >
-              <textarea
-                class="form-control"
-                v-model="chamado_cliente.tipoChamado.nome"
-                rows="3"
-              ></textarea>
             </div>
           </div>
         </div>
@@ -95,20 +79,6 @@
           </div>
         </div>
 
-        <div class="mb-5">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Data</label
-              >
-              <textarea
-                class="form-control"
-                v-model="chamado_cliente.dataChamado"
-                rows="3"
-              ></textarea>
-            </div>
-          </div>
-        </div>
         <div class="mb-3">
           <div class="row">
             <div class="col-md-6">
@@ -170,7 +140,7 @@
         chamado_clientes: [],
         chamado_cliente: {
           id: "",
-          name: "",
+          usuarioChamado: "",
           tipoChamado: "",
           criticidadeChamado: "",
           dataChamado: "",
@@ -196,11 +166,11 @@
         });
       },
       editar(chamado_cliente) {
-        this.chamado_clientes = chamado_cliente;
+        this.chamado_cliente = chamado_cliente;
       },
       salvar(){
         Chamado_Cliente.atualizar(this.chamado_cliente).then(()=>{
-        this.chamado_clientes = {}
+        this.chamado_cliente = {}
         alert('Atualizado com sucesso!')
         this.listar()
       })
