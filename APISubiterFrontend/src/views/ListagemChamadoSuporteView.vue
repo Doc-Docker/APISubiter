@@ -5,12 +5,14 @@
           <h3>Chamados</h3>
         </div>
       </div>
+
   
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
-            <th scope="col">#Id</th>
+            <th scope="col">Id</th>
             <th scope="col">Nome Usuário</th>
+            <th scope="col">Data Chamado</th>
             <th scope="col">Data de Inicio Atendimento</th>
             <th scope="col">Descrição do Chamado</th>
             <th scope="col">Status</th>
@@ -19,13 +21,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(chamado_suporte, i) in chamados_suportes" :key="i">
+          <tr v-for="(chamado_suporte, i) in chamado_suportes" :key="i">
             <td>{{ chamado_suporte.id }}</td>
             <td>{{ chamado_suporte.usuarioChamado.name }}</td>
-            <td>{{ chamado_suporte.dataChamado }}</td>>
+            <td>{{ chamado_suporte.dataChamado }}</td>
+            <td></td>
             <td>{{ chamado_suporte.descricaoChamado }}</td>
             <td>{{ chamado_suporte.situacaoChamado }}</td>
-            <td>{{ chamado_suporte.tipoChamado }}</td>
+            <td>{{ chamado_suporte.tipoChamado.nome }}</td>
             <td>{{ chamado_suporte.criticidadeChamado }}</td>
             <td>
               <button class="btn btn-danger" @click="deletar(chamado_suporte.id)">
@@ -36,7 +39,7 @@
           </tr>
         </tbody>
       </table>
-  
+    
   
     <form @submit.prevent="salvar">
         <div class="mb-3 mt-3">
@@ -61,33 +64,9 @@
             </div>
           </div>
         </div>  -->
-        <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label"
-                >Data Chamado</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                v-model=" dataChamado"
-              />
-            </div>
-        </div>
+ 
         
 
-
-        <div class="mb-5">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Situação do Chamados</label
-              >
-              <select v-model="chamado_suporte.situacaoChamado" class="form-select" aria-label="Default select example" >
-                <option v-for="(chamado_suporte, e) in Chamados_Suporte" :key="e" v-bind:value="chamado_suporte.id" >{{chamado_suporte.situacaoChamado}}</option>
-              </select>
-            </div>
-          </div>
-        </div> 
 
         <div class="mb-5">
           <div class="row">
@@ -104,31 +83,23 @@
           </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label"
-                >Tipo Chamado</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                v-model=" tipoChamado"
-              />
-            </div>
-          </div>
-        
+        <div class="mb-5">
           <div class="row">
             <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label"
-                >Descrição</label
+              <label for="exampleFormControlTextarea1" class="form-label"
+                >Status</label
               >
               <input
                 type="text"
                 class="form-control"
-                v-model=" descricaoChamado"
+                v-model=" chamado_suporte.situacaoChamado"
               />
             </div>
           </div>
+        </div>
+
+       
+      
 
           <div class="row">
             <div class="col-md-6">
@@ -138,14 +109,14 @@
               <input
                 type="text"
                 class="form-control"
-                v-model=" criticidadeChamado"
+                v-model=" chamado_suporte.criticidadeChamado"
               />
             </div>
           </div>
 
-        <div>
-        <button>Salvar</button>
-        </div>
+
+        <button class="btn btn-success">Salvar</button>
+
 
       </form>
   
@@ -188,7 +159,7 @@
         });
       },
       editar(chamado_suporte) {
-        this.chamados_suportes = chamado_suporte;
+        this.chamado_suporte = chamado_suporte;
       },
       salvar(){
       Chamado_Suporte.atualizar(this.chamado_suporte).then(()=>{
