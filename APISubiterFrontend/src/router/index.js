@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+
 // Listagens
 import ListagemServicosView from '../views/ListagemServicosView.vue'
 import ListagemEquipamentoView from '../views/ListagemEquipamentoView.vue'
-
 import ListagemEmpresaView from '../views/ListagemEmpresaView.vue'
 import ListagemUsuarios from '../views/ListagemUsuariosView.vue'
+import ListagemChamadoCliente from '../views/ListagemChamadoClienteView.vue'
 
 // Cadastros
 import CadastroServicoManutencao from '../views/CadastroServicoManutencaoView.vue'
@@ -42,6 +43,11 @@ const routes = [
     path: '/empresas',
     name: 'listagemEmpresas',
     component: ListagemEmpresaView
+  },
+  {
+    path: '/ChamadoCliente',
+    name: 'ChamadoCliente',
+    component: ListagemChamadoCliente
   },
   {
     path: '/cadastroServicoManutencao',
