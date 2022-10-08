@@ -83,10 +83,12 @@
               Chamados
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Novo</a></li>
+              <li><a class="dropdown-item" href="#/cadastroChamado">Novo</a></li>
               <li><hr class="dropdown-divider" /></li>
+
               <li><a class="dropdown-item" href="#">Visualizar</a></li>
               <li><a class="dropdown-item" href="#/SuporteChamados">Listagem Suporte</a></li>
+              <li><a class="dropdown-item" href="#/ChamadoCliente">Chamado Cliente</a></li>
             </ul>
           </li>
         </ul>

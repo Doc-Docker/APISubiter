@@ -5,9 +5,12 @@ import HomeView from '../views/HomeView.vue'
 // Listagens
 import ListagemServicosView from '../views/ListagemServicosView.vue'
 import ListagemEquipamentoView from '../views/ListagemEquipamentoView.vue'
+
 import ListagemChamadoSuporteView from '../views/ListagemChamadoSuporteView.vue'
+
 import ListagemEmpresaView from '../views/ListagemEmpresaView.vue'
 import ListagemUsuarios from '../views/ListagemUsuariosView.vue'
+import ListagemChamadoCliente from '../views/ListagemChamadoClienteView.vue'
 
 // Cadastros
 import CadastroServicoManutencao from '../views/CadastroServicoManutencaoView.vue'
@@ -15,6 +18,9 @@ import CadastroServicoInstalacao from '../views/CadastroServicoInstalacaoView.vu
 import CadastroEquipamento from '../views/CadastroEquipamentoView.vue'
 import CadastroEmpresa from '../views/CadastroEmpresaView.vue'
 import CadastroUsuario from '../views/CadastroUsuarioView.vue'
+
+
+import CadastroChamado from '../views/CadastroChamadoView.vue'
 
 Vue.use(VueRouter)
 
@@ -43,6 +49,11 @@ const routes = [
     path: '/empresas',
     name: 'listagemEmpresas',
     component: ListagemEmpresaView
+  },
+  {
+    path: '/ChamadoCliente',
+    name: 'ChamadoCliente',
+    component: ListagemChamadoCliente
   },
   {
     path: '/cadastroServicoManutencao',
@@ -76,6 +87,11 @@ const routes = [
     name: 'listagemUsuarios',
     component: ListagemUsuarios
 
+  },
+  {
+    path: '/cadastroChamado',
+    name: 'cadastroChamado',
+    component: CadastroChamado
   }
 ]
 
