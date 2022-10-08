@@ -13,7 +13,7 @@
         <div class="row">
           <div class="col-md-6">
             <label for="exampleFormControlInput1" class="form-label">Nome do usuário</label>
-            <input type="text" class="form-control" v-model="chamado.usuarioChamado.id" />
+            <input type="text" class="form-control" v-model="nome" disabled />
           </div>
         </div>
       </div>
@@ -52,11 +52,11 @@
       <div class="mb-3">
         <div class="row">
           <div class="col-md-6">
-            <label for="exampleFormControlInput2" class="form-label">Tipo do chamado</label>
-            <select class="form-control" default="" v-model="chamado.tipoChamado.id" @change="mostrarAgendamento()" >
-              <option id="INSTAL" :value="1" >Instalação</option>
-              <option id="MANUT" :value="2" >Manutenção</option>
-              <option id="SUPORT" :value="3" >Suporte</option>
+            <label for="exampleFormControlInput1" class="form-label">Tipo do chamado</label>
+            <select class="form-control" v-model="chamado.tipoChamado.id" default="" @change="mostrarAgendamento()" >
+              <option v-for="tipo in tiposChamado" v-bind:key="tipo.id" v-bind:value="tipo.id">
+                {{ tipo.nome }}
+              </option>
             </select>
           </div>
         </div>
@@ -108,7 +108,9 @@ export default {
 
   data() {
     return {
+      tiposChamado: [],
       mostrar: false,
+      nome: "usuario.cliente",
       data: "",
       endereco: "",
       chamado: {
@@ -127,9 +129,12 @@ export default {
     };
   },
 
+  mounted() {
+    this.listarTiposChamado();
+  },
+
   methods: {
     salvar(){
-    console.log(this.chamado);
       Chamado.salvar(this.chamado).then(() => {
         alert('Salvo com sucesso')
       });
@@ -141,6 +146,12 @@ export default {
       }else{
         this.mostrar = false
       }
+    },
+
+    listarTiposChamado(){
+      Chamado.listarTipoServico().then((resp) => {
+        this.tiposChamado = resp.data;
+      })
     }
     
   }
