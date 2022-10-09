@@ -15,6 +15,7 @@
             <th scope="col">Data de Chamado</th>
             <th scope="col">Descrição</th>
             <th scope="col">Situação Chamado</th>
+            <th scope="col">Solução</th>
             <th scope="col">Encerramento</th>
 
           </tr>
@@ -28,6 +29,7 @@
             <td>{{ chamado_cliente.dataChamado }}</td>
             <td>{{ chamado_cliente.descricaoChamado }}</td>
             <td>{{ chamado_cliente.situacaoChamado }}</td>
+            <td>{{ chamado_cliente.solucaoChamado }}</td>
             <td>{{ chamado_cliente.encerramentoChamado }}</td>
             <td>
               <button class="btn btn-danger" @click="deletar(chamado_cliente.id)">
@@ -67,14 +69,13 @@
         <div class="mb-5">
           <div class="row">
             <div class="col-md-6">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Criticidade</label
-              >
-              <textarea
-                class="form-control"
-                v-model="chamado_cliente.criticidadeChamado"
-                rows="3"
-              ></textarea>
+            <label for="exampleFormControlInput2" class="form-label">Criticidade do chamado</label>
+            <br>
+            <select class="col-md-12"  v-model="chamado_cliente.criticidadeChamado">
+              <option id="B">Baixo</option>
+              <option id="M">Médio</option>
+              <option id="A">Alto</option>
+            </select>
             </div>
           </div>
         </div>
@@ -108,6 +109,7 @@
             </div>
           </div>
         </div>
+        
 
         <div class="mb-3">
           <div class="row">
@@ -116,7 +118,7 @@
                 >Encerramento</label
               >
               <input
-                type="text"
+                type="date"
                 class="form-control"
                 v-model="chamado_cliente.encerramentoChamado"
               />
@@ -169,6 +171,7 @@
         this.chamado_cliente = chamado_cliente;
       },
       salvar(){
+        console.log(this.chamado_cliente)
         Chamado_Cliente.atualizar(this.chamado_cliente).then(()=>{
         this.chamado_cliente = {}
         alert('Atualizado com sucesso!')

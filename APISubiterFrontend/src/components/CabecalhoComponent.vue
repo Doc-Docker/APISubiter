@@ -87,7 +87,7 @@
               <li><hr class="dropdown-divider" /></li>
 
               <li><a class="dropdown-item" href="#">Visualizar</a></li>
-              <li><a class="dropdown-item" href="#/SuporteChamados">Listagem Suporte</a></li>
+              <li><a class="dropdown-item" href="#/SuporteChamados">Chamado Suporte</a></li>
               <li><a class="dropdown-item" href="#/ChamadoCliente">Chamado Cliente</a></li>
             </ul>
           </li>

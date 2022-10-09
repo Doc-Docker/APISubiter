@@ -14,6 +14,6 @@ export default{
     },
 
     atualizar:(chamado_cliente)=>{
-        return http.put('/chamados/' + chamado_cliente.id , chamado_cliente)
+        return http.patch('/chamados/' + chamado_cliente.id , chamado_cliente)
     }
 }

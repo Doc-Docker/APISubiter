@@ -2,7 +2,7 @@
     <div class="mb-3 mt-3">
       <div class="row">
         <div class="col-md-6">
-          <h3>Chamados</h3>
+          <h3>Chamados Suporte</h3>
         </div>
       </div>
 
@@ -12,12 +12,13 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nome Usuário</th>
-            <th scope="col">Data Chamado</th>
-            <th scope="col">Data de Inicio Atendimento</th>
+            <th scope="col">Data Abertura</th>
             <th scope="col">Descrição do Chamado</th>
             <th scope="col">Status</th>
             <th scope="col">Tipo de Chamado</th>
             <th scope="col">Criticidade</th>
+            <th scope="col">Data Encerramento</th>
+            <th scope="col">Solução</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +31,8 @@
             <td>{{ chamado_suporte.situacaoChamado }}</td>
             <td>{{ chamado_suporte.tipoChamado.nome }}</td>
             <td>{{ chamado_suporte.criticidadeChamado }}</td>
+            <td>{{ chamado_suporte.encerramentoChamado }}</td>
+            <td>{{ chamado_suporte.solucaoChamado }}</td>
             <td>
               <button class="btn btn-danger" @click="deletar(chamado_suporte.id)">
                 Deletar
@@ -49,39 +52,7 @@
             </div>  
           </div>
         </div>
-
-        <!-- <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label"
-                >Nome</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                v-model=" chamado_suporte.usuarioChamado.name "
-              />
-            </div>
-          </div>
-        </div>  -->
  
-        
-
-
-        <div class="mb-5">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Descrição</label
-              >
-              <textarea
-                class="form-control"
-                v-model="chamado_suporte.descricaoChamado"
-                rows="3"
-              ></textarea>
-            </div>
-          </div>
-        </div>
 
         <div class="mb-5">
           <div class="row">
@@ -98,21 +69,35 @@
           </div>
         </div>
 
-       
-      
-
+        <div class="mb-5">
           <div class="row">
             <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label"
-                >Criticidade</label
+              <label for="exampleFormControlTextarea1" class="form-label"
+                >Solução</label
               >
               <input
                 type="text"
                 class="form-control"
-                v-model=" chamado_suporte.criticidadeChamado"
+                v-model=" chamado_suporte.solucaoChamado"
               />
             </div>
           </div>
+        </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Data Encerramento</label
+              >
+              <input
+                type="date"
+                class="form-control"
+                v-model=" chamado_suporte.encerramentoChamado"
+              />
+            </div>
+          </div>
+        <br>
+
 
 
         <button class="btn btn-success">Salvar</button>

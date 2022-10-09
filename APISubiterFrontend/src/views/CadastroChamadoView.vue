@@ -40,7 +40,8 @@
         <div class="row">
           <div class="col-md-6">
             <label for="exampleFormControlInput2" class="form-label">Criticidade do chamado</label>
-            <select class="form-control" default="" v-model="chamado.criticidadeChamado" >
+            <br>
+            <select class="col-md-12" default="" v-model="chamado.criticidadeChamado" >
               <option id="B">Baixo</option>
               <option id="M">Médio</option>
               <option id="A">Alto</option>
