@@ -79,6 +79,8 @@ O usuário do tipo Suporte conseguirá acompanhar as solicitações abertas pelo
 
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/telaChamadoSuporte.png" /></h1>  
 
+→ [Voltar ao topo](#topo)
+    
 <br>
     
 <span id="burndown">
