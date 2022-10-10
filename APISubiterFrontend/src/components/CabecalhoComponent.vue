@@ -35,11 +35,8 @@
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#/cadastroEquipamentos">Equipamentos</a></li>
               <li><hr class="dropdown-divider" /></li>
-
-              <li><a class="dropdown-item" href="#">Usuários</a></li>
-              <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#/cadastroEmpresas">Empresas</a></li>
-              
+              <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#/cadastroUsuario">Usuários</a></li>
 
             </ul>
@@ -56,19 +53,13 @@
               Listagens
             </a>
             <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="/#/servicos">Serviços</a>
-              </li>
+              <li><a class="dropdown-item" href="/#/servicos">Serviços</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#/equipamentos">Equipamentos</a></li>
               <li><hr class="dropdown-divider" /></li>
-
-              <li><a class="dropdown-item" href="#">Usuários</a></li>
-              <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#/empresas">Empresas</a></li>
-
+              <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#/usuarios">Usuários</a></li>
-
             </ul>
           </li>
 
@@ -85,9 +76,7 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#/cadastroChamado">Novo</a></li>
               <li><hr class="dropdown-divider" /></li>
-
-              <li><a class="dropdown-item" href="#">Visualizar</a></li>
-              <li><a class="dropdown-item" href="#/SuporteChamados">Listagem Suporte</a></li>
+              <li><a class="dropdown-item" href="#/SuporteChamados">Chamado Suporte</a></li>
               <li><a class="dropdown-item" href="#/ChamadoCliente">Chamado Cliente</a></li>
             </ul>
           </li>

@@ -40,7 +40,8 @@
         <div class="row">
           <div class="col-md-6">
             <label for="exampleFormControlInput2" class="form-label">Criticidade do chamado</label>
-            <select class="form-control" default="" v-model="chamado.criticidadeChamado" >
+            <br>
+            <select default="" v-model="chamado.criticidadeChamado" class="form-control">
               <option id="B">Baixo</option>
               <option id="M">Médio</option>
               <option id="A">Alto</option>
@@ -136,7 +137,8 @@ export default {
   methods: {
     salvar(){
       Chamado.salvar(this.chamado).then(() => {
-        alert('Salvo com sucesso')
+        alert('Salvo com sucesso');
+        this.limparFormularios();
       });
     },
 
@@ -152,6 +154,15 @@ export default {
       Chamado.listarTipoServico().then((resp) => {
         this.tiposChamado = resp.data;
       })
+    },
+
+    limparFormularios() {
+      this.chamado.descricaoChamado = "";
+      this.chamado.assuntoChamado = "";
+      this.data = "";
+      this.endereco = "";
+      this.chamado.criticidadeChamado = "";
+      this.chamado.tipoChamado = "";
     }
     
   }
