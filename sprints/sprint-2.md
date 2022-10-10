@@ -44,13 +44,7 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
     
 ### :heavy_check_mark: RF 06: Modelagem do Banco de Dados
  
-<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Modelo-Subiter_versao3.png" /></h1>  
-   
-<br>
-
-<span id="apresentacao">
-    
-## 🚀 Apresentação SPRINT 1
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Modelo%20Subiter_sprint2-1.png" /></h1>  
 
 <br>
     
@@ -64,7 +58,7 @@ Em prol de um melhor aproveitamento das habilidades de cada integrante, o time f
     
 <div align="center">
     
-![Burndown Chart]()
+![Burndown Chart](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/burndown-2.png)
 </div>
 
 <br>
