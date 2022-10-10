@@ -7,7 +7,6 @@
 <p align="center">
     <a href="#objetivos">Objetivos da sprint</a> &nbsp |&nbsp &nbsp
     <a href="#entregas">Entregas</a> &nbsp |&nbsp &nbsp
-    <a href="#apresentacao">Vídeo</a> &nbsp |&nbsp &nbsp
     <a href="#burndown">Burndown</a> &nbsp |&nbsp &nbsp
     <a href="#backlogs">Backlogs</a>
 </p>
@@ -44,8 +43,28 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
     
 ### :heavy_check_mark: RF 06: Modelagem do Banco de Dados
  
+Atualizamos a modelagem do banco de dados para relacionamento das tabelas de "CHAMADO" e "AGENDAMENTO_CHAMADO" conforme abaixo. Nas próximas sprints iremos vincular os dados da aplicação na nuvem, pois no momento estamos utilizando o H2 (sistema de gerenciamento de banco de dados relacional escrito em Java) para armazenamento dos dados.
+    
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Modelo%20Subiter_sprint2-1.png" /></h1>  
 
+### :heavy_check_mark: RF 14: Registro de Chamados
+
+Nessa tela o cliente conseguirá abrir um novo chamado para prestação de serviço ou suporte, com as seguintes opções:
+    
+Conforme alinhado com a empresa, implementamos um sistema de "Criticidade do Chamado" onde o cliente pode colocar o nível de urgência daquele pedido, podendo optar por "Baixo, Médio, Alto". Também temos o campo com o "Tipo de Chamado" que irá especificar qual serviço o suporte deverá prestar nesse caso.
+    
+<img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/telaCadChamado.png" width="900" height="600"/></h1>
+    
+### :heavy_check_mark: RF 15: Status dos Chamados (Listagem Cliente)
+    
+Nessa tela o admin poderá cadastrar novos usuários (Cliente, Suporte, Administrador) com as seguintes opções:
+<img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/telaChamadoCliente.png" width="900" height="600"/></h1>
+    
+### :heavy_check_mark: RF 16: Listagem dos Chamados (Suporte)
+    
+Nessa tela o admin poderá cadastrar novos usuários (Cliente, Suporte, Administrador) com as seguintes opções:
+<img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/telaChamadoSuporte.png" width="900" height="600"/></h1>
+    
 <br>
     
 <span id="burndown">
@@ -69,6 +88,8 @@ Em prol de um melhor aproveitamento das habilidades de cada integrante, o time f
 
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto_2.png" /></h1>
 
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/user_stories.png" /></h1>
+    
 <br>
 
 ## :dart: Backlog das Sprints
