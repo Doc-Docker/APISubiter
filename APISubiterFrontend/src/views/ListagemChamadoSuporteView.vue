@@ -7,37 +7,40 @@
       </div>
 
   
-      <table class="table table-striped table-bordered">
+      <table class="table table-striped table-bordered" style="text-align: center" >
         <thead>
           <tr>
-            <th scope="col">Id</th>
+            <th scope="col">ID</th>
             <th scope="col">Nome Usuário</th>
             <th scope="col">Data Abertura</th>
             <th scope="col">Descrição do Chamado</th>
             <th scope="col">Status</th>
             <th scope="col">Tipo de Chamado</th>
             <th scope="col">Criticidade</th>
-            <th scope="col">Data Encerramento</th>
             <th scope="col">Solução</th>
+            <th scope="col">Data Encerramento</th>
+            <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(chamado_suporte, i) in chamado_suportes" :key="i">
-            <td>{{ chamado_suporte.id }}</td>
-            <td>{{ chamado_suporte.usuarioChamado.name }}</td>
-            <td>{{ chamado_suporte.dataChamado }}</td>
-            <td></td>
-            <td>{{ chamado_suporte.descricaoChamado }}</td>
-            <td>{{ chamado_suporte.situacaoChamado }}</td>
-            <td>{{ chamado_suporte.tipoChamado.nome }}</td>
-            <td>{{ chamado_suporte.criticidadeChamado }}</td>
-            <td>{{ chamado_suporte.encerramentoChamado }}</td>
-            <td>{{ chamado_suporte.solucaoChamado }}</td>
+          <tr v-for="(chamado, i) in chamados" :key="i">
+            <td>{{ chamado.id }}</td>
+            <td>{{ chamado.usuarioChamado.name }}</td>
+            <td>{{ chamado.dataChamado }}</td>
+            <td>{{ chamado.descricaoChamado }}</td>
+            <td>{{ chamado.situacaoChamado }}</td>
+            <td>{{ chamado.tipoChamado.nome }}</td>
+            <td>{{ chamado.criticidadeChamado }}</td>
+            <td>{{ chamado.solucaoChamado }}</td>
+            <td>{{ chamado.encerramentoChamado }}</td>
             <td>
-              <button class="btn btn-danger" @click="deletar(chamado_suporte.id)">
+              <button class="btn btn-success" @click="editar(chamado)" style="margin-bottom: 5px">Aceitar</button>
+              <button class="btn btn-danger" @click="encerrar(chamado)" style="margin-bottom: 5px">
+                Encerrar
+              </button>
+              <button class="btn btn-danger" @click="deletar(chamado.id)" hidden >
                 Deletar
               </button>
-              <button class="btn" @click="editar(chamado_suporte)">Editar</button>
             </td>
           </tr>
         </tbody>
@@ -54,7 +57,7 @@
         </div>
  
 
-        <div class="mb-5">
+        <div class="mb-3">
           <div class="row">
             <div class="col-md-6">
               <label for="exampleFormControlTextarea1" class="form-label"
@@ -63,13 +66,13 @@
               <input
                 type="text"
                 class="form-control"
-                v-model=" chamado_suporte.situacaoChamado"
+                v-model=" chamado.situacaoChamado"
               />
             </div>
           </div>
         </div>
 
-        <div class="mb-5">
+        <div class="mb-3">
           <div class="row">
             <div class="col-md-6">
               <label for="exampleFormControlTextarea1" class="form-label"
@@ -78,30 +81,13 @@
               <input
                 type="text"
                 class="form-control"
-                v-model=" chamado_suporte.solucaoChamado"
+                v-model=" chamado.solucaoChamado"
               />
             </div>
           </div>
         </div>
 
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label"
-                >Data Encerramento</label
-              >
-              <input
-                type="date"
-                class="form-control"
-                v-model=" chamado_suporte.encerramentoChamado"
-              />
-            </div>
-          </div>
-        <br>
-
-
-
         <button class="btn btn-success">Salvar</button>
-
 
       </form>
   
@@ -109,22 +95,27 @@
   </template>
   
   <script>
-  import Chamado_Suporte from "../services/chamado_suporte.js";
+  import chamado from "../services/chamado_suporte.js";
   
   export default {
     name: "ChamadoSuporteView",
   
     data() {
       return {
-        chamado_suportes: [],
-        chamado_suporte: {
+        chamados: [],
+        chamado: {
           id: "",
-          name: "",
-          dataChamado: "",
+          usuarioChamado: {
+            id: ""
+          },
+          tipoChamado: {
+            id: ""
+          },
+          assuntoChamado: "",
           descricaoChamado: "",
+          criticidadeChamado: "",
           situacaoChamado: "",
-          tipoChamado: "",
-          criticidadeChamado: ""
+          solucaoChamado: ""
         },
       };
     },
@@ -133,26 +124,40 @@
     },
     methods: {
       listar() {
-        Chamado_Suporte.listar().then((resposta) => {
-          this.chamado_suportes = resposta.data;
+        chamado.listar().then((resposta) => {
+          this.chamados = resposta.data;
         });
       },
       deletar(id) {
-        Chamado_Suporte.deletar(id).then(() => {
+        chamado.deletar(id).then(() => {
           this.listar();
           alert("Deletado com Sucesso");
         });
       },
-      editar(chamado_suporte) {
-        this.chamado_suporte = chamado_suporte;
+      editar(chamado) {
+        this.chamado = chamado;
+        this.chamado.situacaoChamado = "Em andamento";
       },
       salvar(){
-      Chamado_Suporte.atualizar(this.chamado_suporte).then(()=>{
-        this.chamados_suportes = {}
-        alert('Atualizado com sucesso!')
-        this.listar()
-      })
-    },
+        console.log(this.chamado);
+        chamado.atualizar(this.chamado).then(()=>{
+          alert('Atualizado com sucesso!');
+          this.limparFormularios();
+          this.listar();
+        })
+      },
+      encerrar(chamado) {
+        this.chamado = chamado;
+        var data = new Date();
+        data = data.toLocaleDateString();
+        this.chamado.encerramentoChamado = data;
+        this.chamado.situacaoChamado = "Encerrado";
+        this.salvar();
+      },
+      limparFormularios() {
+        this.chamado.solucaoChamado = "";
+        this.chamado.situacaoChamado = "";
+      }
     },
   };
   </script>

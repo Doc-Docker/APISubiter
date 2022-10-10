@@ -13,7 +13,7 @@ export default{
         return http.delete('/chamados/' + id)
     },
 
-    atualizar:(suporte)=>{
-        return http.put('/chamados/' + suporte.id , suporte)
+    atualizar:(chamado)=>{
+        return http.patch('/chamados/' + chamado.id , chamado)
     }
 }
