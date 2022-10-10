@@ -103,7 +103,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 🔖 SPRINT 1 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-1.md)):  Concluído ☑️
 
-🔖 SPRINT 2 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-2.md)):  Em Andamento 🕗
+🔖 SPRINT 2 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-2.md)):  Concluído ☑️
 
 🔖 SPRINT 3 ([Link da Pasta]()):  Aguardando 🚧
 
@@ -138,7 +138,7 @@ Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://gith
 
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto_2.png" /></h1>
 
-<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/User_Stories1.png" /></h1>
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/user_stories.png" /></h1>
 
 <br>
 
