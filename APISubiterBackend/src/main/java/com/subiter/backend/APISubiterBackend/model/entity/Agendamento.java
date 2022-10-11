@@ -1,6 +1,5 @@
 package com.subiter.backend.APISubiterBackend.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.subiter.backend.APISubiterBackend.config.View;
 

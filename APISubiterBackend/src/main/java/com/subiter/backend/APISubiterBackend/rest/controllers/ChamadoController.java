@@ -2,6 +2,7 @@ package com.subiter.backend.APISubiterBackend.rest.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -18,6 +19,7 @@ public class ChamadoController {
     @Autowired
     private ChamadoService chamadoService;
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping
     @JsonView(View.ChamadoView.class)
     public List<Chamado> getAllChamados(){
@@ -25,6 +27,7 @@ public class ChamadoController {
         return chamadoService.getAllChamados();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.ChamadoView.class)
@@ -33,6 +36,7 @@ public class ChamadoController {
         return chamadoService.save(chamado);  
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/{id}")
     @JsonView(View.ChamadoView.class)
     public Chamado getChamadoById(@PathVariable Integer id){
@@ -40,6 +44,7 @@ public class ChamadoController {
         return chamadoService.getChamadoById(id);
     }
     
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping("/{id}")
     @JsonView(View.ChamadoView.class)
     public Chamado updateEmpresaById(@PathVariable Integer id, @RequestBody Chamado chamado){
@@ -47,6 +52,7 @@ public class ChamadoController {
         return chamadoService.updateChamadoById(id, chamado);
     }
     
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping("/{id}")
     @JsonView(View.ChamadoView.class)
     public void deleteChamadoById(@PathVariable Integer id){
