@@ -63,6 +63,7 @@ public class Chamado implements Serializable{
     @JsonView({View.ChamadoView.class})
     private String solucaoChamado;
 
+    @Column(name = "encerramento_chamado")
     @JsonFormat(pattern = "dd/MM/yyyy")
     @JsonView({View.ChamadoView.class})
     private LocalDate encerramentoChamado;

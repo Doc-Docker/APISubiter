@@ -40,7 +40,7 @@ public class ChamadoController {
         return chamadoService.getChamadoById(id);
     }
     
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     @JsonView(View.ChamadoView.class)
     public Chamado updateEmpresaById(@PathVariable Integer id, @RequestBody Chamado chamado){
 
