@@ -40,10 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     };
 
     private static final String[] PUBLIC_MATCHERS_POST = {
-            "/usuarios/**",        // this will be used as "sign up" for now.
+            "/api/usuarios/**",        // this will be used as "sign up" for now.
             "/auth/login/**",  // "sign in"
     };
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -78,8 +77,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/h2-console/**");
-        web.ignoring().antMatchers(POST, "/auth/signup");
-        web.ignoring().antMatchers(GET, "/auth/token/refresh");
+        web.ignoring().antMatchers(POST, "/api/usuarios/auth/signup/suporte");
+        web.ignoring().antMatchers(POST, "/api/usuarios/auth/signup/client");
+        web.ignoring().antMatchers(GET, "/api/usuarios/auth/token/refresh");
     }
 
     public static Object authenticated() {

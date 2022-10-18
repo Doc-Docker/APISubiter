@@ -34,10 +34,10 @@ public class UsuarioController {
         return usuarioService.getAllUsers();
     }
 
-    @PostMapping
+    @PostMapping("/auth/signup/client")
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.UsuarioView.class)
-    public ResponseEntity<Void> saveUser(@RequestBody @Valid UsuarioDto usuarioDto){
+    public ResponseEntity<Void> saveUserClient(@RequestBody @Valid UsuarioDto usuarioDto){
 
         Usuario usuario = new Usuario();
 
@@ -53,6 +53,29 @@ public class UsuarioController {
         .path("/{id}").buildAndExpand(usuario.getId()).toUri();
         
         applicationUserService.saveApplicationUserAsUsuario(usuario, usuarioDto.getPassword());
+
+        return ResponseEntity.created(uri).build();
+    }
+
+    @PostMapping("/auth/signup/suporte")
+    @ResponseStatus(HttpStatus.CREATED)
+    @JsonView(View.UsuarioView.class)
+    public ResponseEntity<Void> saveUserSuporte(@RequestBody @Valid UsuarioDto usuarioDto){
+
+        Usuario usuario = new Usuario();
+
+        usuario.setName(usuarioDto.getName());
+
+        usuario.setEmpresa(usuarioDto.getEmpresa());
+
+        usuario.setEmail(usuarioDto.getEmail());
+
+        usuario = usuarioService.save(usuario);  
+
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+        .path("/{id}").buildAndExpand(usuario.getId()).toUri();
+        
+        applicationUserService.saveApplicationUserAsSuporte(usuario, usuarioDto.getPassword());
 
         return ResponseEntity.created(uri).build();
     }

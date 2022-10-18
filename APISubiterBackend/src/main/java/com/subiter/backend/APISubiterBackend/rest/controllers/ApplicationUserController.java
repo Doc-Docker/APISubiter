@@ -44,7 +44,7 @@ public class ApplicationUserController {
     @Autowired
     private ApplicationUserService applicationUserService;
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'CLIENT')")
     @GetMapping("/users")
     public ResponseEntity<List<ApplicationUserDTO>> getApplicationUsers(){
         return ResponseEntity.ok().body(applicationUserService.getApplicationUsers());

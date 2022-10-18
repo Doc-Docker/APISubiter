@@ -58,6 +58,14 @@ public class ApplicationUserService{
         return applicationUserRepository.save(applicationUser);
     }
 
+    public ApplicationUser saveApplicationUserAsSuporte(Usuario usuario, String password){
+        ApplicationUser applicationUser = new ApplicationUser(null, usuario.getEmail(), usuario, password, new ArrayList<>());
+        applicationUser.setPassword(passwordEncoder.encode(applicationUser.getPassword()));
+        Role role = roleRepository.findByName("ROLE_SUPORTE");
+        applicationUser.getRoles().add(role);
+        return applicationUserRepository.save(applicationUser);
+    }
+
     public Role saveRole(Role role){
         return roleRepository.save(role);
     }
