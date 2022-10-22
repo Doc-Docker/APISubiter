@@ -2,6 +2,7 @@ package com.subiter.backend.APISubiterBackend.rest.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -18,6 +19,7 @@ public class TipoServicoController {
     @Autowired
     private TipoServicoService tipoServicoService;
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping
     @JsonView(View.TipoServicoView.class)
     public List<TipoServico> getAllServicos(){
@@ -25,6 +27,7 @@ public class TipoServicoController {
         return tipoServicoService.getAllServicos();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.TipoServicoView.class)
@@ -33,6 +36,7 @@ public class TipoServicoController {
         return tipoServicoService.save(tipoServico);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @JsonView(View.TipoServicoView.class)
     @GetMapping("/{id}")
     public TipoServico getServicoById(@PathVariable Integer id){

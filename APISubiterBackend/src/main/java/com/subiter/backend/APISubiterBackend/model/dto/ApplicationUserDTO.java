@@ -25,7 +25,7 @@ public class ApplicationUserDTO implements Serializable {
 
     private Integer usertId;
 
-    private Collection<Role> roles = new ArrayList<Role>();
+    private Role role;
 
     public ApplicationUserDTO (ApplicationUser applicationUser){
         id = applicationUser.getId();
@@ -35,6 +35,6 @@ public class ApplicationUserDTO implements Serializable {
         }else{
             usertId = applicationUser.getUsuario().getId();
         }
-        roles = applicationUser.getRoles();
+        role = applicationUser.getRole();
     }
 }

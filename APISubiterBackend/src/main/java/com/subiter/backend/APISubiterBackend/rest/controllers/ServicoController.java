@@ -2,6 +2,7 @@ package com.subiter.backend.APISubiterBackend.rest.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.subiter.backend.APISubiterBackend.config.View;
@@ -18,6 +19,7 @@ public class ServicoController {
     @Autowired
     private ServicoService servicoService;
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping
     @JsonView(View.ServicoView.class)
     public List<Servico> getAllSdervices(){
@@ -25,6 +27,7 @@ public class ServicoController {
         return servicoService.getAllServices();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.ServicoView.class)
@@ -33,6 +36,7 @@ public class ServicoController {
         return servicoService.save(servicoDto);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping("/{id}")
     @JsonView(View.ServicoView.class)
     public Servico getServiceById(@PathVariable Integer id){
@@ -40,6 +44,7 @@ public class ServicoController {
         return servicoService.getServiceById(id);
     }
     
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @DeleteMapping("/{id}")
     @JsonView(View.ServicoView.class)
     public void deleteServiceById(@PathVariable Integer id){
@@ -47,6 +52,7 @@ public class ServicoController {
         servicoService.deleteServiceById(id);
     }
     
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @PutMapping("/{id}")
     @JsonView(View.ServicoView.class)
     public Servico updateServiceById(@PathVariable Integer id, @RequestBody ServicoDto servicoForm){

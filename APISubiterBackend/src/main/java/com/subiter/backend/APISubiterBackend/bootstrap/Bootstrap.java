@@ -44,7 +44,7 @@ public class Bootstrap implements CommandLineRunner {
 
 		roleRepository.saveAll(Arrays.asList(roleClient, roleAdmin, roleSuporte));
 
-        ApplicationUser applicationUser = new ApplicationUser(null, "admin@gmail.com", null, "admin", new ArrayList<>());
+        ApplicationUser applicationUser = new ApplicationUser(null, "admin@gmail.com", null, "admin", new Role());
         
         applicationUserService.saveApplicationUserAsAdmin(applicationUser);
 

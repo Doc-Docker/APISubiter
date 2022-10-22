@@ -45,24 +45,24 @@ public class ApplicationUserService{
         }
         applicationUser.setPassword(passwordEncoder.encode(applicationUser.getPassword()));
         Role role = roleRepository.findByName("ROLE_ADMIN");
-        applicationUser.getRoles().add(role);
+        applicationUser.setRole(role);
         applicationUserRepository.save(applicationUser);
         return new ApplicationUserDTO(applicationUser);
     }
 
     public ApplicationUser saveApplicationUserAsUsuario(Usuario usuario, String password){
-        ApplicationUser applicationUser = new ApplicationUser(null, usuario.getEmail(), usuario, password, new ArrayList<>());
+        ApplicationUser applicationUser = new ApplicationUser(null, usuario.getEmail(), usuario, password, new Role());
         applicationUser.setPassword(passwordEncoder.encode(applicationUser.getPassword()));
         Role role = roleRepository.findByName("ROLE_CLIENT");
-        applicationUser.getRoles().add(role);
+        applicationUser.setRole(role);
         return applicationUserRepository.save(applicationUser);
     }
 
     public ApplicationUser saveApplicationUserAsSuporte(Usuario usuario, String password){
-        ApplicationUser applicationUser = new ApplicationUser(null, usuario.getEmail(), usuario, password, new ArrayList<>());
+        ApplicationUser applicationUser = new ApplicationUser(null, usuario.getEmail(), usuario, password, new Role());
         applicationUser.setPassword(passwordEncoder.encode(applicationUser.getPassword()));
         Role role = roleRepository.findByName("ROLE_SUPORTE");
-        applicationUser.getRoles().add(role);
+        applicationUser.setRole(role);
         return applicationUserRepository.save(applicationUser);
     }
 
@@ -73,7 +73,7 @@ public class ApplicationUserService{
     public void addRoleToApplicationUser(String email, String roleName){
         ApplicationUser applicationUser = applicationUserRepository.findByEmail(email);
         Role role = roleRepository.findByName(roleName);
-        applicationUser.getRoles().add(role);
+        applicationUser.setRole(role);
     }
 
     public ApplicationUser getApplicationUser(String email){
@@ -111,7 +111,7 @@ public class ApplicationUserService{
         for(int i = 1; i <= applicationUserRepository.findAll().get(applicationUserRepository.findAll().size() - 1).getId(); i ++){
             if(applicationUserRepository.findById(i).isPresent()){
                 log.info("User {} is present, email {}", applicationUserRepository.findById(i).get().getId(), applicationUserRepository.findById(i).get().getEmail());
-                if(applicationUserRepository.findById(i).get().getRoles().contains(new Role(2, "ROLE_ADMIN"))){
+                if(applicationUserRepository.findById(i).get().getRole().getName().contains("ROLE_ADMIN")){
                     countAdmin++;
                 }
             }

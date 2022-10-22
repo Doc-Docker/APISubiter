@@ -27,11 +27,7 @@ public class ApplicationUserDetails implements UserDetailsService {
         }else{
             log.info("User found in the database: {}", username);
         }
-        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        applicationUser.getRoles().forEach((role -> {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        }));
         log.info("Username {} and password {}", applicationUser.getEmail(), applicationUser.getPassword());
-        return new org.springframework.security.core.userdetails.User(applicationUser.getEmail(), applicationUser.getPassword(), authorities);
+        return applicationUser;
     }
 }

@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.net.URI;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -100,7 +101,7 @@ public class ApplicationUserController {
                         .withSubject(applicationUser.getEmail())
                         .withExpiresAt(new Date(System.currentTimeMillis()+ 10 * 60 * 1000))
                         .withIssuer(request.getRequestURL().toString())
-                        .withClaim("roles", applicationUser.getRoles().stream().map(Role::getName).collect(Collectors.toList()))
+                        .withClaim("roles", Collections.singletonList(applicationUser.getRole().getName()))
                         .sign(algorithm);
                 Map<String, String> tokens = new HashMap<>();
                 tokens.put("access_token", access_token);

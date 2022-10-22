@@ -19,7 +19,7 @@ public class ChamadoController {
     @Autowired
     private ChamadoService chamadoService;
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('CLIENT', 'SUPORTE')")
     @GetMapping
     @JsonView(View.ChamadoView.class)
     public List<Chamado> getAllChamados(){
@@ -27,7 +27,7 @@ public class ChamadoController {
         return chamadoService.getAllChamados();
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('CLIENT')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.ChamadoView.class)
@@ -36,7 +36,7 @@ public class ChamadoController {
         return chamadoService.save(chamado);  
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('CLIENT', 'SUPORTE')")
     @GetMapping("/{id}")
     @JsonView(View.ChamadoView.class)
     public Chamado getChamadoById(@PathVariable Integer id){
@@ -44,7 +44,7 @@ public class ChamadoController {
         return chamadoService.getChamadoById(id);
     }
     
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('CLIENT', 'SUPORTE')")
     @PutMapping("/{id}")
     @JsonView(View.ChamadoView.class)
     public Chamado updateEmpresaById(@PathVariable Integer id, @RequestBody Chamado chamado){
@@ -52,7 +52,7 @@ public class ChamadoController {
         return chamadoService.updateChamadoById(id, chamado);
     }
     
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('CLIENT', 'SUPORTE')")
     @DeleteMapping("/{id}")
     @JsonView(View.ChamadoView.class)
     public void deleteChamadoById(@PathVariable Integer id){

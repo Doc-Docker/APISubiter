@@ -19,7 +19,7 @@ public class EmpresaController {
     @Autowired
     private EmpresaService empresaService;
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping
     @JsonView(View.EmpresaView.class)
     public List<Empresa> getAllEnterprises(){
@@ -36,7 +36,7 @@ public class EmpresaController {
         return empresaService.save(empresa);  
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping("/{id}")
     @JsonView(View.EmpresaView.class)
     public Empresa getEnterpriseById(@PathVariable Integer id){

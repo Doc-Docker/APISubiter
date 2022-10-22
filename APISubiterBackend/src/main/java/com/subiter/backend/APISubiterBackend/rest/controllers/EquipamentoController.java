@@ -4,6 +4,7 @@ import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -27,6 +28,7 @@ public class EquipamentoController {
     @Autowired
     private EquipamentoService equipamentoService;
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.EquipamentoView.class)
@@ -35,6 +37,7 @@ public class EquipamentoController {
         return equipamentoService.save(equipamento);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping
     @JsonView(View.EquipamentoView.class)
     public List<Equipamento> getAllEquipamentos() {
@@ -42,6 +45,7 @@ public class EquipamentoController {
         return equipamentoService.fidAll();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping("/{id}")
     @JsonView(View.EquipamentoView.class)
     public Equipamento getByEquipamentoId(@PathVariable Integer id) {
@@ -49,6 +53,7 @@ public class EquipamentoController {
         return equipamentoService.getEquipamnetoById(id);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping("/{id}")
     @JsonView(View.EquipamentoView.class)
     public Equipamento dupdateEquipamentoById(@PathVariable Integer id, @RequestBody Equipamento equipamento){
@@ -56,6 +61,7 @@ public class EquipamentoController {
         return equipamentoService.updateEquipamentoById(id, equipamento);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping("/{id}")
     @JsonView(View.EquipamentoView.class)
     public void deleteEquipamentoById(@PathVariable Integer id){

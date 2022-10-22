@@ -3,6 +3,7 @@ package com.subiter.backend.APISubiterBackend.rest.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -26,7 +27,8 @@ public class UsuarioController {
 
     @Autowired
     private ApplicationUserService applicationUserService;
-
+    
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @JsonView(View.UsuarioView.class)
     @GetMapping
     public List<Usuario> getAllUsers(){
@@ -80,6 +82,7 @@ public class UsuarioController {
         return ResponseEntity.created(uri).build();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping("/{id}")
     @JsonView({View.UsuarioView.class})
     public Usuario getUserById(@PathVariable Integer id){
