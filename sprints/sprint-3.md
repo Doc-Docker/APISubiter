@@ -21,14 +21,12 @@ Temos um desafio de sincronização dos dados administrativos, financeiros e ope
 Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para primeira sprint são:
 - **RF 06:** Modelagem do Banco de Dados
 - **RF 07:** Front-end para entrada e interpretação de dados
-- **RF 14:** Registro de Chamados
-- **RF 15:** Status dos Chamados
-- **RF 16:** Listagem dos Chamados
 - **RF 17:** Níveis de Acesso (Cliente, Suporte, Admin)
-- **RF 18:** Vue.js (FrontEnd)
+- **RF 20:** Agendamento dos Chamados
+- **RF 21:** Equipamentos no Estoque
+- **RF 22:** Melhoria no layout das telas
 - **RF 19:** Melhorias e Correção de Bugs
 - **RNF 11:** GIT (Requisito Exigido Fatec)
-- **RNF 13:** Oracle Cloud (Requisito Exigido Fatec)
   
 <br>
  
