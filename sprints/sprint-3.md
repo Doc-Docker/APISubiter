@@ -57,7 +57,7 @@ Em prol de um melhor aproveitamento das habilidades de cada integrante, o time f
     
 <div align="center">
     
-![Burndown Chart]()
+![Burndown Chart](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/burndown3.png)
 </div>
 
 <br>
@@ -66,15 +66,15 @@ Em prol de um melhor aproveitamento das habilidades de cada integrante, o time f
 
 ## 📦 Backlogs & User Stories
 
-<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto_2.png" /></h1>
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto_3.png" /></h1>
 
-<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/user_stories.png" /></h1>
+<h1 align="center"> <img src = "" /></h1>
     
 <br>
 
 ## :dart: Backlog das Sprints
 
-<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Sprints2.png" /></h1>
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Sprints3.PNG" /></h1>
     
 <br>
   
