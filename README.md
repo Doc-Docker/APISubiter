@@ -60,10 +60,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
  - [x]  Usuários devem ter perfis diferentes (administrador, suporte, cliente)
  - [x]  Registro de chamados
  - [x]  Acompanhamento de chamados de ponta a ponta
- - [x]  Cadastro de soluções para problemas conhecidos
- - [x]  Relatório de tempo médio entre falha (MTBF)
- - [x]  Front-End para entrada e interpretação de dados
- - [x]  Monitorar dados disponíveis na web para facilitar tomadas de decisão.<br><br>
+ - [x]  Front-End para entrada e interpretação de dados.<br><br>
 
  > **Requisitos Não Funcionais**
 
@@ -89,7 +86,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 - [x] [SPRINT 2](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-2.md) - 19/09/2022 a 09/10/2022
 
-- [ ] [SPRINT 3]() - 13/10/2022 a 06/11/2022
+- [x] [SPRINT 3](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-3.md) - 13/10/2022 a 06/11/2022
 
 - [ ] [SPRINT 4]() - 07/11/2022 a 27/11/2022
 
@@ -105,7 +102,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 🔖 SPRINT 2 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-2.md)):  Concluído ☑️
 
-🔖 SPRINT 3 ([Link da Pasta]()):  Aguardando 🚧
+🔖 SPRINT 3 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-3.md)):  Em Andamento 🕗
 
 🔖 SPRINT 4 ([Link da Pasta]()):  Aguardando 🚧
 
