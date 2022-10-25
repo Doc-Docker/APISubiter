@@ -21,12 +21,12 @@ Temos um desafio de sincronização dos dados administrativos, financeiros e ope
 Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para primeira sprint são:
 - **RF 06:** Modelagem do Banco de Dados
 - **RF 07:** Front-end para entrada e interpretação de dados
+- **RNF 11:** GIT (Requisito Exigido Fatec)
 - **RF 17:** Níveis de Acesso (Cliente, Suporte, Admin)
+- **RF 19:** Melhorias e Correção de Bugs
 - **RF 20:** Agendamento dos Chamados
 - **RF 21:** Equipamentos no Estoque
 - **RF 22:** Melhoria no layout das telas
-- **RF 19:** Melhorias e Correção de Bugs
-- **RNF 11:** GIT (Requisito Exigido Fatec)
   
 <br>
  
