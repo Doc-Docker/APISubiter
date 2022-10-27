@@ -11,55 +11,56 @@ const routes = [
     component: AppView,
     children: [
       {
+        path: '/',
+        component: () => import('../views/HomeView.vue')
+      },
+      {
         path: '/servicos',
-        component: () =>('../views/ListagemServicosView.vue')
+        component: () => import('../views/ListagemServicosView.vue')
       },
       {
         path: '/equipamentos',
-        component: () =>('../views/ListagemEquipamentoView.vue')
+        component: () => import('../views/ListagemEquipamentoView.vue')
       },
       {
         path: '/SuporteChamados',
-        component: () =>('../views/ListagemChamadoSuporteView.vue')
+        component: () => import('../views/ListagemChamadoSuporteView.vue')
       },
       {
         path: '/empresas',
-        component: () =>('../views/ListagemEmpresaView.vue')
+        component: () => import('../views/ListagemEmpresaView.vue')
       },
       {
         path: '/ChamadoCliente',
-        component: () =>('../views/ListagemChamadoClienteView.vue')
+        component: () => import('../views/ListagemChamadoClienteView.vue')
       },
       {
         path: '/cadastroServicoManutencao',
-        component: () =>('../views/CadastroServicoManutencaoView.vue')
+        component: () => import('../views/CadastroServicoManutencaoView.vue')
       },
       {
         path: '/cadastroServicoInstalacao',
-        component: () =>('../views/CadastroServicoInstalacaoView.vue')
+        component: () => import('../views/CadastroServicoInstalacaoView.vue')
       },
       {
         path: '/cadastroEquipamentos',
-        component: () =>('../views/CadastroEquipamentoView.vue')
+        component: () => import('../views/CadastroEquipamentoView.vue')
       },
       {
-
         path: '/cadastroEmpresas',
-        component: () =>('../views/CadastroEmpresaView.vue')
+        component: () => import('../views/CadastroEmpresaView.vue')
       },
       {
-
         path: '/cadastroUsuario',
-        component: () =>('../views/CadastroUsuarioView.vue')
+        component: () => import('../views/CadastroUsuarioView.vue')
       },
       {
         path: '/usuarios',
-        component: () =>('../views/ListagemUsuariosView.vue')
-
+        component: () => import('../views/ListagemUsuariosView.vue')
       },
       {
         path: '/cadastroChamado',
-        component: () =>('../views/CadastroChamadoView.vue')
+        component: () => import('../views/CadastroChamadoView.vue')
       }
     ]
   }
