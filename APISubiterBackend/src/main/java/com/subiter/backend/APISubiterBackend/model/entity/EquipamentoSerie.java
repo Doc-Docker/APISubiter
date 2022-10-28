@@ -32,36 +32,33 @@ import com.subiter.backend.APISubiterBackend.config.View;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class EquipamentoSerie implements Serializable{
+public class EquipamentoSerie {
 
-    private static final long serialVersionUID = 1L;
+	@Id
+	@GenericGenerator(name = "system-uuid", strategy = "uuid")
+	@Column(name = "serie_equipamento")
+	@JsonView({ View.EquipamentoSerieView.class, View.InstalacaoView.class, View.EquipamentoView.class })
+	private String id;
 
-    @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    @Column(name = "serie_equipamento")
-    @JsonView({View.EquipamentoSerieView.class, View.InstalacaoView.class, View.EquipamentoView.class})
-    private String id;
+	@OneToOne(mappedBy = "equipamentoSerie")
+	@JsonView({ View.EquipamentoSerieView.class, View.InstalacaoView.class })
+	private Equipamento equipamento;
 
-    @OneToOne(mappedBy = "equipamentoSerie")
-    @JsonView({View.EquipamentoSerieView.class, View.InstalacaoView.class})
-    private Equipamento equipamento;
+	@Column(name = "serie_disponivel")
+	@JsonView({ View.EquipamentoSerieView.class, View.EquipamentoView.class })
+	private Boolean disponibilidade;
 
-    @Column(name = "serie_disponivel")
-    @JsonView({View.EquipamentoSerieView.class, View.EquipamentoView.class})
-    private Boolean disponibilidade;
+	@Column(name = "serie_data_entrada", updatable = false)
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	@JsonView({ View.EquipamentoSerieView.class })
+	private LocalDate dataCadastro;
 
-    @Column(name = "serie_data_entrada", updatable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @JsonView({View.EquipamentoSerieView.class})
-    private LocalDate dataCadastro;
+	@OneToMany(mappedBy = "equipamentoSerieInstalacao", cascade = CascadeType.ALL)
+	@JsonView({ View.EquipamentoSerieView.class })
+	private List<Instalacao> instalacaos;
 
-    @OneToMany(mappedBy = "equipamentoSerieInstalacao", cascade = CascadeType.ALL)
-    @JsonView({View.EquipamentoSerieView.class})
-    private List<Instalacao> instalacaos;
-
-    @PrePersist
-    public void presPersist(){
-        setDataCadastro(LocalDate.now());
-    }
+	@PrePersist
+	public void presPersist() {
+		setDataCadastro(LocalDate.now());
+	}
 }

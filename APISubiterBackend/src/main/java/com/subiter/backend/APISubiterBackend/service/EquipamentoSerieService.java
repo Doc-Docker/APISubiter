@@ -26,7 +26,7 @@ public class EquipamentoSerieService {
         return equipamentoSerieRepository.findAll();
     }
 
-    public EquipamentoSerie getUserById(Integer id) {
+    public EquipamentoSerie getUserById(String id) {
 
         return equipamentoSerieRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamneto não encontrado."));
