@@ -40,7 +40,8 @@
         <div class="row">
           <div class="col-md-6">
             <label for="exampleFormControlInput1" class="form-label">Empresa</label>
-            <select class="form-control" v-model="usuario.empresa.id" default="" >
+            <br>
+            <select class="col-md-12" v-model="usuario.empresa.id" default="" >
               <option v-for="empresa in empresas" v-bind:key="empresa.id" v-bind:value="empresa.id">
                 {{ empresa.name }}
               </option>

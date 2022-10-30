@@ -14,11 +14,11 @@
       <tbody>
         <tr v-for="(servico, i) in servicos" :key="i">
           <td>{{ servico.id }}</td>
-          <td>{{ servico.tipoServico }}</td>
+          <td>{{ servico.tipoServico.nome }}</td>
           <td>{{ servico.descricao }}</td>
-          <td>{{ servico.empresaServico }}</td>
+          <td>{{ servico.empresaServico.name }}</td>
           <td>
-            <button class="btn btn-primary m-1" @click="editar(servico, servico.idEmpresaServico)">Editar</button>
+            <button class="btn btn-primary m-1" @click="editar(servico, servico.empresaServico.name)">Editar</button>
 
             <button class="btn btn-danger" @click="deletar(servico.id)">
               Deletar
@@ -39,8 +39,8 @@
             <label for="exampleFormControlInput1" class="form-label"
               >Empresa</label
             >
-             <select v-model="servico.empresaServico" class="form-select" aria-label="Default select example" >
-              <option v-for="(empresa, e) in empresas" :key="e" v-bind:value="empresa.id" >{{empresa.name}}</option>
+             <select v-model="servico.empresaServico.name" class="form-select" aria-label="Default select example" >
+              <option v-for="(empresa, e) in empresas" :key="e" v-bind:value="empresa.name" >{{empresa.name}}</option>
             </select>
           </div>
         </div>
@@ -64,12 +64,14 @@
       <button class="btn btn-success">Salvar</button>
     </form>
 
+
   </div>
 </template>
 
 <script>
 import Servico from "../services/servicos";
 import Empresa from "../services/empresas";
+
 
 export default {
   name: "ListagemServicosView",
@@ -80,9 +82,19 @@ export default {
       empresas: [],
       servico: {
         id:"",
-        tipoServico: "",
+        tipoServico: {},
         descricao: "",
-        empresaServico: ""
+        empresaServico: {}
+      },
+      servicoDto: {
+        id:"",
+        descricao: "",
+        empresaServico: {
+          id:""
+        },
+        tipoServico: {
+          id:""
+        }
       },
     };
   },
@@ -102,19 +114,26 @@ export default {
         alert("Deletado com Sucesso");
       });
     },
-    editar(servico, idEmpresa) {
+    editar(servico, nomeEmpresaServico) {
       this.servico = servico;
-      this.servico.empresaServico = idEmpresa;
-    },
 
+      this.servico.empresaServico.name = nomeEmpresaServico;
+    },
+  
     salvar(){
+
+      this.servicoDto.id = this.servico.id
+      this.servicoDto.descricao = this.servico.descricao
+      this.servicoDto.empresaServico.id = this.servico.empresaServico.id
+      this.servicoDto.tipoServico.id = this.servico.tipoServico.id
+
       if(this.servico.tipoServico == 'Manutenção'){
-        this.servico.tipoServico = 3
+        this.servico.tipoServico.id = 3
       }
       else if(this.servico.tipoServico == 'Instalação'){
-        this.servico.tipoServico = 2
+        this.servico.tipoServico.id = 2
       }
-      Servico.atualizar(this.servico).then(()=>{
+      Servico.atualizar(this.servicoDto).then(()=>{
         this.servico = {}
         alert('Atualizado com sucesso!')
         this.listar()

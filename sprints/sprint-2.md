@@ -7,7 +7,6 @@
 <p align="center">
     <a href="#objetivos">Objetivos da sprint</a> &nbsp |&nbsp &nbsp
     <a href="#entregas">Entregas</a> &nbsp |&nbsp &nbsp
-    <a href="#apresentacao">Vídeo</a> &nbsp |&nbsp &nbsp
     <a href="#burndown">Burndown</a> &nbsp |&nbsp &nbsp
     <a href="#backlogs">Backlogs</a>
 </p>
@@ -44,14 +43,44 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
     
 ### :heavy_check_mark: RF 06: Modelagem do Banco de Dados
  
-<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Modelo-Subiter_versao3.png" /></h1>  
-   
-<br>
-
-<span id="apresentacao">
+Atualizamos a modelagem do banco de dados para relacionamento das tabelas de "CHAMADO" e "AGENDAMENTO_CHAMADO" conforme abaixo. Nas próximas sprints iremos vincular os dados da aplicação na nuvem, pois no momento estamos utilizando o H2 (sistema de gerenciamento de banco de dados relacional escrito em Java) para armazenamento dos dados.
     
-## 🚀 Apresentação SPRINT 1
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Modelo%20Subiter_sprint2-1.png" /></h1>  
 
+### :heavy_check_mark: RF 14: Registro de Chamados
+
+Nessa tela o cliente conseguirá abrir um novo chamado para prestação de serviço ou suporte, com as seguintes opções:
+    
+Conforme alinhado com a empresa, implementamos um sistema de "Criticidade do Chamado" onde o cliente pode colocar o nível de urgência daquele pedido, podendo optar por "Baixo, Médio, Alto". Também temos o campo com o "Tipo de Chamado" que irá especificar qual serviço o suporte deverá prestar nesse caso.
+ 
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/telaCadChamado.png" /></h1>  
+    
+### :heavy_check_mark: RF 15: Status dos Chamados (Listagem Cliente)
+    
+O cliente poderá visualizar e acompanhar suas solicitações, sendo possível verificar os status de cada chamado (Aberto, Em Andamento, Encerrado).
+    
+Também temos os campos abaixo que exibem mais informações dos chamados:
+    
+- Tipo de Chamado (Serviços)
+- Criticidade
+- Data de Abertura do Chamado
+- Situação (Status)
+- Solução (enviada pelo acesso do Suporte)
+- Data de encerramento do chamado
+- Opção de editar seu próprio chamado
+
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/telaChamadoCliente.png" /></h1>  
+    
+### :heavy_check_mark: RF 16: Listagem dos Chamados (Suporte)
+
+O usuário do tipo Suporte conseguirá acompanhar as solicitações abertas pelo cliente e retornar com uma solução (nas próximas sprints iremos implementar um sistema de agendamento para os serviços).
+    
+É possível acompanhar os status dos chamados e escolher entre a opção de aceitar ou não, o suporte pode retornar com a solução do problema preenchendo o campo texto, conforme abaixo:
+
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/telaChamadoSuporte.png" /></h1>  
+
+→ [Voltar ao topo](#topo)
+    
 <br>
     
 <span id="burndown">
@@ -64,7 +93,7 @@ Em prol de um melhor aproveitamento das habilidades de cada integrante, o time f
     
 <div align="center">
     
-![Burndown Chart]()
+![Burndown Chart](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/burndown-2.png)
 </div>
 
 <br>
@@ -75,6 +104,8 @@ Em prol de um melhor aproveitamento das habilidades de cada integrante, o time f
 
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto_2.png" /></h1>
 
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/user_stories.png" /></h1>
+    
 <br>
 
 ## :dart: Backlog das Sprints

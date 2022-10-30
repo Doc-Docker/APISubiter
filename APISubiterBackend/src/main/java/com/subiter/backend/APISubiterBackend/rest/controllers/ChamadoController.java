@@ -44,8 +44,10 @@ public class ChamadoController {
         return chamadoService.getChamadoById(id);
     }
     
+
     @PreAuthorize("hasAnyRole('CLIENT', 'SUPORTE')")
     @PutMapping("/{id}")
+
     @JsonView(View.ChamadoView.class)
     public Chamado updateEmpresaById(@PathVariable Integer id, @RequestBody Chamado chamado){
 

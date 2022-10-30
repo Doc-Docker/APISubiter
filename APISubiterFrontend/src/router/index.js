@@ -1,82 +1,75 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-// Listagens
-import ListagemServicosView from '../views/ListagemServicosView.vue'
-import ListagemEquipamentoView from '../views/ListagemEquipamentoView.vue'
-
-import ListagemEmpresaView from '../views/ListagemEmpresaView.vue'
-import ListagemUsuarios from '../views/ListagemUsuariosView.vue'
-
-// Cadastros
-import CadastroServicoManutencao from '../views/CadastroServicoManutencaoView.vue'
-import CadastroServicoInstalacao from '../views/CadastroServicoInstalacaoView.vue'
-import CadastroEquipamento from '../views/CadastroEquipamentoView.vue'
-
-import CadastroEmpresa from '../views/CadastroEmpresaView.vue'
-
-import CadastroUsuario from '../views/CadastroUsuarioView.vue'
-
+import AppView from '../views/AppView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/servicos',
-    name: 'listagemServicos',
-    component: ListagemServicosView
-  },
-  {
-    path: '/equipamentos',
-    name: 'listagemEquipamentos',
-    component: ListagemEquipamentoView
-  },
-  {
-    path: '/empresas',
-    name: 'listagemEmpresas',
-    component: ListagemEmpresaView
-  },
-  {
-    path: '/cadastroServicoManutencao',
-    name: 'cadastroServicoManutencao',
-    component: CadastroServicoManutencao
-  },
-  {
-    path: '/cadastroServicoInstalacao',
-    name: 'cadastroServicoInstalacao',
-    component: CadastroServicoInstalacao
-  },
-  {
-    path: '/cadastroEquipamentos',
-    name: 'cadastroEquipamentos',
-    component: CadastroEquipamento
-  },
-  {
-
-    path: '/cadastroEmpresas',
-    name: 'cadastroEmpresas',
-    component: CadastroEmpresa
-  },
-  {
-
-    path: '/cadastroUsuario',
-    name: 'cadastroUsuario',
-    component: CadastroUsuario
-  },
-  {
-    path: '/usuarios',
-    name: 'listagemUsuarios',
-    component: ListagemUsuarios
-
+    name: 'app',
+    component: AppView,
+    children: [
+      {
+        path: '/',
+        component: () => import('../views/HomeView.vue')
+      },
+      {
+        path: '/servicos',
+        component: () => import('../views/ListagemServicosView.vue')
+      },
+      {
+        path: '/equipamentos',
+        component: () => import('../views/ListagemEquipamentoView.vue')
+      },
+      {
+        path: '/SuporteChamados',
+        component: () => import('../views/ListagemChamadoSuporteView.vue')
+      },
+      {
+        path: '/empresas',
+        component: () => import('../views/ListagemEmpresaView.vue')
+      },
+      {
+        path: '/ChamadoCliente',
+        component: () => import('../views/ListagemChamadoClienteView.vue')
+      },
+      {
+        path: '/cadastroServicoManutencao',
+        component: () => import('../views/CadastroServicoManutencaoView.vue')
+      },
+      {
+        path: '/cadastroServicoInstalacao',
+        component: () => import('../views/CadastroServicoInstalacaoView.vue')
+      },
+      {
+        path: '/cadastroEquipamentos',
+        component: () => import('../views/CadastroEquipamentoView.vue')
+      },
+      {
+        path: '/cadastroEmpresas',
+        component: () => import('../views/CadastroEmpresaView.vue')
+      },
+      {
+        path: '/cadastroUsuario',
+        component: () => import('../views/CadastroUsuarioView.vue')
+      },
+      {
+        path: '/usuarios',
+        component: () => import('../views/ListagemUsuariosView.vue')
+      },
+      {
+        path: '/cadastroChamado',
+        component: () => import('../views/CadastroChamadoView.vue')
+      }
+    ]
   }
+
 ]
 
 const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 

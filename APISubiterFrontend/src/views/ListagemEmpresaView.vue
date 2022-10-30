@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-3 mt-3">
+    <div class="empresas">
       <div class="row">
         <div class="col-md-6">
           <h3>Empresas</h3>
@@ -33,6 +33,8 @@
           </tr>
         </tbody>
       </table>
+
+      
   
     <form @submit.prevent="salvar">
         <div class="mb-3 mt-3">
@@ -104,6 +106,7 @@
         </div>
         <button>Salvar</button>
       </form>
+
   
     </div>
   </template>
