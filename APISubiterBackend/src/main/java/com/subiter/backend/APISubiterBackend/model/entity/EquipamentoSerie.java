@@ -40,12 +40,12 @@ public class EquipamentoSerie {
 	@JsonView({ View.EquipamentoSerieView.class, View.InstalacaoView.class, View.EquipamentoView.class })
 	private String id;
 
-	@OneToOne(mappedBy = "equipamentoSerie")
+	@OneToMany(mappedBy = "equipamentoSerie")
 	@JsonView({ View.EquipamentoSerieView.class, View.InstalacaoView.class })
-	private Equipamento equipamento;
+	private List<Equipamento> equipamento;
 
 	@Column(name = "serie_disponivel")
-	@JsonView({ View.EquipamentoSerieView.class, View.EquipamentoView.class })
+	@JsonView({View.EquipamentoView.class })
 	private Boolean disponibilidade;
 
 	@Column(name = "serie_data_entrada", updatable = false)

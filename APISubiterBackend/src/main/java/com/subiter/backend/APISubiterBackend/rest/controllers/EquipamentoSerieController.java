@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,31 +25,38 @@ import com.subiter.backend.APISubiterBackend.service.EquipamentoSerieService;
 @RequestMapping("/api/equipamento-serie")
 public class EquipamentoSerieController {
 
-    @Autowired
-    private EquipamentoSerieService equipamentoSerieService;
+	@Autowired
+	private EquipamentoSerieService equipamentoSerieService;
 
-    @GetMapping
-    @JsonView(View.EquipamentoSerieView.class)
-    public List<EquipamentoSerie> getAllEquipamentoSerie() {
+	@GetMapping
+	@JsonView(View.EquipamentoSerieView.class)
+	public List<EquipamentoSerie> getAllEquipamentoSerie() {
 
-        return equipamentoSerieService.getAllEquipamentoSerie();
+		return equipamentoSerieService.getAllEquipamentoSerie();
 
-    }
+	}
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    @JsonView(View.EquipamentoSerieView.class)
-    public EquipamentoSerie sava(@RequestBody EquipamentoSerie equipamentoSerie) {
-        return equipamentoSerieService.save(equipamentoSerie);
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	@JsonView(View.EquipamentoSerieView.class)
+	public EquipamentoSerie sava(@RequestBody EquipamentoSerie equipamentoSerie) {
+		return equipamentoSerieService.save(equipamentoSerie);
 
-    }
+	}
 
-    @GetMapping("/{id}")
-    @JsonView(View.EquipamentoSerieView.class)
-    public EquipamentoSerie getByIdEquipamentoSerie(@PathVariable String id) {
+	@GetMapping("/{id}")
+	@JsonView(View.EquipamentoSerieView.class)
+	public EquipamentoSerie getByIdEquipamentoSerie(@PathVariable String id) {
 
-        return equipamentoSerieService.getUserById(id);
+		return equipamentoSerieService.getUserById(id);
 
-    }
+	}
+   
+	@DeleteMapping("/{id}")
+	@JsonView(View.EquipamentoSerieView.class)
+	public void delete(@RequestBody String id) {
+		System.out.println(id);
+		 equipamentoSerieService.delete(id);
+	}
 
 }

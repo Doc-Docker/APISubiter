@@ -19,8 +19,8 @@ public class EquipamentoService {
     @Autowired
     private EquipamentoSerieRepository equipamentoSerieRepository;
 
-	public Equipamento save(Equipamento equipamento, String id) {
-        EquipamentoSerie novoEquipamentoSerie = equipamentoSerieRepository.getById(id);
+	public Equipamento save(Equipamento equipamento) {
+        EquipamentoSerie novoEquipamentoSerie = equipamentoSerieRepository.getById(equipamento.getEquipamentoSerie().getId());
         equipamento.setEquipamentoSerie(novoEquipamentoSerie);
 		return equipamentoRepository.save(equipamento);
 	}

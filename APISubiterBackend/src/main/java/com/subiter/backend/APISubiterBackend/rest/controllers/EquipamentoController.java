@@ -28,15 +28,15 @@ public class EquipamentoController {
     @Autowired
     private EquipamentoService equipamentoService;
 
-    @PostMapping("/{id-serie}")
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.EquipamentoView.class)
-    public Equipamento saveEquipamento(@RequestBody @Valid Equipamento equipamento, @RequestParam("test") String id) {
+    public Equipamento saveEquipamento(@RequestBody @Valid Equipamento equipamento) {
 
-        return equipamentoService.save(equipamento, id);
+        return equipamentoService.save(equipamento);
     }
 
-    @GetMapping
+    @GetMapping()
     @JsonView(View.EquipamentoView.class)
     public List<Equipamento> getAllEquipamentos() {
 
