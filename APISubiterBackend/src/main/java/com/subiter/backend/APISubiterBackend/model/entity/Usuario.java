@@ -4,6 +4,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.subiter.backend.APISubiterBackend.config.View;
 
@@ -31,6 +32,12 @@ public class Usuario implements Serializable{
     private String name;
 
     // private String tipo_user;
+
+    private String email;
+
+    @JsonManagedReference
+    @OneToOne(mappedBy = "usuario")
+    private ApplicationUser applicationUser;
 
     // private String senha_usuario;
 
