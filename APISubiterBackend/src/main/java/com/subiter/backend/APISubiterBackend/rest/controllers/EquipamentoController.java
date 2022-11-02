@@ -4,6 +4,7 @@ import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -28,7 +29,12 @@ public class EquipamentoController {
     @Autowired
     private EquipamentoService equipamentoService;
 
+<<<<<<< HEAD
     @PostMapping()
+=======
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PostMapping
+>>>>>>> c6489e70723ce36bab766eae8ae5c5b7d288b8d5
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.EquipamentoView.class)
     public Equipamento saveEquipamento(@RequestBody @Valid Equipamento equipamento) {
@@ -36,13 +42,19 @@ public class EquipamentoController {
         return equipamentoService.save(equipamento);
     }
 
+<<<<<<< HEAD
     @GetMapping()
+=======
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
+    @GetMapping
+>>>>>>> c6489e70723ce36bab766eae8ae5c5b7d288b8d5
     @JsonView(View.EquipamentoView.class)
     public List<Equipamento> getAllEquipamentos() {
 
         return equipamentoService.fidAll();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping("/{id}")
     @JsonView(View.EquipamentoView.class)
     public Equipamento getByEquipamentoId(@PathVariable Integer id) {
@@ -50,6 +62,7 @@ public class EquipamentoController {
         return equipamentoService.getEquipamnetoById(id);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping("/{id}")
     @JsonView(View.EquipamentoView.class)
     public Equipamento dupdateEquipamentoById(@PathVariable Integer id, @RequestBody Equipamento equipamento){
@@ -57,6 +70,7 @@ public class EquipamentoController {
         return equipamentoService.updateEquipamentoById(id, equipamento);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping("/{id}")
     @JsonView(View.EquipamentoView.class)
     public void deleteEquipamentoById(@PathVariable Integer id){

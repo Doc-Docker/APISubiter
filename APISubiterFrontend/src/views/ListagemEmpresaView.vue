@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-3 mt-3">
+    <div class="empresas">
       <div class="row">
         <div class="col-md-6">
           <h3>Empresas</h3>

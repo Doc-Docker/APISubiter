@@ -2,6 +2,7 @@ package com.subiter.backend.APISubiterBackend.rest.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -18,6 +19,7 @@ public class EmpresaController {
     @Autowired
     private EmpresaService empresaService;
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping
     @JsonView(View.EmpresaView.class)
     public List<Empresa> getAllEnterprises(){
@@ -25,6 +27,7 @@ public class EmpresaController {
         return empresaService.getAllEnterprises();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.EmpresaView.class)
@@ -33,6 +36,7 @@ public class EmpresaController {
         return empresaService.save(empresa);  
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping("/{id}")
     @JsonView(View.EmpresaView.class)
     public Empresa getEnterpriseById(@PathVariable Integer id){
@@ -40,6 +44,7 @@ public class EmpresaController {
         return empresaService.getEnterpriseById(id);
     }
     
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping("/{id}")
     @JsonView(View.EmpresaView.class)
     public Empresa updateEmpresaById(@PathVariable Integer id, @RequestBody Empresa empresa){
@@ -47,6 +52,7 @@ public class EmpresaController {
         return empresaService.updateEmpresaById(id, empresa);
     }
     
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping("/{id}")
     @JsonView(View.EmpresaView.class)
     public void deleteEmpresaById(@PathVariable Integer id){
