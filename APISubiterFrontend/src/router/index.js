@@ -11,6 +11,7 @@ const routes = [
     component: AppView,
     children: [
       {
+        name: 'Home',
         path: '/',
         component: () => import('../views/HomeView.vue')
       },
