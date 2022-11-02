@@ -42,11 +42,11 @@ public class Bootstrap implements CommandLineRunner {
 		Role roleClient = new Role(null, "ROLE_CLIENT");
         Role roleSuporte = new Role(null, "ROLE_SUPORTE");
 
-		roleRepository.saveAll(Arrays.asList(roleClient, roleAdmin, roleSuporte));
+		//roleRepository.saveAll(Arrays.asList(roleClient, roleAdmin, roleSuporte));
 
         ApplicationUser applicationUser = new ApplicationUser(null, "admin@gmail.com", null, "admin", new Role());
         
-        applicationUserService.saveApplicationUserAsAdmin(applicationUser);
+       // applicationUserService.saveApplicationUserAsAdmin(applicationUser);
 
         Empresa empresa = new Empresa();
         empresa.setCnpj("44999681000119");
@@ -54,6 +54,6 @@ public class Bootstrap implements CommandLineRunner {
         empresa.setEndereco("Rua olinda");
         empresa.setContato("33223342");
 
-        empresaService.save(empresa);
+        //empresaService.save(empresa);
     }
 }

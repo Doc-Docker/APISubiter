@@ -28,7 +28,7 @@ public class UsuarioController {
     @Autowired
     private ApplicationUserService applicationUserService;
     
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
+   // @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @JsonView(View.UsuarioView.class)
     @GetMapping
     public List<Usuario> getAllUsers(){
@@ -36,7 +36,7 @@ public class UsuarioController {
         return usuarioService.getAllUsers();
     }
 
-    @PostMapping("/auth/signup/client")
+   // @PostMapping("/auth/signup/client")
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.UsuarioView.class)
     public ResponseEntity<Void> saveUserClient(@RequestBody @Valid UsuarioDto usuarioDto){
@@ -59,7 +59,7 @@ public class UsuarioController {
         return ResponseEntity.created(uri).build();
     }
 
-    @PostMapping("/auth/signup/suporte")
+    //@PostMapping("/auth/signup/suporte")
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.UsuarioView.class)
     public ResponseEntity<Void> saveUserSuporte(@RequestBody @Valid UsuarioDto usuarioDto){
@@ -82,7 +82,7 @@ public class UsuarioController {
         return ResponseEntity.created(uri).build();
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
+   // @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping("/{id}")
     @JsonView({View.UsuarioView.class})
     public Usuario getUserById(@PathVariable Integer id){

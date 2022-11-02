@@ -29,12 +29,9 @@ public class EquipamentoController {
     @Autowired
     private EquipamentoService equipamentoService;
 
-<<<<<<< HEAD
-    @PostMapping()
-=======
+
     @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
->>>>>>> c6489e70723ce36bab766eae8ae5c5b7d288b8d5
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.EquipamentoView.class)
     public Equipamento saveEquipamento(@RequestBody @Valid Equipamento equipamento) {
@@ -42,12 +39,9 @@ public class EquipamentoController {
         return equipamentoService.save(equipamento);
     }
 
-<<<<<<< HEAD
-    @GetMapping()
-=======
+
     @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping
->>>>>>> c6489e70723ce36bab766eae8ae5c5b7d288b8d5
     @JsonView(View.EquipamentoView.class)
     public List<Equipamento> getAllEquipamentos() {
 
