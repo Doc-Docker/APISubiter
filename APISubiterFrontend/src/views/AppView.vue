@@ -1,6 +1,6 @@
 <template>
 <div id="appView">
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-light" >
         <div class="container-fluid">
             <router-link class="navbar-brand" to="/">
                 <img src="../assets/logo.png" alt="" width="100" height="56" />
