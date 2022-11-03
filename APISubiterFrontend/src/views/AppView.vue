@@ -1,6 +1,6 @@
 <template>
   <div id="appView">
-    <nav class="navbar navbar-expand-lg bg-light" v-if="notIsLoginPage">
+    <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <router-link class="navbar-brand" to="/">
           <img src="../assets/logo.png" alt="" width="100" height="56" />
@@ -154,11 +154,6 @@ export default {
     return {
       rule: "",
     };
-  },
-  computed: {
-    notIsLoginPage() {
-      return this.$route.path !== "/login";
-    },
   },
   methods: {
     getRule() {
