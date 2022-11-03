@@ -134,7 +134,11 @@
     },
     methods: {
       listar() {
-        Empresa.listar().then((resposta) => {
+        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+
+        console.log(token)
+
+        Empresa.listar(token).then((resposta) => {
           this.empresas = resposta.data;
         });
       },

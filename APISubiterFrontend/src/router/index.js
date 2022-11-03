@@ -11,8 +11,13 @@ const routes = [
     component: AppView,
     children: [
       {
+        name: 'Home',
         path: '/',
         component: () => import('../views/HomeView.vue')
+      },
+      {
+        path: '/login',
+        component: () => import('../views/LoginView.vue')
       },
       {
         path: '/servicos',
