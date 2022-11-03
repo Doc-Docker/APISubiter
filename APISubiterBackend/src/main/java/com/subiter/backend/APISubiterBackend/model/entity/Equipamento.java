@@ -29,20 +29,20 @@ public class Equipamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "codigo_equipamento")
-	@JsonView({ View.EquipamentoView.class })
+	@JsonView({ View.EquipamentoView.class, View.EquipamentoSerieView.class })
 	private Integer id;
 
 	@Column(name = "nome_equipamento", nullable = false, length = 40)
 	@NotEmpty(message = "O Campo nome é obrigatório")
-	@JsonView({ View.EquipamentoView.class })
+	@JsonView({ View.EquipamentoView.class, View.EquipamentoSerieView.class })
 	private String nomeEquipamento;
 
 	@Column(name = "descricao_equipamento", length = 60)
-	@JsonView({ View.EquipamentoView.class })
+	@JsonView({ View.EquipamentoView.class, View.EquipamentoSerieView.class })
 	private String descricao;
 
 	@Column(name = "fabricante_equipamento", length = 30)
-	@JsonView({ View.EquipamentoView.class })
+	@JsonView({ View.EquipamentoView.class, View.EquipamentoSerieView.class })
 	private String fabricante;
 
 	@OneToOne(mappedBy = "equipamento",cascade = CascadeType.ALL)

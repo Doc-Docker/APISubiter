@@ -29,7 +29,6 @@ import com.subiter.backend.APISubiterBackend.config.View;
 public class EquipamentoSerie {
 
 	@Id
-	@GenericGenerator(name = "system-uuid", strategy = "uuid")
 	@Column(name = "serie_equipamento")
 	@JsonView({ View.EquipamentoSerieView.class, View.InstalacaoView.class, View.EquipamentoView.class })
 	private String id;
