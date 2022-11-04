@@ -64,7 +64,6 @@
 
       <button class="btn btn-success">Salvar</button>
     </form>
-    <div>{{usuario}}</div>
   </div>
 </template>
 
