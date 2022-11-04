@@ -82,7 +82,7 @@ public class UsuarioController {
         return ResponseEntity.created(uri).build();
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
+   // @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
     @GetMapping("/{id}")
     @JsonView({View.UsuarioView.class})
     public Usuario getUserById(@PathVariable Integer id){

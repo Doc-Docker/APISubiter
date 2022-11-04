@@ -15,6 +15,11 @@ const routes = [
         component: () => import('../views/HomeView.vue')
       },
       {
+        name: 'Home',
+        path: '/',
+        component: () => import('../views/HomeView.vue')
+      },
+      {
         path: '/servicos',
         component: () => import('../views/ListagemServicosView.vue')
       },
@@ -23,12 +28,16 @@ const routes = [
         component: () => import('../views/ListagemEquipamentoView.vue')
       },
       {
-        path: '/SuporteChamados',
-        component: () => import('../views/ListagemChamadoSuporteView.vue')
-      },
-      {
         path: '/empresas',
         component: () => import('../views/ListagemEmpresaView.vue')
+      },
+      {
+        path: '/usuarios',
+        component: () => import('../views/ListagemUsuariosView.vue')
+      },
+      {
+        path: '/SuporteChamados',
+        component: () => import('../views/ListagemChamadoSuporteView.vue')
       },
       {
         path: '/ChamadoCliente',
@@ -55,16 +64,15 @@ const routes = [
         component: () => import('../views/CadastroUsuarioView.vue')
       },
       {
-        path: '/usuarios',
-        component: () => import('../views/ListagemUsuariosView.vue')
-      },
-      {
         path: '/cadastroChamado',
         component: () => import('../views/CadastroChamadoView.vue')
       }
     ]
+  },
+  {
+    path: '/login',
+    component: () => import('../views/LoginView.vue')
   }
-
 ]
 
 const router = new VueRouter({
