@@ -21,23 +21,12 @@
               </a>
               <ul class="dropdown-menu">
                 <!-- Rotas -->
-                <li v-if="this.rule === 'ROLE_ADMIN'">
-                  <router-link
-                    class="dropdown-item"
-                    to="/cadastroServicoInstalacao"
-                  >
-                    Serviço de instalação
-                  </router-link>
-                </li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
                 <li>
                   <router-link
                     class="dropdown-item"
-                    to="/cadastroServicoManutencao"
+                    to="/cadastroServicoInspecao"
                   >
-                    Serviço de manutenção
+                    Serviço de inspeção 
                   </router-link>
                 </li>
                 <li>

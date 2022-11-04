@@ -104,7 +104,9 @@
     },
     methods:{
       salvar(){
-        Equipamento.salvar(this.equipamento).then(() => {
+        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+
+        Equipamento.salvar(this.equipamento, token).then(() => {
           alert('Salvo com sucesso')
         })
         

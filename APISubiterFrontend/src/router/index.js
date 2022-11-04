@@ -40,12 +40,8 @@ const routes = [
         component: () => import('../views/ListagemChamadoClienteView.vue')
       },
       {
-        path: '/cadastroServicoManutencao',
-        component: () => import('../views/CadastroServicoManutencaoView.vue')
-      },
-      {
-        path: '/cadastroServicoInstalacao',
-        component: () => import('../views/CadastroServicoInstalacaoView.vue')
+        path: '/cadastroServicoInspecao',
+        component: () => import('../views/CadastroServicoInspecaoView.vue')
       },
       {
         path: '/cadastroEquipamentos',

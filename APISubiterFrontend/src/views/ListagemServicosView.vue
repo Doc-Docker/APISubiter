@@ -104,12 +104,17 @@ export default {
   },
   methods: {
     listar() {
-      Servico.listar().then((resposta) => {
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+
+      Servico.listar(token).then((resposta) => {
         this.servicos = resposta.data;
+
+        console.log(token)
       });
     },
     deletar(id) {
-      Servico.deletar(id).then(() => {
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+      Servico.deletar(id, token).then(() => {
         this.listar();
         alert("Deletado com Sucesso");
       });
@@ -121,7 +126,7 @@ export default {
     },
   
     salvar(){
-
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
       this.servicoDto.id = this.servico.id
       this.servicoDto.descricao = this.servico.descricao
       this.servicoDto.empresaServico.id = this.servico.empresaServico.id
@@ -133,7 +138,7 @@ export default {
       else if(this.servico.tipoServico == 'Instalação'){
         this.servico.tipoServico.id = 2
       }
-      Servico.atualizar(this.servicoDto).then(()=>{
+      Servico.atualizar(this.servicoDto, token).then(()=>{
         this.servico = {}
         alert('Atualizado com sucesso!')
         this.listar()
@@ -141,7 +146,8 @@ export default {
     },
 
     listarEmpresas() {
-      Empresa.listar().then((resposta) => {
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+      Empresa.listar(token).then((resposta) => {
         this.empresas = resposta.data;
       });
     }

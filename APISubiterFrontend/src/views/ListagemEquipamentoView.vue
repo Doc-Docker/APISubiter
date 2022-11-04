@@ -115,7 +115,10 @@
     },
     methods: {
       listar() {
-        Equipamento.listar().then((resposta) => {
+
+        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+
+        Equipamento.listar(token).then((resposta) => {
           this.equipamentos = resposta.data;
         });
       },

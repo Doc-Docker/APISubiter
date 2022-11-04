@@ -137,7 +137,8 @@ export default {
 
   methods: {
     listar() {
-      Usuario.listar().then((resposta) => {
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+      Usuario.listar(token).then((resposta) => {
         this.usuarios = resposta.data;
       });
     },
@@ -156,7 +157,8 @@ export default {
       });
     },
     listarEmpresas(){
-      Empresa.listar().then((resp) => {
+       let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+      Empresa.listar(token).then((resp) => {
         this.empresas = resp.data;
       })
     }

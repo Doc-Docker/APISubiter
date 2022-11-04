@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col-md-6">
             <label for="exampleFormControlInput2" class="form-label">E-mail</label>
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control"  v-model="usuario.email"/>
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@
         <div class="row">
           <div class="col-md-6">
             <label for="exampleFormControlInput1" class="form-label">Senha</label>
-            <input type="password" class="form-control" />
+            <input type="password" class="form-control"  v-model="usuario.password"/>
           </div>
         </div>
       </div>
@@ -42,9 +42,7 @@
             <label for="exampleFormControlInput1" class="form-label">Empresa</label>
             <br>
             <select class="col-md-12" v-model="usuario.empresa.id" default="" >
-              <option v-for="empresa in empresas" v-bind:key="empresa.id" v-bind:value="empresa.id">
-                {{ empresa.name }}
-              </option>
+              <option v-for="(empresa, e) in empresas" :key="e" v-bind:value="empresa.id" >{{empresa.name}}</option>
             </select>
           </div>
         </div>
@@ -55,17 +53,18 @@
         <div class="row">
           <div class="col-md-6">
             <label for="exampleFormControlInput1" class="form-label">Tipo usuário</label>
-            <select class="form-control" default="" >
-              <option id="CLI">Cliente</option>
-              <option id="SUPORTE">Suporte</option>
-              <option id="ADMIN">Administrador</option>
+            <select class="form-control" v-model="tipoUsuario" default="" >
+              <option id="SUPORTE">suporte</option>
+              <option id="ADMIN">client</option>
             </select>
           </div>
         </div>
       </div>
+      
 
       <button class="btn btn-success">Salvar</button>
     </form>
+    <div>{{usuario}}</div>
   </div>
 </template>
 
@@ -88,10 +87,13 @@ export default {
       empresas: [],
       usuario: {
         name: "",
+        email:"",
+        password:"",
         empresa: {
           "id" : ""
         }
-      }
+      },
+      tipoUsuario:""
     };
   },
 
@@ -101,13 +103,15 @@ export default {
 
   methods: {
     salvar(){
-      Usuario.salvar(this.usuario).then(() => {
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+      Usuario.salvar(this.usuario, token, this.tipoUsuario).then(() => {
         alert('Salvo com sucesso')
       });
     },
 
     listarEmpresas(){
-      Empresa.listar().then((resp) => {
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+      Empresa.listar(token).then((resp) => {
         this.empresas = resp.data;
       })
     }

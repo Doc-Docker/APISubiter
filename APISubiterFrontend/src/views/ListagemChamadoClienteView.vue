@@ -142,7 +142,9 @@
     },
     methods: {
       listar() {
-        Chamado_Cliente.listar().then((resposta) => {
+        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+
+        Chamado_Cliente.listar(token).then((resposta) => {
           const resp = resposta.data;
           const result = resp.filter(resp => resp.usuarioChamado.name === "usuario.cliente");
           this.chamado_clientes = result;

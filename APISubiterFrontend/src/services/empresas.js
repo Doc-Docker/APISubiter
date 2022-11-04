@@ -5,8 +5,8 @@ export default{
         return http.get('/empresas',{headers:{Authorization: `Bearer ${token}`}})
     },
 
-    salvar:(empresa)=>{
-        return http.post('/empresas', empresa)
+    salvar:(empresa, token)=>{
+        return http.post('/empresas', empresa, {headers:{Authorization: `Bearer ${token}`}})
     },
 
     deletar:(id)=>{

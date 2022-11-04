@@ -1,12 +1,12 @@
 import {http} from './config'
 
 export default{
-    listar:() =>{
-        return http.get('/equipamentos')
+    listar:(token) =>{
+        return http.get('/equipamentos', {headers:{Authorization: `Bearer ${token}`}})
     },
 
-    salvar:(equipamento)=>{
-        return http.post('/equipamentos', equipamento)
+    salvar:(equipamento, token)=>{
+        return http.post('/equipamentos', equipamento,  {headers:{Authorization: `Bearer ${token}`}})
     },
 
     deletar:(id)=>{
