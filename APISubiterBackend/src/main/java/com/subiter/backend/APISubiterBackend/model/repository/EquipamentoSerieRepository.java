@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.subiter.backend.APISubiterBackend.model.entity.EquipamentoSerie;
 
 @Repository
-public interface EquipamentoSerieRepository extends JpaRepository<EquipamentoSerie, Integer>{
+public interface EquipamentoSerieRepository extends JpaRepository<EquipamentoSerie, String>{
 
 }

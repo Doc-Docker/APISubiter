@@ -13,52 +13,41 @@ import com.subiter.backend.APISubiterBackend.model.repository.EquipamentoSerieRe
 @Service
 public class EquipamentoService {
 
-    @Autowired
-    private EquipamentoRepository equipamentoRepository;
+	@Autowired
+	private EquipamentoRepository equipamentoRepository;
 
     @Autowired
     private EquipamentoSerieRepository equipamentoSerieRepository;
 
-    public Equipamento save(Equipamento equipamento) {
-        equipamento.setId(null);
+	public Equipamento save(Equipamento equipamento) {
+        EquipamentoSerie novoEquipamentoSerie = equipamentoSerieRepository.getById(equipamento.getEquipamentoSerie().getId());
+        equipamento.setEquipamentoSerie(novoEquipamentoSerie);
+		return equipamentoRepository.save(equipamento);
+	}
 
-        EquipamentoSerie equipamentoSerie = new EquipamentoSerie();
+	public List<Equipamento> fidAll() {
 
-        equipamentoSerie.setId(null);
+		return equipamentoRepository.findAll();
+	}
 
-        equipamentoSerie.setDisponibilidade(true);
+	public Equipamento getEquipamnetoById(Integer id) {
 
-        equipamentoSerieRepository.save(equipamentoSerie);
+		return equipamentoRepository.findById(id)
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamento não encontrado."));
+	}
 
-        equipamento.setEquipamentoSerie(equipamentoSerie);
+	public Equipamento updateEquipamentoById(Integer id, Equipamento equipamento) {
+		Equipamento equipamento_N = this.getEquipamnetoById(id);
 
-        return equipamentoRepository.save(equipamento);
-    }
+		equipamento_N.setDescricao(equipamento.getDescricao());
+		equipamento_N.setFabricante(equipamento.getFabricante());
+		equipamento_N.setNomeEquipamento(equipamento.getNomeEquipamento());
 
-    public List<Equipamento> fidAll() {
+		return equipamentoRepository.save(equipamento_N);
+	}
 
-        return equipamentoRepository.findAll();
-    }
+	public void deleteEquipamentoById(Integer id) {
 
-    public Equipamento getEquipamnetoById(Integer id) {
-        
-        return equipamentoRepository.findById(id).orElseThrow(() -> 
-        new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamento não encontrado."));
-    }
-
-    public Equipamento updateEquipamentoById(Integer id, Equipamento equipamento){
-    	Equipamento equipamento_N = this.getEquipamnetoById(id);
-    
-        equipamento_N.setDescricao(equipamento.getDescricao());
-        equipamento_N.setFabricante(equipamento.getFabricante());
-        equipamento_N.setNomeEquipamento(equipamento.getNomeEquipamento());
-
-    	return equipamentoRepository.save(equipamento_N);
-    }
-
-    public void deleteEquipamentoById(Integer id){
-
-        equipamentoRepository.deleteById(id);
-    }
+		equipamentoRepository.deleteById(id);
+	}
 }
-
