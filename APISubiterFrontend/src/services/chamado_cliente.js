@@ -1,8 +1,8 @@
 import {http} from './config'
 
 export default{
-    listar:() =>{
-        return http.get('/chamados')
+    listar:(token) =>{
+        return http.get('/chamados',{headers:{Authorization: `Bearer ${token}`}})
     },
 
     salvar:(chamado_cliente)=>{

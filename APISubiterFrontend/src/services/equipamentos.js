@@ -1,19 +1,19 @@
 import {http} from './config'
 
 export default{
-    listar:() =>{
-        return http.get('/equipamentos')
+    listar:(token) =>{
+        return http.get('/equipamentos', {headers:{Authorization: `Bearer ${token}`}})
     },
 
-    salvar:(equipamento)=>{
-        return http.post('/equipamentos', equipamento)
+    salvar:(equipamento, token)=>{
+        return http.post('/equipamentos', equipamento,  {headers:{Authorization: `Bearer ${token}`}})
     },
 
-    deletar:(id)=>{
-        return http.delete('/equipamentos/' + id)
+    deletar:(id, token)=>{
+        return http.delete('/equipamentos/' + id,  {headers:{Authorization: `Bearer ${token}`}})
     },
 
-    atualizar:(equipamento)=>{
-        return http.put('/equipamentos/' + equipamento.id , equipamento)
+    atualizar:(equipamento, token)=>{
+        return http.put('/equipamentos/' + equipamento.id , equipamento, {headers:{Authorization: `Bearer ${token}`}})
     }
 }

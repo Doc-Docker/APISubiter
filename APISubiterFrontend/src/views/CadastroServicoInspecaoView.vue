@@ -1,34 +1,15 @@
 <template>
   <div class="cadastroServicos">
-    <div
-      v-for="(erro, e) in erros"
-      :key="e"
-      class="alert alert-danger"
-      role="alert"
-    ></div>
     <form @submit.prevent="salvar">
       <div class="mb-3 mt-3">
         <div class="row">
           <div class="col-md-6">
-            <h3>Serviço de instalação</h3>
-          </div>
+            <h3>Serviço de inspeção</h3>
+          </div>  
         </div>
       </div>
-      <div class="mb-3">
-        <div class="row">
-          <div class="col-md-6">
-            <label for="exampleFormControlTextarea1" class="form-label"
-              >Id Serviço</label
-            >
-            <input
-              class="form-control"
-              type="text"
-              v-model="servico.tipoServico.id"
-              disabled
-            >
-          </div>
-        </div>
-      </div>
+
+
 
       <div class="mb-3">
         <div class="row">
@@ -42,6 +23,8 @@
           </div>
         </div>
       </div>
+      
+
 
       <div class="mb-5">
         <div class="row">
@@ -59,6 +42,7 @@
       </div>
       <button>Salvar</button>
     </form>
+    
   </div>
 </template>
 
@@ -69,17 +53,17 @@
 </style>
 
 <script>
-import Servico from "../services/servicos";
+import Servico from '../services/servicos'
 import Empresa from "../services/empresas";
 
-export default {
-  name: "CadastroServicosInstalacaoView",
+export default{
+  name: "CadastroServicosManutencaoView",
 
-  data() {
-    return {
-      servico: {
+  data(){
+    return{
+        servico: {
         tipoServico: {
-          id:"2"
+          id:"1"
         },
         descricao: "",
         empresaServico: {
@@ -88,28 +72,29 @@ export default {
       },
       TiposServicos:[],
       empresas: [],
-      erros: [],
-    };
+      erros: []
+    }
   },
   mounted() {
     this.listarEmpresas();
   },
-  methods: {
-    salvar() {
-      Servico.salvar(this.servico)
-        .then(() => {
-          alert("Salvo com sucesso");
-          this.erros = [];
-        })
-        .catch((e) => {
-          console.log(e.response.status);
-        });
+  methods:{
+    salvar(){
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+
+      Servico.salvar(this.servico, token).then(() => {
+        alert('Salvo com sucesso')
+        
+
+      })
+      
     },
     listarEmpresas() {
-      Empresa.listar().then((resposta) => {
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+      Empresa.listar(token).then((resposta) => {
         this.empresas = resposta.data;
       });
     }
-  },
+  }
 };
 </script>

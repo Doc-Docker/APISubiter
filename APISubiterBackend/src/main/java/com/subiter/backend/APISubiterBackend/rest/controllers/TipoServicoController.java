@@ -19,7 +19,7 @@ public class TipoServicoController {
     @Autowired
     private TipoServicoService tipoServicoService;
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE', 'CLIENT')")
     @GetMapping
     @JsonView(View.TipoServicoView.class)
     public List<TipoServico> getAllServicos(){

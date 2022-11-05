@@ -1,12 +1,12 @@
 import { http } from './config'
 
 export default{
-    listar:() =>{
-        return http.get('/usuarios')
+    listar:(token) =>{
+        return http.get('/usuarios', {headers:{Authorization: `Bearer ${token}`}})
     },
 
-    salvar:(usuario)=>{
-        return http.post('/usuarios', usuario)
+    salvar:(usuario, token, tipoUsuario)=>{
+        return http.post('/usuarios/auth/signup/' + tipoUsuario, usuario, {headers:{Authorization: `Bearer ${token}`}})
     },
 
     deletar:(id)=>{

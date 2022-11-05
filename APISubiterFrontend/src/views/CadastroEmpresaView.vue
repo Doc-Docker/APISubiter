@@ -101,7 +101,8 @@
     },
     methods:{
       salvar(){
-        Empresa.salvar(this.empresa).then(() => {
+        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+        Empresa.salvar(this.empresa, token).then(() => {
           alert('Salvo com sucesso')
         })
         

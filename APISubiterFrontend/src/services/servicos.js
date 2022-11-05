@@ -1,19 +1,19 @@
 import {http} from './config'
 
 export default{
-    listar:() =>{
-        return http.get('/servico')
+    listar:(token) =>{
+        return http.get('/servico', {headers:{Authorization: `Bearer ${token}`}})
     },
 
-    salvar:(servico)=>{
-        return http.post('/servico', servico)
+    salvar:(servico, token)=>{
+        return http.post('/servico', servico, {headers:{Authorization: `Bearer ${token}`}})
     },
 
-    deletar:(id)=>{
-        return http.delete('/servico/' + id)
+    deletar:(id, token)=>{
+        return http.delete('/servico/' + id, {headers:{Authorization: `Bearer ${token}`}})
     },
 
-    atualizar:(servico)=>{
-        return http.put('/servico/' + servico.id , servico)
+    atualizar:(servico, token)=>{
+        return http.put('/servico/' + servico.id , servico, {headers:{Authorization: `Bearer ${token}`}})
     }
 }
