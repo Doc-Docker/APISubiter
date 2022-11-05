@@ -142,7 +142,9 @@
         });
       },
       deletar(id) {
-        Empresa.deletar(id).then(() => {
+        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+
+        Empresa.deletar(id, token).then(() => {
           this.listar();
           alert("Deletado com Sucesso");
         });
@@ -151,7 +153,8 @@
         this.empresa = empresa;
       },
       salvar(){
-        Empresa.atualizar(this.empresa).then(()=>{
+        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+        Empresa.atualizar(this.empresa, token).then(()=>{
         this.empresa = {}
         alert('Atualizado com sucesso!')
         this.listar()

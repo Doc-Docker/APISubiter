@@ -1,11 +1,11 @@
 import { http } from './config'
 
 export default{
-    salvar:(chamado)=>{
-        return http.post('/chamados', chamado)
+    salvar:(chamado,token)=>{
+        return http.post('/chamados', chamado,  {headers:{Authorization: `Bearer ${token}`}})
     },
 
-    listarTipoServico:() =>{
-        return http.get('/tipo-servico')
+    listarTipoServico:(token) =>{
+        return http.get('/tipo-servico', {headers:{Authorization: `Bearer ${token}`}})
     },
 }

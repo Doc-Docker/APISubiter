@@ -123,7 +123,9 @@
         });
       },
       deletar(id) {
-        Equipamento.deletar(id).then(() => {
+        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+
+        Equipamento.deletar(id, token).then(() => {
           this.listar();
           alert("Deletado com Sucesso");
         });
@@ -132,7 +134,8 @@
         this.equipamento = equipamento;
       },
       salvar(){
-      Equipamento.atualizar(this.equipamento).then(()=>{
+        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+      Equipamento.atualizar(this.equipamento, token).then(()=>{
         this.equipamento = {}
         alert('Atualizado com sucesso!')
         this.listar()

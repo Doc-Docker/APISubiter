@@ -136,7 +136,8 @@ export default {
 
   methods: {
     salvar(){
-      Chamado.salvar(this.chamado).then(() => {
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+      Chamado.salvar(this.chamado, token).then(() => {
         alert('Salvo com sucesso');
         this.limparFormularios();
       });
@@ -151,7 +152,8 @@ export default {
     },
 
     listarTiposChamado(){
-      Chamado.listarTipoServico().then((resp) => {
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+      Chamado.listarTipoServico(token).then((resp) => {
         this.tiposChamado = resp.data;
       })
     },
