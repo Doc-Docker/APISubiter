@@ -45,7 +45,7 @@ public class Equipamento {
 	@JsonView({ View.EquipamentoView.class, View.EquipamentoSerieView.class })
 	private String fabricante;
 
-	@OneToOne(mappedBy = "equipamento",cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "serie_equipamento")
 	@JsonView({View.EquipamentoView.class})
 	private EquipamentoSerie equipamentoSerie;
