@@ -1,8 +1,8 @@
 import {http} from './config'
 
 export default{
-    listar:(token) =>{
-        return http.get('/empresas',{headers:{Authorization: `Bearer ${token}`}})
+    listar:() =>{
+        return http.get('/empresas')
     },
 
     salvar:(empresa)=>{

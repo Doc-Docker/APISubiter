@@ -86,7 +86,7 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 			<version>5.6.2</version>
-		</dependency>   
+		</dependency>
        
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
