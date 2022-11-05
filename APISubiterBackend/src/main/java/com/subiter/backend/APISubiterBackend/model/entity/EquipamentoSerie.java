@@ -33,7 +33,7 @@ public class EquipamentoSerie {
 	@JsonView({ View.EquipamentoSerieView.class, View.InstalacaoView.class, View.EquipamentoView.class })
 	private String id;
 
-	@OneToOne( cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "equipamentoSerie",cascade = CascadeType.ALL)
 	@JsonView({View.EquipamentoSerieView.class, View.InstalacaoView.class })
 	private Equipamento equipamento;
 
@@ -53,5 +53,6 @@ public class EquipamentoSerie {
 	@PrePersist
 	public void presPersist() {
 		setDataCadastro(LocalDate.now());
+		setDisponibilidade(true);
 	}
 }
