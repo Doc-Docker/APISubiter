@@ -6,17 +6,13 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/Home',
     name: 'app',
     component: AppView,
     children: [
       {
-        path: '/',
-        component: () => import('../views/HomeView.vue')
-      },
-      {
         name: 'Home',
-        path: '/',
+        path: '/Home',
         component: () => import('../views/HomeView.vue')
       },
       {
@@ -70,7 +66,7 @@ const routes = [
     ]
   },
   {
-    path: '/login',
+    path: '/',
     component: () => import('../views/LoginView.vue')
   }
 ]
