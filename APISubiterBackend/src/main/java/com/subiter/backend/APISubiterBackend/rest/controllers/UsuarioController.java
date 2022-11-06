@@ -90,4 +90,12 @@ public class UsuarioController {
         return usuarioService.getUserById(id);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE', 'CLIENT')")
+    @GetMapping("/{email}")
+    @JsonView({View.UsuarioView.class})
+    public Usuario getUserByEmail(@PathVariable String email){
+
+        return usuarioService.getUserByEmail(email);
+    }
+
 }

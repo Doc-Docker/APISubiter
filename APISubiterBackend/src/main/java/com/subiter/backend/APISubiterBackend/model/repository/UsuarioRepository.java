@@ -7,5 +7,5 @@ import com.subiter.backend.APISubiterBackend.model.entity.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
-    
+    Usuario findByEmail(String email);
 }

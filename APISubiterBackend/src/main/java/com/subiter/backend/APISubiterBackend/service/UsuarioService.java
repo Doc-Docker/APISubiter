@@ -41,4 +41,10 @@ public class UsuarioService {
         return usuarioRepository.findById(id).orElseThrow(()-> 
         new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado."));
     }
+
+    public Usuario getUserByEmail(String email){
+        Usuario usuario = usuarioRepository.findByEmail(email);
+
+        return usuario;
+    }
 }
