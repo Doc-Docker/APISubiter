@@ -17,12 +17,22 @@ public class EquipamentoService {
 	private EquipamentoRepository equipamentoRepository;
 
     @Autowired
-    private EquipamentoSerieRepository equipamentoSerieRepository;
+    private EquipamentoSerieService equipamentoSerie;
 
 	public Equipamento save(Equipamento equipamento) {
-        EquipamentoSerie novoEquipamentoSerie = equipamentoSerieRepository.getById(equipamento.getEquipamentoSerie().getId());
-        equipamento.setEquipamentoSerie(novoEquipamentoSerie);
+
+		if(!equipamentoSerie.equipamentoSerieExiste(equipamento.getEquipamentoSerie().getId())) {
+        EquipamentoSerie novoEquipamentoSerie = new EquipamentoSerie();
+        novoEquipamentoSerie.setId(equipamento.getEquipamentoSerie().getId());
+        novoEquipamentoSerie.presPersist();
+        equipamentoSerie.save(novoEquipamentoSerie);  
+        EquipamentoSerie equipamentoSerieNovo = equipamentoSerie.getUserById(equipamento.getEquipamentoSerie().getId());
+        equipamento.setEquipamentoSerie(equipamentoSerieNovo);
 		return equipamentoRepository.save(equipamento);
+		}
+		Equipamento equipamentoNovo = equipamentoRepository.findById(-1)
+      .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "O numero de serie informado já foi cadastrado."));
+return equipamentoNovo;
 	}
 
 	public List<Equipamento> fidAll() {

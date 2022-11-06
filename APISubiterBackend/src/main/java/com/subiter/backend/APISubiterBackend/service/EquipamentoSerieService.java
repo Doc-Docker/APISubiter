@@ -37,6 +37,15 @@ public class EquipamentoSerieService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamneto não encontrado."));
     }
     
+    public boolean equipamentoSerieExiste(String id) {
+
+         if(equipamentoSerieRepository.findById(id).isPresent()) {
+        	 return true;
+         }
+          return false;      
+    }
+    
+    
     public void upDateEquipamentoSerie(String id, EquipamentoSerie novoEquipamentoSerie) {
     	EquipamentoSerie equipamentoSerie = equipamentoSerieRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamneto não encontrado."));
@@ -51,7 +60,7 @@ public class EquipamentoSerieService {
     
     public void delete(String id) {
     	EquipamentoSerie equipamentoSerie = equipamentoSerieRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamneto não encontrado."));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamento Serie não foi encontrado."));
     	
     	equipamentoSerieRepository.delete(equipamentoSerie);
     }
