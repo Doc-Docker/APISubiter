@@ -53,7 +53,8 @@ public class ApplicationUserService{
     public ApplicationUser saveApplicationUserAsUsuario(Usuario usuario, String password){
         ApplicationUser applicationUser = new ApplicationUser(null, usuario.getEmail(), usuario, password, new Role());
         applicationUser.setPassword(passwordEncoder.encode(applicationUser.getPassword()));
-        Role role = roleRepository.findByName("ROLE_CLIENT");
+        //Role role = roleRepository.findByName("ROLE_CLIENT");
+        Role role = roleRepository.findById(5).get();
         applicationUser.setRole(role);
         return applicationUserRepository.save(applicationUser);
     }

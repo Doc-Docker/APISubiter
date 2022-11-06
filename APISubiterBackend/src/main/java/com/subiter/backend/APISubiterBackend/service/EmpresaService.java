@@ -28,7 +28,7 @@ public class EmpresaService {
     public Empresa getEnterpriseById(Integer id){
 
         return empresaRepository.findById(id).orElseThrow(()-> 
-        new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado."));
+        new ResponseStatusException(HttpStatus.NOT_FOUND, "Empresa não encontrada."));
     }
     
     public Empresa updateEmpresaById(Integer id, Empresa empresaNova){

@@ -91,7 +91,7 @@ public class UsuarioController {
     }
 
     @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE', 'CLIENT')")
-    @GetMapping("/{email}")
+    @GetMapping("/getUserByEmail/{email}")
     @JsonView({View.UsuarioView.class})
     public Usuario getUserByEmail(@PathVariable String email){
 
