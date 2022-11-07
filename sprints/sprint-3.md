@@ -24,8 +24,7 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
 - **RNF 11:** GIT (Requisito Exigido Fatec)
 - **RF 17:** Níveis de Acesso (Cliente, Suporte, Admin)
 - **RF 19:** Melhorias e Correção de Bugs
-- **RF 20:** Agendamento dos Chamados
-- **RF 21:** Melhoria no layout das telas
+- **RF 20:** Melhoria no layout das telas
   
 <br>
  
