@@ -18,7 +18,7 @@ Temos um desafio de sincronização dos dados administrativos, financeiros e ope
 <span id="objetivos">
     
 ## :dart: Objetivos da Sprint
-Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para primeira sprint são:
+Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para terceira sprint são:
 - **RF 06:** Modelagem do Banco de Dados
 - **RF 07:** Front-end para entrada e interpretação de dados
 - **RNF 11:** GIT (Requisito Exigido Fatec)
