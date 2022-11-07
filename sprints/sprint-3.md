@@ -37,14 +37,14 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
   
 ## :heavy_check_mark: Entrega
 
-### :heavy_check_mark: RF 21: Tela de Login (Melhoria no layout)
+### :heavy_check_mark: RF 20: Tela de Login (Melhoria no layout)
 
 Foi implementado a tela de login com um layout interativo com as cores da empresa Subiter. Agora o usuário consegue acessar com seu e-mail e senha de forma segura no sistema.
     
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela_de_login.jpeg" /></h1>
  
     
-### :heavy_check_mark: RF 21: Tela Abertura de Chamado (Melhoria no layout)
+### :heavy_check_mark: RF 20: Tela Abertura de Chamado (Melhoria no layout)
     
 Na tela de abertura de chamado, o usuário tem uma experiência melhor com o novo visual implementado nessa sprint.
     
