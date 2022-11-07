@@ -72,7 +72,7 @@ Nessa sprint, fizemos a implementação do spring security para os níveis de ac
 
 **:link: Para visualizar a apresentação da Sprint 3 [clique aqui](https://www.youtube.com/watch?v=yi-ClRo_RMg)** 
 
-[![](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/youtubelogo.png)](https://www.youtube.com/watch?v=_yQc6W3zIGs)
+[![](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/youtubelogo.png)](https://www.youtube.com/watch?v=yi-ClRo_RMg)
 
 → [Voltar ao topo](#topo)
     
