@@ -22,6 +22,7 @@ public class Role implements GrantedAuthority {
     @Column(name = "role_id")
     private Integer id;
     
+    @Column(unique = true)
     private String name;
 
     @Override

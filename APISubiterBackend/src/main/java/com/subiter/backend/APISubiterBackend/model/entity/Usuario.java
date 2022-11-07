@@ -32,7 +32,7 @@ public class Usuario implements Serializable{
     private String name;
 
     // private String tipo_user;
-
+    @Column(unique = true)
     private String email;
 
     @JsonManagedReference
