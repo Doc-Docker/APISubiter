@@ -66,7 +66,8 @@ Nessa sprint, fizemos a implementação do spring security para os níveis de ac
 - O suporte não consegue cadastrar nada, apenas visualizar as informações. 
     
 #### Admin:
-- Tem acesso a todas as telas de cadastro e listagens. 
+- Tem acesso a todas as telas de cadastro (Equipamento, Usuário, Empresa, Serviço)
+- Pode visualizar e editar todas as listagens.
 - O admin não consegue abrir um chamado (única tela que ele não terá acesso, apenas o cliente)
 
 **:link: Para visualizar a apresentação da Sprint 3 [clique aqui](https://www.youtube.com/watch?v=yi-ClRo_RMg)** 
