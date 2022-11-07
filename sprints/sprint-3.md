@@ -76,6 +76,12 @@ Nessa sprint, fizemos a implementação do spring security para os níveis de ac
 
 → [Voltar ao topo](#topo)
     
+### :heavy_check_mark: RF 06: Modelagem do Banco de Dados
+    
+Atualizamos a modelagem do banco de dados nas tabelas de "Serviço" e "Chamado", pois agora temos apenas 1 tipo de serviço "Inspeção", conforme acordado com o cliente. Adicionamos a tabela "Serviço_Equipamento" que liga todos os equipamentos que serão utilizados no chamado, iremos implementar esse sistema de equipamentos no estoque na próxima sprint.
+    
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/modelagem_sprint3.jpg" /></h1>  
+    
 <br>
     
 <span id="burndown">
