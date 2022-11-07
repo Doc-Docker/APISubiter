@@ -88,7 +88,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 - [x] [SPRINT 3](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-3.md) - 13/10/2022 a 06/11/2022
 
-- [ ] [SPRINT 4]() - 07/11/2022 a 27/11/2022
+- [x] [SPRINT 4]() - 07/11/2022 a 27/11/2022
 
 - [ ] Feira de Soluções - 08/12/2022 às 19h
 
@@ -102,9 +102,9 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 🔖 SPRINT 2 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-2.md)):  Concluído ☑️
 
-🔖 SPRINT 3 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-3.md)):  Em Andamento 🕗
+🔖 SPRINT 3 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-3.md)):  Concluído ☑️
 
-🔖 SPRINT 4 ([Link da Pasta]()):  Aguardando 🚧
+🔖 SPRINT 4 ([Link da Pasta]()):  Em Andamento 🕗
 
 <br>
 
@@ -135,7 +135,7 @@ Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://gith
 
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto_3.png" /></h1>
 
-<h1 align="center"> <img src = "" /></h1>
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/userstoriesprint3.png" /></h1>
 
 <br>
 
