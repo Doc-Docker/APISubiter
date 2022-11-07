@@ -37,9 +37,15 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
     
 <span id="entregas">
   
-## :heavy_check_mark: Entregas
+## :heavy_check_mark: Entrega
+
+
     
-    
+## 🚀 Apresentação SPRINT 3
+
+**:link: Para visualizar a apresentação da Sprint 3 [clique aqui](https://www.youtube.com/watch?v=yi-ClRo_RMg)** 
+
+[![](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/youtubelogo.png)](https://www.youtube.com/watch?v=_yQc6W3zIGs)
 
 → [Voltar ao topo](#topo)
     
@@ -66,7 +72,7 @@ Em prol de um melhor aproveitamento das habilidades de cada integrante, o time f
 
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto_3.png" /></h1>
 
-<h1 align="center"> <img src = "" /></h1>
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/userstoriesprint3.png" /></h1>
     
 <br>
 
