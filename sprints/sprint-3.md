@@ -25,8 +25,7 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
 - **RF 17:** Níveis de Acesso (Cliente, Suporte, Admin)
 - **RF 19:** Melhorias e Correção de Bugs
 - **RF 20:** Agendamento dos Chamados
-- **RF 21:** Equipamentos no Estoque
-- **RF 22:** Melhoria no layout das telas
+- **RF 21:** Melhoria no layout das telas
   
 <br>
  
@@ -39,9 +38,25 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
   
 ## :heavy_check_mark: Entrega
 
+### :heavy_check_mark: RF 21: Tela de Login (Melhoria no layout)
+
+Foi implementado a tela de login com um layout interativo com as cores da empresa Subiter. Agora o usuário consegue acessar com seu e-mail e senha de forma segura no sistema.
+    
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela_de_login.jpeg" /></h1>
+ 
+    
+### :heavy_check_mark: RF 21: Tela Abertura de Chamado (Melhoria no layout)
+    
+Na tela de abertura de chamado, o usuário tem uma experiência melhor com o novo visual implementado nessa sprint.
+    
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/tela_abrir_chamado.jpeg" /></h1>
 
     
-## 🚀 Apresentação SPRINT 3
+### :heavy_check_mark: Apresentação Sprint-3 (Acessos)
+    
+Nessa sprint, fizemos a implementação do spring security para os níveis de acesso (Cliente, Suporte e Admin), sendo assim, agora é possível visualizar as telas com as permissões abaixo:
+    
+
 
 **:link: Para visualizar a apresentação da Sprint 3 [clique aqui](https://www.youtube.com/watch?v=yi-ClRo_RMg)** 
 
