@@ -55,8 +55,19 @@ Na tela de abertura de chamado, o usuário tem uma experiência melhor com o nov
 ### :heavy_check_mark: Apresentação Sprint-3 (Acessos)
     
 Nessa sprint, fizemos a implementação do spring security para os níveis de acesso (Cliente, Suporte e Admin), sendo assim, agora é possível visualizar as telas com as permissões abaixo:
-    
 
+#### Cliente:
+- Consegue abrir um chamado na tela de cadastro de chamado.
+- Tem acesso a listagem dos chamados abertos (listagem cliente).
+ 
+#### Suporte:
+- Tem acesso a todas as listagens.
+- Consegue retornar com uma solução para os chamados abertos.
+- O suporte não consegue cadastrar nada, apenas visualizar as informações. 
+    
+#### Admin:
+- Tem acesso a todas as telas de cadastro e listagens. 
+- O admin não consegue abrir um chamado (única tela que ele não terá acesso, apenas o cliente)
 
 **:link: Para visualizar a apresentação da Sprint 3 [clique aqui](https://www.youtube.com/watch?v=yi-ClRo_RMg)** 
 
