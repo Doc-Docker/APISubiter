@@ -25,12 +25,7 @@
           <td>{{ usuario.empresa.name }}</td>
           <td style="text-align: center"> - </td>
           <td style="text-align: center">
-            <button
-              style="margin-right: 20px"
-              class="btn btn-primary"
-              @click="editar(usuario)">
-              Editar
-            </button>
+            <b-button variant="outline-primary" v-b-modal.edit @click="editar(usuario)">Editar</b-button>
             <button class="btn btn-danger" @click="deletar(usuario.id)" disabled>
               Deletar
             </button>
@@ -40,7 +35,7 @@
     </table>
 
     <br>
-
+    <b-modal id="edit" title="Editar Chamado">
     <form @submit.prevent="salvar">
       <div class="mb-3 mt-3">
         <div class="row">
@@ -103,14 +98,21 @@
         </div>
       </div>
 
-      <button class="btn btn-success" disabled >Salvar edição</button>
     </form>
+  </b-modal>
   </div>
 </template>
 
 <script>
 import Usuario from "../services/usuarios";
 import Empresa from "../services/empresas";
+
+import Vue from 'vue'
+  import { BootstrapVue } from 'bootstrap-vue'
+  import 'bootstrap/dist/css/bootstrap.css'
+  import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+  Vue.use(BootstrapVue)
 
 export default {
   name: "ListagemUsuariosView",
@@ -165,3 +167,21 @@ export default {
   }
 };
 </script>
+<style scoped>
+table {
+  margin-left: 50px;
+  padding: 1.30rem;
+  width: 90%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center;
+  table-layout: fixed;
+}
+
+td,
+th {
+  border: 1px solid black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>

@@ -18,7 +18,7 @@
           <td>{{ servico.descricao }}</td>
           <td>{{ servico.empresaServico.name }}</td>
           <td>
-            <button class="btn btn-primary m-1" @click="editar(servico, servico.empresaServico.name)">Editar</button>
+            <b-button variant="outline-primary" v-b-modal.edit @click="editar(servico, servico.empresaServico.name)">Editar</b-button>
 
             <button class="btn btn-danger" @click="deletar(servico.id)">
               Deletar
@@ -30,7 +30,7 @@
     </table>
 
   <!---->
-
+  <b-modal id="edit" title="Editar Chamado">
   <form @submit.prevent="salvar">
 
       <div class="mb-3">
@@ -63,6 +63,7 @@
       </div>
       <button class="btn btn-success">Salvar</button>
     </form>
+  </b-modal>
 
 
   </div>
@@ -71,6 +72,13 @@
 <script>
 import Servico from "../services/servicos";
 import Empresa from "../services/empresas";
+
+import Vue from 'vue'
+  import { BootstrapVue } from 'bootstrap-vue'
+  import 'bootstrap/dist/css/bootstrap.css'
+  import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+  Vue.use(BootstrapVue)
 
 
 export default {
@@ -154,4 +162,22 @@ export default {
   },
 };
 </script>
+<style scoped>
+table {
+  margin-left: 50px;
+  padding: 1.30rem;
+  width: 90%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center;
+  table-layout: fixed;
+}
+
+td,
+th {
+  border: 1px solid black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>
 

@@ -13,7 +13,7 @@
             <th scope="col">Nome</th>
             <th scope="col">Fabricante</th>
             <th scope="col">Descrição</th>
-            <th scope="col"></th>
+            <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -26,13 +26,13 @@
               <button class="btn btn-danger" @click="deletar(equipamento.id)">
                 Deletar
               </button>
-              <button class="btn" @click="editar(equipamento)">Editar</button>
+              <b-button variant="outline-primary" v-b-modal.edit @click="editar(equipamento)">Editar</b-button>
             </td>
           </tr>
         </tbody>
       </table>
   
-  
+    <b-modal id="edit" title="Editar Chamado">
     <form @submit.prevent="salvar">
         <div class="mb-3 mt-3">
           <div class="row">
@@ -87,8 +87,8 @@
             </div>
           </div>
         </div>
-        <button>Salvar</button>
       </form>
+    </b-modal>
   
     </div>
   </template>
@@ -96,9 +96,15 @@
   <script>
   import Equipamento from "../services/equipamentos";
   
-  export default {
-    name: "ListagemequipamentosView",
+  import Vue from 'vue'
+  import { BootstrapVue } from 'bootstrap-vue'
+  import 'bootstrap/dist/css/bootstrap.css'
+  import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+  Vue.use(BootstrapVue)
   
+  export default {
+    name: "ListagemequipamentosView",   
     data() {
       return {
         equipamentos: [],
@@ -145,5 +151,22 @@
     },
   };
   </script>
-  
+    <style scoped>
+    table {
+      margin-left: 50px;
+      padding: 1.30rem;
+      width: 90%;
+      border-collapse: collapse;
+      border: 1px solid black;
+      text-align: center;
+      table-layout: fixed;
+    }
+    
+    td,
+    th {
+      border: 1px solid black;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    </style>
   

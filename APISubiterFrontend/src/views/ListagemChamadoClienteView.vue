@@ -43,7 +43,7 @@
     <div>
     </div>
 
-    <b-modal id="modal-1" title="BootstrapVue">
+    <b-modal id="modal-1" title="Editar Chamado">
       <form @submit.prevent="salvar">
         <div class="mb-3 mt-3">
           <div class="row">
@@ -106,12 +106,14 @@
   
 <script>
 import Chamado_Cliente from "../services/chamado_cliente";
+
 import Vue from 'vue'
 import { BootstrapVue } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue)
+
 export default {
   name: "ChamadoClienteView",
 
