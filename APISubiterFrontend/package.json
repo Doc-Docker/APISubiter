@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@syncfusion/ej2-material-theme": "^20.3.52",
+    "@syncfusion/ej2-vue-navigations": "^20.3.52",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.2",
     "bootstrap-vue": "^2.23.1",
@@ -15,6 +17,7 @@
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
     "vue2-datepicker": "^3.11.0",
+    "vuesax": "^4.0.1-alpha.25",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
