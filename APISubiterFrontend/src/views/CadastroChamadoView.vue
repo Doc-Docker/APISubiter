@@ -171,7 +171,7 @@ export default {
     return {
       tiposChamado: [],
       mostrar: false,
-      nome: "usuario.cliente",
+      nome: "Victor",
       data: "",
       endereco: "",
       chamado: {
@@ -179,7 +179,7 @@ export default {
           id: 1
         },
         tipoChamado: {
-          id: ""
+          id: 1
         },
         assuntoChamado: "",
         descricaoChamado: "",
@@ -196,7 +196,9 @@ export default {
 
   methods: {
     salvar(){
-      Chamado.salvar(this.chamado).then(() => {
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+
+      Chamado.salvar(this.chamado, token).then(() => {
         alert('Salvo com sucesso');
         this.limparFormularios();
       });

@@ -5,8 +5,8 @@ export default{
         return http.get('/chamados',{headers:{Authorization: `Bearer ${token}`}})
     },
 
-    salvar:(chamado_cliente)=>{
-        return http.post('/chamados', chamado_cliente)
+    salvar:(chamado_cliente, token)=>{
+        return http.post('/chamados', chamado_cliente, {headers:{Authorization: `Bearer ${token}`}})
     },
 
     deletar:(id)=>{
