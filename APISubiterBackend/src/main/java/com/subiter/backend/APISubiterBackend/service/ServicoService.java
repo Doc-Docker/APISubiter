@@ -34,7 +34,7 @@ public class ServicoService {
 
         servico.setTipoServico(tipoServico.get());
         
-        Optional<Empresa> empresaQuerySelector = empresaRepository.findById(servicoDto.getEmpresaServico().getId());
+        Optional<Empresa> empresaQuerySelector = empresaRepository.findById(21);
 
         Empresa empresa = empresaQuerySelector.get();
 
