@@ -88,9 +88,9 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 - [x] [SPRINT 3](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-3.md) - 13/10/2022 a 06/11/2022
 
-- [x] [SPRINT 4]() - 07/11/2022 a 27/11/2022
+- [x] [SPRINT 4](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-4.md) - 07/11/2022 a 27/11/2022
 
-- [ ] Feira de Soluções - 08/12/2022 às 19h
+- [x] Feira de Soluções - 08/12/2022 às 19h
 
 <br>
 
@@ -104,7 +104,7 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 🔖 SPRINT 3 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-3.md)):  Concluído ☑️
 
-🔖 SPRINT 4 ([Link da Pasta]()):  Em Andamento 🕗
+🔖 SPRINT 4 ([Link da Pasta](https://github.com/Doc-Docker/APISubiter/blob/main/sprints/sprint-4.md)):  Em Andamento 🕗
 
 <br>
 
