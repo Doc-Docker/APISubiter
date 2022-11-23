@@ -18,6 +18,7 @@ public class Chamado implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "numero_chamado")
@@ -69,7 +70,7 @@ public class Chamado implements Serializable{
     private LocalDate encerramentoChamado;
 
     @JoinColumn(name="numero_agendamento")
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "chamadoAgendamento", cascade = CascadeType.ALL)
     @JsonView({View.ChamadoView.class})
     private Agendamento agendamento;
     
