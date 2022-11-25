@@ -54,8 +54,8 @@ public class Agendamento implements Serializable{
     
   
     @JsonView({View.AgendamentoView.class})
-    @OneToOne( cascade = {CascadeType.PERSIST , CascadeType.REFRESH,CascadeType.REMOVE})
-    private EquipamentoSerie numerosSerie;
+   // @OneToOne( cascade = {CascadeType.PERSIST , CascadeType.REFRESH,CascadeType.REMOVE})
+    private String numerosSerie;
      
     
     

@@ -11,6 +11,7 @@ import com.subiter.backend.APISubiterBackend.model.entity.Usuario;
 import com.subiter.backend.APISubiterBackend.model.repository.ChamadoRepository;
 import com.subiter.backend.APISubiterBackend.model.repository.EquipamentoSerieRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -57,13 +58,14 @@ public class ChamadoService {
 	public Chamado updateChamadoById(Integer id, Chamado chamado) {
 		Chamado chamadoSelector = this.getChamadoById(id);
 
-		String Ns = chamadoSelector.getAgendamento().getNumerosSerie().getId();
+		String Ns = chamadoSelector.getAgendamento().getNumerosSerie();
 
 		EquipamentoSerie equipamentoSerie = this.equipamentoSerie.getById(Ns);
 
 		if (chamado.getSituacaoChamado().equals("F") || chamado.getSituacaoChamado().equals("f")) {
 
 			equipamentoSerie.setDisponibilidade(true);
+			chamadoSelector.setEncerramentoChamado(LocalDate.now());
 			this.equipamentoSerie.save(equipamentoSerie);
 
 		}
@@ -78,7 +80,7 @@ public class ChamadoService {
 
 		chamadoSelector.setSolucaoChamado(chamado.getSolucaoChamado());
 
-		chamadoSelector.setEncerramentoChamado(chamado.getEncerramentoChamado());
+		
 
 		return chamadoRepository.save(chamadoSelector);
 	}

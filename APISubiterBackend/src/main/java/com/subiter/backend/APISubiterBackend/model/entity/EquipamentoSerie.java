@@ -49,9 +49,9 @@ public class EquipamentoSerie implements Serializable{
 	@JsonView({View.EquipamentoSerieView.class})
 	private List<Instalacao> instalacaos;
 	
-	@OneToOne(mappedBy = "numerosSerie",  cascade = CascadeType.ALL)
-	@JsonView({View.EquipamentoSerieView.class})
-	private Agendamento agendamento;
+//	@OneToOne(mappedBy = "numerosSerie",  cascade = CascadeType.ALL)
+//	@JsonView({View.EquipamentoSerieView.class})
+//	private Agendamento agendamento;
 
 	@PrePersist
 	public void presPersist() {

@@ -27,7 +27,7 @@ public class ChamadoController {
         return chamadoService.getAllChamados();
     }
 
-    @PreAuthorize("hasAnyRole('CLIENT')")
+    @PreAuthorize("hasAnyRole('CLIENT','SUPORTE')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.ChamadoView.class)
