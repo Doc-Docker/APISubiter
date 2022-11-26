@@ -27,7 +27,7 @@ public class ChamadoController {
         return chamadoService.getAllChamados();
     }
 
-    @PreAuthorize("hasAnyRole('CLIENT')")
+    @PreAuthorize("hasAnyRole('CLIENT','SUPORTE')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @JsonView(View.ChamadoView.class)
@@ -46,14 +46,21 @@ public class ChamadoController {
     
 
     @PreAuthorize("hasAnyRole('CLIENT', 'SUPORTE')")
-    @PutMapping("/{id}")
-
+    @PatchMapping("/{id}")
     @JsonView(View.ChamadoView.class)
-    public Chamado updateEmpresaById(@PathVariable Integer id, @RequestBody Chamado chamado){
+    public Chamado updateChamadoById(@PathVariable Integer id, @RequestBody Chamado chamado){
 
         return chamadoService.updateChamadoById(id, chamado);
     }
     
+//    @PreAuthorize("hasAnyRole('CLIENT', 'SUPORTE')")
+//    @PatchMapping("/status/{id}")
+//    @JsonView(View.ChamadoView.class)
+//    public Chamado updateDiponibilidadeEquipamentoChamadoById(@PathVariable Integer id, @RequestBody Chamado chamado){
+//
+//        return chamadoService.updateSituacaoDoEquipamentoChamadoById(id, chamado);
+//    }
+//    
     @PreAuthorize("hasAnyRole('CLIENT', 'SUPORTE')")
     @DeleteMapping("/{id}")
     @JsonView(View.ChamadoView.class)
