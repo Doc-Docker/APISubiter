@@ -7,7 +7,7 @@
     <div class="p-4">
   
       <div class="font-title">
-        <h3>Empesa</h3>
+        <h3>Empresa</h3>
       </div>
 
       <div class="font-body">
