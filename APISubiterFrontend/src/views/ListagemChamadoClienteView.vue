@@ -40,6 +40,10 @@
     <div>
     </div>
 
+    <b-modal id="solucao" title="BootstrapVue">
+      {{ solucao }}
+    </b-modal>
+
 
   </div>
 </template>

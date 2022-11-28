@@ -48,9 +48,7 @@
           </tr>
         </tbody>
       </table>
-  <div>{{agendamento}}</div>
-  <div>{{chamado}}</div>
-  <div>{{chamadoDto}}</div>
+
     
   <b-modal id="modal" hide-footer title="Editar chamado">
     <form @submit.prevent="salvar">
