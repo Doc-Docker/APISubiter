@@ -31,11 +31,8 @@
             <b-button v-b-modal.solucao @click="popularModal(chamado_cliente.solucaoChamado)" variant="warning">Visualizar</b-button>
           </td>
           <td>{{ chamado_cliente.encerramentoChamado }}</td>
-          <td>
-            <button class="btn btn-danger" @click="deletar(chamado_cliente.id)" style="margin-bottom: 5px" hidden>
-              Deletar
-            </button>
-            <b-button variant="outline-primary" v-b-modal.modal-1 @click="editar(chamado_cliente)">Editar Chamado</b-button>
+          <td v-if="chamado_cliente.encerramentoChamado === null">
+            <b-button  @click="finalizar(chamado_cliente)">Finalizar</b-button>
           </td>
         </tr>
       </tbody>
@@ -43,63 +40,10 @@
     <div>
     </div>
 
-    <b-modal id="modal-1" title="Editar Chamado">
-      <form @submit.prevent="salvar">
-        <div class="mb-3 mt-3">
-          <div class="row">
-            <div class="col-md-6">
-              <h3>Chamado Cliente</h3>
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Nome do Usuário</label>
-              <input type="text" class="form-control" v-model="chamado_cliente.usuarioChamado.name" disabled />
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput2" class="form-label">Criticidade do chamado</label>
-              <br>
-              <select class="form-control" v-model="chamado_cliente.criticidadeChamado">
-                <option id="B">Baixo</option>
-                <option id="M">Médio</option>
-                <option id="A">Alto</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Descrição</label>
-              <input type="text" class="form-control" v-model="chamado_cliente.descricaoChamado" />
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Situação</label>
-              <input type="text" class="form-control" v-model="chamado_cliente.situacaoChamado" disabled />
-            </div>
-          </div>
-        </div>
-
-        <button class="btn btn-success">Salvar</button>
-      </form>
-    </b-modal>
     <b-modal id="solucao" title="BootstrapVue">
       {{ solucao }}
     </b-modal>
+
 
   </div>
 </template>
@@ -121,14 +65,12 @@ export default {
     return {
       chamado_clientes: [],
       chamado_cliente: {
-        id: "",
-        usuarioChamado: "",
-        tipoChamado: "",
         criticidadeChamado: "",
         dataChamado: "",
+        assuntoChamado:"",
         descricaoChamado: "",
-        situacaoChamado: "",
-        encerramentoChamado: "",
+        situacaoChamado: "F",
+        solucaoChamado: "",
       },
       solucao: ""
     };
@@ -152,8 +94,21 @@ export default {
         alert("Deletado com Sucesso");
       });
     },
-    editar(chamado_cliente) {
-      this.chamado_cliente = chamado_cliente;
+    finalizar(chamado_cliente) {
+
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+
+      this.chamado_cliente.criticidadeChamado = chamado_cliente.criticidadeChamado;
+      this.chamado_cliente.dataChamado = chamado_cliente.dataChamado;
+      this.chamado_cliente.assuntoChamado = chamado_cliente.assuntoChamado;
+      this.chamado_cliente.descricaoChamado = chamado_cliente.descricaoChamado;
+      this.chamado_cliente.solucaoChamado = chamado_cliente.solucaoChamado;
+
+      Chamado_Cliente.atualizar(this.chamado_cliente, chamado_cliente.id, token).then(()=>{
+          alert('Atualizado com sucesso!');
+          this.limparFormularios();
+          this.listar();
+        })
     },
     popularModal(solucao) {
       this.solucao = solucao;

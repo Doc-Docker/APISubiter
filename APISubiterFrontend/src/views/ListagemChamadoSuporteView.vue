@@ -19,7 +19,8 @@
             <th scope="col">Criticidade</th>
             <th scope="col">Solução</th>
             <th scope="col">Data Encerramento</th>
-            <th scope="col">Ações</th>
+            <th scope="col">Local Atendimento</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -33,17 +34,16 @@
             <td>{{ chamado.criticidadeChamado }}</td>
             <td>{{ chamado.solucaoChamado }}</td>
             <td>{{ chamado.encerramentoChamado }}</td>
-            <td>
-              
-              <button id="btnAceitar" class="btn btn-success" @click="editar(chamado)">Aceitar</button>
+            <td v-if="chamado.agendamento !== null">{{ chamado.agendamento.localAtendimento }}</td>
+            <td v-else></td>
+            <td >
 
-              <template v-if="chamado.mostrarAgendar">
-                <button class="btn btn-danger" @click="encerrar(chamado)" style="margin-right: 5px">
-                  Encerrar
-                </button>
-                <b-button v-b-modal.modal variant="info">Editar</b-button>
-                <b-button v-b-modal.modalAgendar variant="warning" style="margin-top: 5px">Agendar</b-button>
-              </template>
+              <b-button v-if="chamado.agendamento===null"  v-b-modal.modalAgendar  @click="populaChamado(chamado)" variant="warning" style="margin-top: 5px" >Agendar</b-button>
+
+              
+              <b-button @click="populaChamado(chamado)" v-b-modal.modal variant="info">Editar Solução</b-button>
+              
+
             </td>
           </tr>
         </tbody>
@@ -52,22 +52,6 @@
     
   <b-modal id="modal" hide-footer title="Editar chamado">
     <form @submit.prevent="salvar">
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-12">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Status</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                v-model=" chamado.situacaoChamado"
-                disabled
-              />
-            </div>
-          </div>
-        </div>
 
         <div class="mb-3">
           <div class="row">
@@ -90,92 +74,87 @@
       </b-modal>
 
       <b-modal id="modalAgendar" hide-footer title="Agendamento">
-      <form @submit.prevent="salvarServico">
+        <form @submit.prevent="salvarAgendamento">
 
-      <h6>Data do agendamento</h6>
-      <div class="mb-3">
-        <div class="row">
-        <div class="col-md-6">
-          <br>
-          <date-picker type="datetime" valueType="format" v-model="data"></date-picker>
-        </div>
-        </div>
-      </div>
 
-      <h6>Endereço</h6>
-        <form @submit.prevent="buscarCEP">
           <div class="mb-3">
             <div class="row">
-              <div class="col-md-4">
-                <label for="exampleFormControlInput1" class="form-label">CEP</label>
-                <input type="text" class="form-control" v-model="servico.cep" maxlength="8" />
-              </div>
-              <div class="col-md-2">
-                <button class="btn btn-primary" style="margin-top: 31px">Buscar</button>
+              <div class="col-md-6">
+                <br>
+                <input type="text" class="form-control" v-model="chamado.id" disabled/>
               </div>
             </div>
           </div>
+          
+          <h6>Data do agendamento</h6>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-6">
+                <br>
+                <date-picker type="datetime" valueType="format" v-model="agendamento.dataHora"></date-picker>
+              </div>
+            </div>
+          </div>
+
+          <h6>Nome Cliente</h6>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-6">
+                <br>
+                <input type="text" class="form-control" v-model="agendamento.pessoas"/>
+              </div>
+            </div>
+          </div>
+
+          <h6>Descrição do Serviço</h6>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-12">
+                <textarea
+                  type="text"
+                  class="form-control"
+                  v-model=" agendamento.descricao"
+                />
+              </div>
+            </div>
+          </div>
+
+          <h6>Local do Atendimento</h6>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-12">
+                <textarea
+                  type="text"
+                  class="form-control"
+                  v-model=" agendamento.localAtendimento"
+                />
+              </div>
+            </div>
+          </div>
+
+          <h6>Numero </h6>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-12">
+                <select v-model="agendamento.numerosSerie" class="form-select" aria-label="Default select example" >
+                  <option v-for="(equipamento, e) in equipamentos" :key="e" v-bind:value="equipamento.id" >{{equipamento.equipamento.nomeEquipamento}}</option>
+                </select>
+                
+              </div>
+            </div>
+          </div>
+
+          
+
+          <button class="btn btn-success">Salvar</button>
         </form>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-9">
-              <label for="exampleFormControlInput1" class="form-label">Logradouro</label>
-              <input type="text" class="form-control" v-model="resultadoCEP.logradouro" disabled/>
-            </div>
-            <div class="col-md-3">
-              <label for="exampleFormControlInput1" class="form-label">Número</label>
-              <input type="text" class="form-control" v-model="servico.numero" />
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-12">
-              <label for="exampleFormControlInput1" class="form-label">Bairro</label>
-              <input type="text" class="form-control" v-model="resultadoCEP.bairro" disabled/>
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Cidade</label>
-              <input type="text" class="form-control" v-model="resultadoCEP.localidade" disabled/>
-            </div>
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Estado</label>
-              <input type="text" class="form-control" v-model="resultadoCEP.uf" disabled/>
-            </div>
-          </div>
-        </div>
-
-        <br>
-        <h6>Descrição do Serviço</h6>
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-12">
-              <textarea
-                type="text"
-                class="form-control"
-                v-model=" servico.descricao"
-              />
-            </div>
-          </div>
-        </div>
-
-        <button class="btn btn-success">Salvar</button>
-      </form>
       </b-modal>
-  
     </div>
   </template>
   
   <script>
   import chamado from "../services/chamado_suporte.js";
-  import servico from "../services/servicos.js";
+
 
   import DatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
@@ -194,23 +173,28 @@
   
     data() {
       return {
-        data: "",
         chamados: [],
-        chamado: {
-          id: "",
-          usuarioChamado: {
-            id: ""
+        equipamentos:[],
+        agendamento: {
+          chamadoAgendamento: {
+            id:""
           },
-          tipoChamado: {
-            id: ""
-          },
-          assuntoChamado: "",
-          descricaoChamado: "",
-          criticidadeChamado: "",
-          situacaoChamado: "",
-          solucaoChamado: "",
-          mostrarAgendar: false
+          dataHora:"",
+          pessoas : "",
+          descricao:"",
+          localAtendimento:"",
+          numerosSerie:""
         },
+        chamado:{},
+        chamadoDto:{
+          criticidadeChamado:"",
+          dataChamado:"",
+          assuntoChamado:"",
+          descricaoChamado:"",
+          situacaoChamado:"",
+          solucaoChamado:""
+        },
+
         servico: {
           cep: "",
           numero: "",
@@ -228,8 +212,15 @@
     },
     mounted() {
       this.listar();
+      this.listarEquipamentosDisponiveis();
     },
     methods: {
+      listarEquipamentosDisponiveis() {
+        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+        chamado.listarEquipamentosDisponiveis(token).then((resposta) => {
+          this.equipamentos = resposta.data;
+        });
+      },
       listar() {
         let token = JSON.parse(localStorage.getItem("authUser")).access_token;
 
@@ -237,6 +228,30 @@
           this.chamados = resposta.data;
         });
       },
+      populaChamado(chamado){
+        this.chamado = chamado
+      },
+      salvarAgendamento(){
+        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+        this.formatarData();
+        
+        this.agendamento.chamadoAgendamento.id = this.chamado.id
+
+        chamado.salvarAgendamento(this.agendamento, token).then(() => {
+          alert('Atualizado com sucesso!');
+          this.limparFormulariosAgendamento();
+        });
+        this.listar
+      },
+
+      formatarData(){
+          let data = this.agendamento.dataHora.substring(0, 10);
+          let hora = this.agendamento.dataHora.substring(11, 19);
+          this.agendamento.dataHora = data + "T" + hora + ".0000000"
+           
+      },
+
+
       deletar(id) {
         chamado.deletar(id).then(() => {
           this.listar();
@@ -250,8 +265,16 @@
         document.getElementById("btnAceitar").style.display = "none";
       },
       salvar(){
-        console.log(this.chamado);
-        chamado.atualizar(this.chamado).then(()=>{
+        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+
+        this.chamadoDto.criticidadeChamado = this.chamado.criticidadeChamado
+        this.chamadoDto.dataChamado = this.chamado.dataChamado
+        this.chamadoDto.assuntoChamado = this.chamado.assuntoChamado
+        this.chamadoDto.descricaoChamado = this.chamado.descricaoChamado
+        this.chamadoDto.situacaoChamado = this.chamado.situacaoChamado
+        this.chamadoDto.solucaoChamado = this.chamado.solucaoChamado
+
+        chamado.atualizar(this.chamadoDto, this.chamado.id, token).then(()=>{
           alert('Atualizado com sucesso!');
           this.limparFormularios();
           this.listar();
@@ -269,14 +292,6 @@
         this.chamado.solucaoChamado = "";
         this.chamado.situacaoChamado = "";
       },
-      salvarServico(){
-        let token = JSON.parse(localStorage.getItem("authUser")).access_token;
-
-        servico.salvar(this.servico, token).then(() => {
-          alert('Atualizado com sucesso!');
-          this.limparFormulariosAgendamento();
-        });
-      },
       limparFormulariosAgendamento() {
         this.servico.cep = "";
         this.servico.numero = "";
@@ -287,22 +302,6 @@
         this.data = "";
         this.servico.descricao = "";
       },
-      buscarCEP() {
-        if(this.servico.cep.length === 8){
-          fetch(`https://viacep.com.br/ws/${this.servico.cep}/json`)
-          .then(r => r.json())
-          .then(r => {
-            if(r.erro){
-              alert('CEP inválido');
-            }else{
-              this.resultadoCEP = r;
-              console.log(r);
-            }
-          });
-        }else{
-          alert('CEP inválido');
-        }
-      }
     },
   };
   </script>

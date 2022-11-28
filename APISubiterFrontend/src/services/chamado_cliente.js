@@ -13,7 +13,7 @@ export default{
         return http.delete('/chamados/' + id)
     },
 
-    atualizar:(chamado_cliente)=>{
-        return http.patch('/chamados/' + chamado_cliente.id , chamado_cliente)
-    }
+    atualizar:(chamado, id, token)=>{
+        return http.patch('/chamados/' + id , chamado, {headers:{Authorization: `Bearer ${token}`}})
+    },
 }
