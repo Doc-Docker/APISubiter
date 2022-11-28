@@ -131,7 +131,7 @@ Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://gith
 
 <br>
 
-## 📦 Backlogs & User Stories
+## 📦 Backlog de Produto
 
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto_4.png" /></h1>
 
