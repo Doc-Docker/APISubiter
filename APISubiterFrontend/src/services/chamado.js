@@ -7,5 +7,7 @@ export default{
 
     listarTipoServico:(token) =>{
         return http.get('/tipo-servico', {headers:{Authorization: `Bearer ${token}`}})
-    },
+    }
+
+    
 }

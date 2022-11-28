@@ -57,8 +57,11 @@ public class ChamadoService {
 
 	public Chamado updateChamadoById(Integer id, Chamado chamado) {
 		Chamado chamadoSelector = this.getChamadoById(id);
-
-		String Ns = chamadoSelector.getAgendamento().getNumerosSerie();
+		String Ns = "";
+		if(chamadoSelector.getAgendamento() != null) {
+			Ns = chamadoSelector.getAgendamento().getNumerosSerie();
+		}
+		
 
 		EquipamentoSerie equipamentoSerie = this.equipamentoSerie.getById(Ns);
 
