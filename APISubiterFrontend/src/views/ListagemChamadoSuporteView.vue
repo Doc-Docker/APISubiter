@@ -1,12 +1,7 @@
 <template>
-    <div class="mb-3 mt-3">
-      <div class="row">
-        <div class="col-md-6">
-          <h3>Chamados Suporte</h3>
-        </div>
-      </div>
-
-  
+  <div class="ListagemChamadosSuporte">
+    <h3>Chamados Suporte</h3>      
+    <div class="Container">
       <table class="table table-striped table-bordered" style="text-align: center" >
         <thead>
           <tr>
@@ -48,130 +43,121 @@
           </tr>
         </tbody>
       </table>
-
-    
-  <b-modal id="modal" hide-footer title="Editar chamado">
-    <form @submit.prevent="salvar">
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-12">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Status</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                v-model=" chamado.situacaoChamado"
-                disabled
-              />
+  
+      <b-modal id="modal" hide-footer title="Editar chamado">
+        <form @submit.prevent="salvar">
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-12">
+                  <label for="exampleFormControlTextarea1" class="form-label"
+                    >Status</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model=" chamado.situacaoChamado"
+                    disabled
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-12">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Solução</label
-              >
-              <textarea
-                type="text"
-                class="form-control"
-                v-model=" chamado.solucaoChamado"
-              />
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-12">
+                  <label for="exampleFormControlTextarea1" class="form-label"
+                    >Solução</label
+                  >
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    v-model=" chamado.solucaoChamado"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <button class="btn btn-success">Salvar</button>
-
-      </form>
+          <button class="btn btn-success">Salvar</button>
+        </form>
       </b-modal>
 
       <b-modal id="modalAgendar" hide-footer title="Agendamento">
-      <form @submit.prevent="salvarServico">
-
-      <h6>Data do agendamento</h6>
-      <div class="mb-3">
-        <div class="row">
-        <div class="col-md-6">
-          <br>
-          <date-picker type="datetime" valueType="format" v-model="data"></date-picker>
-        </div>
-        </div>
-      </div>
-
-      <h6>Endereço</h6>
-        <form @submit.prevent="buscarCEP">
+        <form @submit.prevent="salvarServico">
+          <h6>Data do agendamento</h6>
           <div class="mb-3">
             <div class="row">
-              <div class="col-md-4">
-                <label for="exampleFormControlInput1" class="form-label">CEP</label>
-                <input type="text" class="form-control" v-model="servico.cep" maxlength="8" />
+            <div class="col-md-6">
+              <br>
+              <date-picker type="datetime" valueType="format" v-model="data"></date-picker>
+            </div>
+            </div>
+          </div>
+        <h6>Endereço</h6>
+          <form @submit.prevent="buscarCEP">
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-4">
+                  <label for="exampleFormControlInput1" class="form-label">CEP</label>
+                  <input type="text" class="form-control" v-model="servico.cep" maxlength="8" />
+                </div>
+                <div class="col-md-2">
+                  <button class="btn btn-primary" style="margin-top: 31px">Buscar</button>
+                </div>
               </div>
-              <div class="col-md-2">
-                <button class="btn btn-primary" style="margin-top: 31px">Buscar</button>
+            </div>
+          </form>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-9">
+                <label for="exampleFormControlInput1" class="form-label">Logradouro</label>
+                <input type="text" class="form-control" v-model="resultadoCEP.logradouro" disabled/>
+              </div>
+              <div class="col-md-3">
+                <label for="exampleFormControlInput1" class="form-label">Número</label>
+                <input type="text" class="form-control" v-model="servico.numero" />
               </div>
             </div>
           </div>
+
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-12">
+                <label for="exampleFormControlInput1" class="form-label">Bairro</label>
+                <input type="text" class="form-control" v-model="resultadoCEP.bairro" disabled/>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlInput1" class="form-label">Cidade</label>
+                <input type="text" class="form-control" v-model="resultadoCEP.localidade" disabled/>
+              </div>
+              <div class="col-md-6">
+                <label for="exampleFormControlInput1" class="form-label">Estado</label>
+                <input type="text" class="form-control" v-model="resultadoCEP.uf" disabled/>
+              </div>
+            </div>
+          </div>
+
+          <br>
+          <h6>Descrição do Serviço</h6>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-12">
+                <textarea
+                  type="text"
+                  class="form-control"
+                  v-model=" servico.descricao"
+                />
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-success">Salvar</button>
         </form>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-9">
-              <label for="exampleFormControlInput1" class="form-label">Logradouro</label>
-              <input type="text" class="form-control" v-model="resultadoCEP.logradouro" disabled/>
-            </div>
-            <div class="col-md-3">
-              <label for="exampleFormControlInput1" class="form-label">Número</label>
-              <input type="text" class="form-control" v-model="servico.numero" />
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-12">
-              <label for="exampleFormControlInput1" class="form-label">Bairro</label>
-              <input type="text" class="form-control" v-model="resultadoCEP.bairro" disabled/>
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Cidade</label>
-              <input type="text" class="form-control" v-model="resultadoCEP.localidade" disabled/>
-            </div>
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Estado</label>
-              <input type="text" class="form-control" v-model="resultadoCEP.uf" disabled/>
-            </div>
-          </div>
-        </div>
-
-        <br>
-        <h6>Descrição do Serviço</h6>
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-12">
-              <textarea
-                type="text"
-                class="form-control"
-                v-model=" servico.descricao"
-              />
-            </div>
-          </div>
-        </div>
-
-        <button class="btn btn-success">Salvar</button>
-      </form>
       </b-modal>
-  
     </div>
-  </template>
+  </div>
+</template>
   
   <script>
   import chamado from "../services/chamado_suporte.js";
@@ -306,3 +292,22 @@
     },
   };
   </script>
+
+<style scoped>
+.ListagemChamadosSuporte{
+  background-color: rgb(143, 36, 36);
+  background-size: cover;
+  text-align: center;
+  padding: 24rem;
+}
+table {
+  background-color: rgb(214, 211, 211);
+  margin-left: 50px;
+  padding: 1.30rem;
+  width: 90%;
+  border: 2px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  table-layout: fixed;
+}
+</style>

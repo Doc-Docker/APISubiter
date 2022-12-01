@@ -1,11 +1,6 @@
 <template>
-    <div class="empresas">
-      <div class="row">
-        <div class="col-md-6">
-          <h3>Empresas</h3>
-        </div>
-      </div>
-  
+        <div class="ListagemEmpresas">
+          <h3>Empresas</h3>  
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
@@ -28,86 +23,86 @@
               <button class="btn btn-danger" @click="deletar(empresa.id)">
                 Deletar
               </button>
-              <button class="btn" @click="editar(empresa)">Editar</button>
+              <b-button variant="outline-primary" v-b-modal.modal-1 @click="editar(empresa)">Editar</b-button>
             </td>
           </tr>
         </tbody>
       </table>
 
-      
-  
-    <form @submit.prevent="salvar">
-        <div class="mb-3 mt-3">
-          <div class="row">
-            <div class="col-md-6">
-              <h3>empresas</h3>
-            </div>  
-          </div>
-        </div>
-  
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label"
-                >Nome</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                v-model="empresa.name"
-              />
+      <b-modal id="modal" title="Editar Empresa">
+        <form @submit.prevent="salvar">
+          <div class="mb-3 mt-3">
+            <div class="row">
+              <div class="col-md-6">
+                <h3>empresas</h3>
+              </div>  
             </div>
           </div>
-        </div>
-  
-        <div class="mb-5">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Endereço</label
-              >
-              <textarea
-                class="form-control"
-                v-model="empresa.endereco"
-                rows="3"
-              ></textarea>
+    
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Nome</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="empresa.name"
+                />
+              </div>
             </div>
           </div>
-        </div>
+    
+          <div class="mb-5">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Endereço</label
+                >
+                <textarea
+                  class="form-control"
+                  v-model="empresa.endereco"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+          </div>
 
-        <div class="mb-5">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Cnpj</label
-              >
-              <textarea
-                class="form-control"
-                v-model="empresa.cnpj"
-                rows="3"
-              ></textarea>
+          <div class="mb-5">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Cnpj</label
+                >
+                <textarea
+                  class="form-control"
+                  v-model="empresa.cnpj"
+                  rows="3"
+                ></textarea>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="mb-5">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Contato</label
-              >
-              <textarea
-                class="form-control"
-                v-model="empresa.contato"
-                rows="3"
-              ></textarea>
+          <div class="mb-5">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Contato</label
+                >
+                <textarea
+                  class="form-control"
+                  v-model="empresa.contato"
+                  rows="3"
+                ></textarea>
+              </div>
             </div>
           </div>
-        </div>
-        <button>Salvar</button>
-      </form>
+          <button>Salvar</button>
+        </form>
+      </b-modal>
 
-  
+
     </div>
   </template>
   
@@ -164,4 +159,22 @@
   };
   </script>
   
+<style scoped>
+  .ListagemEmpresas{
+  background-color: rgb(143, 36, 36);
+  background-size: cover;
+  text-align: center;
+  padding: 24rem;
+}
+table {
+  background-color: rgb(214, 211, 211);
+  margin-left: 50px;
+  padding: 1.30rem;
+  width: 90%;
+  border: 2px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  table-layout: fixed;
+}
+</style>
   

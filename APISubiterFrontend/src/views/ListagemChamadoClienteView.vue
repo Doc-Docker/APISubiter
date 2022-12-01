@@ -1,107 +1,102 @@
 <template>
-  <div class="mb-3 mt-3">
-    <div class="row">
-      <div class="col-md-6">
-        <h3>Chamado Cliente</h3>
+  <div class="ListagemChamadoCliente">
+    <h3>Chamado Cliente</h3>
+      <div class="container">
+        <table class="table table-striped table-bordered" style="text-align: center">
+          <thead>
+            <tr>
+              <th scope="col-md">Nome Usuário</th>
+              <th scope="col">Tipo de Chamado</th>
+              <th scope="col">Criticidade</th>
+              <th scope="col">Data de Chamado</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Situação Chamado</th>
+              <th scope="col">Solução</th>
+              <th scope="col">Data Encerramento</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(chamado_cliente, i) in chamado_clientes" :key="i">
+              <td>{{ chamado_cliente.usuarioChamado.name }}</td>
+              <td>{{ chamado_cliente.tipoChamado.nome }}</td>
+              <td>{{ chamado_cliente.criticidadeChamado }}</td>
+              <td>{{ chamado_cliente.dataChamado }}</td>
+              <td>{{ chamado_cliente.descricaoChamado }}</td>
+              <td>{{ chamado_cliente.situacaoChamado }}</td>
+              <td>
+              <b-button v-b-modal.solucao @click="popularModal(chamado_cliente.solucaoChamado)" variant="warning">Visualizar</b-button>
+              </td> 
+              <td>{{ chamado_cliente.encerramentoChamado }}</td>
+              <td>
+                <button class="btn btn-danger" @click="deletar(chamado_cliente.id)" style="margin-bottom: 5px" hidden>
+                  Deletar
+                </button>
+                <b-button variant="outline-primary" v-b-modal.modal-1 @click="editar(chamado_cliente)">Editar Chamado</b-button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <b-modal id="modal-1" title="Editar Chamado">
+          <form @submit.prevent="salvar">
+            <div class="mb-3 mt-3">
+              <div class="row">
+                <div class="col-md-6">
+                  <h3>Chamado Cliente</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="exampleFormControlInput1" class="form-label">Nome do Usuário</label>
+                  <input type="text" class="form-control" v-model="chamado_cliente.usuarioChamado.name" disabled />
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="exampleFormControlInput2" class="form-label">Criticidade do chamado</label>
+                  <br>
+                  <select class="form-control" v-model="chamado_cliente.criticidadeChamado">
+                    <option id="B">Baixo</option>
+                    <option id="M">Médio</option>
+                    <option id="A">Alto</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="exampleFormControlInput1" class="form-label">Descrição</label>
+                  <input type="text" class="form-control" v-model="chamado_cliente.descricaoChamado" />
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="exampleFormControlInput1" class="form-label">Situação</label>
+                  <input type="text" class="form-control" v-model="chamado_cliente.situacaoChamado" disabled />
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-success">Salvar</button>
+          </form>
+        </b-modal>
+        <b-modal id="solucao" title="BootstrapVue">
+          {{ solucao }}
+        </b-modal>
       </div>
     </div>
-    <table class="table table-striped table-bordered" style="text-align: center">
-      <thead>
-        <tr>
-          <th scope="col">Nome Usuário</th>
-          <th scope="col">Tipo de Chamado</th>
-          <th scope="col">Criticidade</th>
-          <th scope="col">Data de Chamado</th>
-          <th scope="col">Descrição</th>
-          <th scope="col">Situação Chamado</th>
-          <th scope="col">Solução</th>
-          <th scope="col">Data Encerramento</th>
-          <th scope="col">Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(chamado_cliente, i) in chamado_clientes" :key="i">
-          <td>{{ chamado_cliente.usuarioChamado.name }}</td>
-          <td>{{ chamado_cliente.tipoChamado.nome }}</td>
-          <td>{{ chamado_cliente.criticidadeChamado }}</td>
-          <td>{{ chamado_cliente.dataChamado }}</td>
-          <td>{{ chamado_cliente.descricaoChamado }}</td>
-          <td>{{ chamado_cliente.situacaoChamado }}</td>
-          <td>
-            <b-button v-b-modal.solucao @click="popularModal(chamado_cliente.solucaoChamado)" variant="warning">Visualizar</b-button>
-          </td>
-          <td>{{ chamado_cliente.encerramentoChamado }}</td>
-          <td>
-            <button class="btn btn-danger" @click="deletar(chamado_cliente.id)" style="margin-bottom: 5px" hidden>
-              Deletar
-            </button>
-            <b-button variant="outline-primary" v-b-modal.modal-1 @click="editar(chamado_cliente)">Editar Chamado</b-button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div>
-    </div>
-
-    <b-modal id="modal-1" title="Editar Chamado">
-      <form @submit.prevent="salvar">
-        <div class="mb-3 mt-3">
-          <div class="row">
-            <div class="col-md-6">
-              <h3>Chamado Cliente</h3>
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Nome do Usuário</label>
-              <input type="text" class="form-control" v-model="chamado_cliente.usuarioChamado.name" disabled />
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput2" class="form-label">Criticidade do chamado</label>
-              <br>
-              <select class="form-control" v-model="chamado_cliente.criticidadeChamado">
-                <option id="B">Baixo</option>
-                <option id="M">Médio</option>
-                <option id="A">Alto</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Descrição</label>
-              <input type="text" class="form-control" v-model="chamado_cliente.descricaoChamado" />
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Situação</label>
-              <input type="text" class="form-control" v-model="chamado_cliente.situacaoChamado" disabled />
-            </div>
-          </div>
-        </div>
-
-        <button class="btn btn-success">Salvar</button>
-      </form>
-    </b-modal>
-    <b-modal id="solucao" title="BootstrapVue">
-      {{ solucao }}
-    </b-modal>
-
-  </div>
 </template>
   
 <script>
@@ -177,22 +172,41 @@ export default {
 </script>
 
 <style scoped>
+.ListagemChamadoCliente{
+  background-color: rgb(143, 36, 36);
+  background-size: cover;
+  text-align: center;
+  padding: 24rem;
+}
 table {
+  background-color: rgb(214, 211, 211);
   margin-left: 50px;
   padding: 1.30rem;
   width: 90%;
+  border: 2px solid black;
   border-collapse: collapse;
-  border: 1px solid black;
   text-align: center;
   table-layout: fixed;
 }
-
+/*.container{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  word-wrap:break-word;
+  background-color:#ffffff;
+  background-clip:border-box;
+  border:1px solid #000000;
+  border-radius:.35rem;
+  text-align: center;
+  color: #000000;
+}*/
+.thead{
+  border-radius: 10rem;
+}
 td,
 th {
-  border: 1px solid black;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 </style>
-  
-  
