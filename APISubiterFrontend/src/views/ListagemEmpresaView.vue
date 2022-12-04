@@ -38,7 +38,7 @@
               </div>  
             </div>
           </div>
-    
+
           <div class="mb-3">
             <div class="row">
               <div class="col-md-6">
@@ -165,6 +165,21 @@
   background-size: cover;
   text-align: center;
   padding: 24rem;
+}
+.empresa0{
+  text-align: center;
+}
+.empresa1{
+  text-align: center;
+}
+.empresa2{
+  text-align: center;
+}
+.empresa3{
+  text-align: center;
+}
+.empresa4{
+  text-align: center;
 }
 table {
   background-color: rgb(214, 211, 211);
