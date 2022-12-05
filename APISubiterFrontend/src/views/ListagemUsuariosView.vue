@@ -34,73 +34,73 @@
           </tr>
         </tbody>
       </table>
-
       <br>
 
-      <form @submit.prevent="salvar">
-        <div class="mb-3 mt-3">
-          <div class="row">
-            <div class="col-md-6">
-              <h3>Editar usuários</h3>
+      <b-modal id="modal" title="Editar Usuário">
+        <form @submit.prevent="salvar">
+          <div class="mb-3 mt-3">
+            <div class="row">
+              <div class="col-md-6">
+                <h3>Editar usuários</h3>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Nome</label>
-              <input type="text" class="form-control" v-model="usuario.name" />
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                <input type="text" class="form-control" v-model="usuario.name" />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput2" class="form-label">E-mail</label>
-              <input type="text" class="form-control" />
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlInput2" class="form-label">E-mail</label>
+                <input type="text" class="form-control" />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Senha</label>
-              <input type="password" class="form-control" />
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlInput1" class="form-label">Senha</label>
+                <input type="password" class="form-control" />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Empresa</label>
-              <select class="form-control" v-model="usuario.empresa.id" default=empresa >
-                <option v-for="empresa in empresas" v-bind:key="empresa.id" v-bind:value="empresa.id">
-                  {{ empresa.name }}
-                </option>
-              </select>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlInput1" class="form-label">Empresa</label>
+                <select class="form-control" v-model="usuario.empresa.id" default=empresa >
+                  <option v-for="empresa in empresas" v-bind:key="empresa.id" v-bind:value="empresa.id">
+                    {{ empresa.name }}
+                  </option>
+                </select>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label">Tipo usuário</label>
-              <select class="form-control" default="" >
-                <option id="CLI">Cliente</option>
-                <option id="SUPORTE">Suporte</option>
-                <option id="ADMIN">Administrador</option>
-              </select>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlInput1" class="form-label">Tipo usuário</label>
+                <select class="form-control" default="" >
+                  <option id="CLI">Cliente</option>
+                  <option id="SUPORTE">Suporte</option>
+                  <option id="ADMIN">Administrador</option>
+                </select>
+              </div>
             </div>
           </div>
-        </div>
-
-        <button class="btn btn-success" disabled >Salvar edição</button>
-      </form>
+          <button class="btn btn-success" disabled >Salvar edição</button>
+        </form>
+      </b-modal>
     </div>
   </div>
 </template>
@@ -108,6 +108,12 @@
 <script>
 import Usuario from "../services/usuarios";
 import Empresa from "../services/empresas";
+import Vue from 'vue'
+import { BootstrapVue } from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.use(BootstrapVue)
 
 export default {
   name: "ListagemUsuariosView",

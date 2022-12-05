@@ -101,7 +101,6 @@
   
 <script>
 import Chamado_Cliente from "../services/chamado_cliente";
-
 import Vue from 'vue'
 import { BootstrapVue } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'

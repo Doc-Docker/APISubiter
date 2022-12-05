@@ -22,73 +22,81 @@
               <button class="btn btn-danger" @click="deletar(equipamento.id)">
                 Deletar
               </button>
-              <button class="btn" @click="editar(equipamento)">Editar</button>
+              <b-button variant="outline-primary" v-b-modal.modal-1 @click="editar(equipamento)">Editar</b-button>
             </td>
           </tr>
         </tbody>
       </table>
 
-      <form @submit.prevent="salvar">
-        <div class="mb-3 mt-3">
-          <div class="row">
-            <div class="col-md-6">
-              <h3>Equipamentos</h3>
-            </div>  
-          </div>
-        </div>
-  
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label"
-                >Nome</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                v-model="equipamento.nomeEquipamento"
-              />
+      <b-modal id="modal-1" title="Editar Chamado">
+        <form @submit.prevent="salvar">
+          <div class="mb-3 mt-3">
+            <div class="row">
+              <div class="col-md-6">
+                <h3>Equipamentos</h3>
+              </div>  
             </div>
           </div>
-        </div>
   
-        <div class="mb-5">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Fabricante</label
-              >
-              <textarea
-                class="form-control"
-                v-model="equipamento.fabricante"
-                rows="3"
-              ></textarea>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Nome</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="equipamento.nomeEquipamento"
+                />
+              </div>
             </div>
           </div>
-        </div>
+  
+          <div class="mb-5">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Fabricante</label
+                >
+                <textarea
+                  class="form-control"
+                  v-model="equipamento.fabricante"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+          </div>
 
-        <div class="mb-5">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Descrição</label
-              >
-              <textarea
-                class="form-control"
-                v-model="equipamento.descricao"
-                rows="3"
-              ></textarea>
+          <div class="mb-5">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Descrição</label
+                >
+                <textarea
+                  class="form-control"
+                  v-model="equipamento.descricao"
+                  rows="3"
+                ></textarea>
+              </div>
             </div>
           </div>
-        </div>
-        <button>Salvar</button>
-      </form>
+          <button>Salvar</button>
+        </form>
+      </b-modal>
     </div>
   </div>
 </template>
 
 <script>
   import Equipamento from "../services/equipamentos";
+  import Vue from 'vue'
+  import { BootstrapVue } from 'bootstrap-vue'
+  import 'bootstrap/dist/css/bootstrap.css'
+  import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+  Vue.use(BootstrapVue)
 
   export default {
     name: "ListagemequipamentosView",

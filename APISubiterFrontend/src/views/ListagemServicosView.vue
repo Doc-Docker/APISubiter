@@ -19,47 +19,48 @@
               <td>{{ servico.descricao }}</td>
               <td>{{ servico.empresaServico.name }}</td>
               <td>
-                <button class="btn btn-primary m-1" @click="editar(servico, servico.empresaServico.name)">Editar</button>
+                <b-button class="btn btn-primary m-1" @click="editar(servico, servico.empresaServico.name)">Editar</b-button>
 
                 <button class="btn btn-danger" @click="deletar(servico.id)">
                   Deletar
                 </button>
-                
               </td>
             </tr>
           </tbody>
         </table>
 
-      <form @submit.prevent="salvar">
-        <div class="mb-3">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlInput1" class="form-label"
-                >Empresa</label
-              >
-              <select v-model="servico.empresaServico.name" class="form-select" aria-label="Default select example" >
-                <option v-for="(empresa, e) in empresas" :key="e" v-bind:value="empresa.name" >{{empresa.name}}</option>
-              </select>
+        <b-modal id="modal" title="Editar Empresa">
+        <form @submit.prevent="salvar">
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Empresa</label
+                >
+                <select v-model="servico.empresaServico.name" class="form-select" aria-label="Default select example" >
+                  <option v-for="(empresa, e) in empresas" :key="e" v-bind:value="empresa.name" >{{empresa.name}}</option>
+                </select>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="mb-5">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="exampleFormControlTextarea1" class="form-label"
-                >Descrição</label
-              >
-              <textarea
-                class="form-control"
-                v-model="servico.descricao"
-                rows="3"
-              ></textarea>
+          <div class="mb-5">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Descrição</label
+                >
+                <textarea
+                  class="form-control"
+                  v-model="servico.descricao"
+                  rows="3"
+                ></textarea>
+              </div>
             </div>
           </div>
-        </div>
-        <button class="btn btn-success">Salvar</button>
-      </form>
+          <button class="btn btn-success">Salvar</button>
+        </form>
+      </b-modal>
     </div>
   </div>
 </template>
@@ -67,6 +68,12 @@
 <script>
 import Servico from "../services/servicos";
 import Empresa from "../services/empresas";
+import Vue from 'vue'
+import { BootstrapVue } from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.use(BootstrapVue)
 
 export default {
   name: "ListagemServicosView",
