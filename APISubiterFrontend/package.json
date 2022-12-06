@@ -11,6 +11,8 @@
     "axios": "^0.27.2",
     "bootstrap-vue": "^2.23.1",
     "core-js": "^3.8.3",
+    "html2canvas": "^1.4.1",
+    "save-as": "^0.1.8",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
     "vue2-datepicker": "^3.11.0",
@@ -26,6 +28,7 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "vue-drawing-canvas": "^1.0.14",
     "vue-template-compiler": "^2.6.14"
   }
 }
