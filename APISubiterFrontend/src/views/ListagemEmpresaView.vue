@@ -172,30 +172,10 @@
   text-align: center;
   padding: 24rem;
 }
-.empresa0{
-  text-align: center;
-}
-.empresa1{
-  text-align: center;
-}
-.empresa2{
-  text-align: center;
-}
-.empresa3{
-  text-align: center;
-}
-.empresa4{
-  text-align: center;
-}
+
 table {
   background-color: rgb(214, 211, 211);
-  margin-left: 50px;
-  padding: 1.30rem;
-  width: 90%;
-  border: 2px solid black;
-  border-collapse: collapse;
-  text-align: center;
-  table-layout: fixed;
+
 }
 </style>
   
