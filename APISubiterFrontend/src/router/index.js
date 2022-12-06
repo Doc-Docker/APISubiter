@@ -68,6 +68,10 @@ const routes = [
   {
     path: '/login',
     component: () => import('../views/LoginView.vue')
+  },
+  {
+    path: '/mapeamento',
+    component: () => import('../views/MapeamentoView.vue')
   }
 ]
 
