@@ -25,7 +25,8 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
 - **RF 22:** Agendamento dos Chamados
 - **RF 23:** Aparência e design
 - **RF 24:** Melhorias e Correções de bugs
-  
+- **RF 25:** Mapeamento (Bônus)  
+    
 <br>
  
 **:link: Clique no link abaixo para visualizar o *Kanban* de atividades da equipe:** 
@@ -37,6 +38,20 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
   
 ## :heavy_check_mark: Entrega
 
+### :heavy_check_mark: RF 25: Mapeamento (Bônus)
+    
+Foi implementado um sistema de Mapeamento através de um "Painter Web", onde o suporte consegue desenhar e indicar com várias formas onde está o defeito do barco após a análise da visita.
+    
+O usuário consegue fazer o upload de um arquivo (png) e acessar diversas ferramentas de edição, por exemplo, lápis, formas, borracha, linhas, cadeado para travar o desenho, entre outras funcionaliades que o sistema entrega. Vale ressaltar que esse mapeamento foi uma entrega "bônus" para o cliente, conforme alinhado nos requisitos opcionais.
+ 
+<br>    
+    
+### :heavy_check_mark: RF 21: Equipamentos no Estoque 
+    
+Agora o usuário "Suporte" consegue visualizar se o equipamento que será utilizado no serviço do chamado, está disponível para o agendamento. Após a finalização do chamado, o número de série é retornado para o estoque, ficando apto para a escolha novamente.
+    
+<br>    
+    
 ### :heavy_check_mark: RF 23: Melhorias em todas as telas (Aparência e Design)
 
 Fizemos melhorias no layout de todas as telas do sistema, utilizando UX/UI design com as cores da Subiter, conforme alinhado com o cliente. Dessa forma o usuário pode ter uma experiência visual melhor na utilização do site, com os cadastros e listagens que foram implementados nas outras sprints.
