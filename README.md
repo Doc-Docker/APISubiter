@@ -131,6 +131,14 @@ Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://gith
 
 <br>
 
+## 🚀 Apresentação SPRINT 4
+
+**:link: Para visualizar a apresentação da Sprint 4 [clique aqui](https://www.youtube.com/watch?v=yVF6tg5Zu9Q&ab_channel=DocDocker)** 
+
+[![](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/youtubelogo.png)](https://www.youtube.com/watch?v=yVF6tg5Zu9Q&ab_channel=DocDocker)
+
+<br>
+
 ## 📦 Backlog de Produto
 
 <h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto_4.png" /></h1>
