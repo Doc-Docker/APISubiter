@@ -24,7 +24,7 @@
                 <button class="btn btn-danger" @click="deletar(empresa.id)">
                   Deletar
                 </button>
-                <b-button variant="outline-primary" v-b-modal.modal-1 @click="editar(empresa)">Editar</b-button>
+                <b-button variant="outline-primary" v-b-modal.modal @click="editar(empresa)">Editar</b-button>
               </td>
             </tr>
           </tbody>

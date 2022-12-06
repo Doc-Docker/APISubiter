@@ -19,8 +19,8 @@
               <td>{{ servico.descricao }}</td>
               <td>{{ servico.empresaServico.name }}</td>
               <td>
-                <b-button class="btn btn-primary m-1" @click="editar(servico, servico.empresaServico.name)">Editar</b-button>
-
+                <b-button class="btn btn-primary m-1"  v-b-modal.modal @click="editar(servico, servico.empresaServico.name)">Editar</b-button>
+      
                 <button class="btn btn-danger" @click="deletar(servico.id)">
                   Deletar
                 </button>

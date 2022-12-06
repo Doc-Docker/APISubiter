@@ -24,9 +24,11 @@
               <button
                 style="margin-right: 20px"
                 class="btn btn-primary"
+                v-b-modal.modal
                 @click="editar(usuario)">
                 Editar
               </button>
+               
               <button class="btn btn-danger" @click="deletar(usuario.id)" disabled>
                 Deletar
               </button>
