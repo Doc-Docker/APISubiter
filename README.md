@@ -125,6 +125,48 @@ para atender chamados, e confusão na interpretação dos indicadores comerciais
 
 <br>
 
+## 🐳 Requisitos para instalação do projeto no Docker
+
+Pré requisitos para rodar o serviço localmente:
+
+- Docker installed (https://docs.docker.com/get-docker/) – Guia de como instalar o docker.
+
+Utilizando docker podemos subir o serviço utilizando linha de comando ou o docker desktop, nosso serviço tem duas imagens dockers que devem ser subidos em containers separados, de acordo com a recomendação da ferramenta.
+
+“Don't make monolithic containers.”
+
+Portanto vamos trabalhar nessa ideia. Para cada sprint temos uma versão de front-end e uma versão de back-end, para utilização completa do serviço, devemos obrigatoriamente utilizar os dois microservices, com as versões corretas.
+
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/dockertutorial.png" /></h1>
+
+Na imagem acima vemos quais versões atualmente temos, em ambos os serviços temos lançado até o momento 3 versões, se o desejado é utilizar a versão 2.0.0, por exemplo, ambos os serviços devem ser utilizados na versão 2.0.0, tanto do front-end quanto do back-end.
+
+**Fazer pull das images:**
+
+```
+docker pull apidocdocker/<service-name>:<tagname>
+```
+
+**Subir o Container:**
+
+```
+docker run -p <image-port>:<local-port> <service-name>:<tag-name>
+```
+
+**Exemplo: Fazer pull e rodar o container do back-end**
+```
+docker pull apidocdocker/subter-backend:4.0.0
+```
+
+```
+docker run -p 8080:8080 apidocdocker/subter-backend:4.0.0
+```
+A aplicação do backend por padrão, dentro do container, roda na porta 8080, quando colocamos "-p 8080:8080" estamos dizendo que queremos que o que esteja rodando na porta 8080 do container reflita para a porta 8080 local, ou qualquer porta desejada.
+
+O mesmo é feito para o front-end, a porta padrão da aplicação é 4200, o que significa que teríamos que utilizar o "-p 4200:4200" ou a porta desejada.
+
+<br>
+
 ## :page_facing_up: Licença MIT
 
 Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://github.com/Doc-Docker/APISubiter/blob/main/LICENSE) para mais detalhes
