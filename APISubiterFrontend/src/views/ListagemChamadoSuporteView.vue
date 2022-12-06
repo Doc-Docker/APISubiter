@@ -328,12 +328,6 @@
 }
 table {
   background-color: rgb(214, 211, 211);
-  margin-left: 50px;
-  padding: 1.30rem;
-  width: 90%;
-  border: 2px solid black;
-  border-collapse: collapse;
-  text-align: center;
-  table-layout: fixed;
+
 }
 </style>
