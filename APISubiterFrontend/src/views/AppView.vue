@@ -129,6 +129,24 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Mapeamento
+              </a>
+              <ul class="dropdown-menu">
+                <li v-if="this.rule === 'ROLE_SUPORTE'">
+                  <router-link class="dropdown-item" to="/mapeamento" >
+                    Mapeamento
+                  </router-link>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
