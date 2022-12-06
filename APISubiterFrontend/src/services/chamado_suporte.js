@@ -13,7 +13,15 @@ export default{
         return http.delete('/chamados/' + id)
     },
 
-    atualizar:(chamado)=>{
-        return http.patch('/chamados/' + chamado.id , chamado)
+    atualizar:(chamado, id, token)=>{
+        return http.patch('/chamados/' + id , chamado, {headers:{Authorization: `Bearer ${token}`}})
+    },
+
+    listarEquipamentosDisponiveis:(token) =>{
+        return http.get('/equipamento-serie/disponivel', {headers:{Authorization: `Bearer ${token}`}})
+    } ,
+
+    salvarAgendamento:(agendamento, token)=>{
+        return http.post('/agendamento', agendamento, {headers:{Authorization: `Bearer ${token}`}})
     }
 }

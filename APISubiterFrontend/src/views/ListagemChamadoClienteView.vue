@@ -115,14 +115,12 @@ export default {
     return {
       chamado_clientes: [],
       chamado_cliente: {
-        id: "",
-        usuarioChamado: "",
-        tipoChamado: "",
         criticidadeChamado: "",
         dataChamado: "",
+        assuntoChamado:"",
         descricaoChamado: "",
-        situacaoChamado: "",
-        encerramentoChamado: "",
+        situacaoChamado: "F",
+        solucaoChamado: "",
       },
       solucao: ""
     };
@@ -146,8 +144,21 @@ export default {
         alert("Deletado com Sucesso");
       });
     },
-    editar(chamado_cliente) {
-      this.chamado_cliente = chamado_cliente;
+    finalizar(chamado_cliente) {
+
+      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+
+      this.chamado_cliente.criticidadeChamado = chamado_cliente.criticidadeChamado;
+      this.chamado_cliente.dataChamado = chamado_cliente.dataChamado;
+      this.chamado_cliente.assuntoChamado = chamado_cliente.assuntoChamado;
+      this.chamado_cliente.descricaoChamado = chamado_cliente.descricaoChamado;
+      this.chamado_cliente.solucaoChamado = chamado_cliente.solucaoChamado;
+
+      Chamado_Cliente.atualizar(this.chamado_cliente, chamado_cliente.id, token).then(()=>{
+          alert('Atualizado com sucesso!');
+          this.limparFormularios();
+          this.listar();
+        })
     },
     popularModal(solucao) {
       this.solucao = solucao;

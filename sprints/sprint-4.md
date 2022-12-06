@@ -37,6 +37,30 @@ Os requisitos (tanto do cliente como da instituição de ensino) abrangidos para
   
 ## :heavy_check_mark: Entrega
 
+### :heavy_check_mark: RF 23: Melhorias em todas as telas (Aparência e Design)
+
+Fizemos melhorias no layout de todas as telas do sistema, utilizando UX/UI design com as cores da Subiter, conforme alinhado com o cliente. Dessa forma o usuário pode ter uma experiência visual melhor na utilização do site, com os cadastros e listagens que foram implementados nas outras sprints.
+    
+#### 🚀 RF 23: Tela de Chamados
+    
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/1chamado.jpeg" /></h1>
+    
+#### 🚀 RF 23: Tela de Empresas
+    
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/2empresa.jpeg" /></h1>    
+    
+#### 🚀 RF 23: Tela de Equipamentos
+    
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/3equipamento.jpeg" /></h1>
+    
+#### 🚀 RF 23: Tela de Usuários
+    
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/4usu%C3%A1rio.jpeg" /></h1>
+    
+#### 🚀 RF 23: Tela de Serviço (Inspeção) 
+   
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/5servi%C3%A7o.jpeg" /></h1>    
+    
 <br>
     
 <span id="burndown">
@@ -49,18 +73,16 @@ Em prol de um melhor aproveitamento das habilidades de cada integrante, o time f
     
 <div align="center">
     
-![Burndown Chart]()
+![Burndown Chart](https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/burndown4.png)
 </div>
 
 <br>
   
 <span id="backlogs">
 
-## 📦 Backlogs & User Stories
+## 📦 Backlog de Produto
 
-<h1 align="center"> <img src = "" /></h1>
-
-<h1 align="center"> <img src = "" /></h1>
+<h1 align="center"> <img src = "https://github.com/Doc-Docker/APISubiter/blob/main/docs/Imagens/Backlog_Produto_4.png" /></h1>
     
 <br>
 

@@ -7,6 +7,8 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
@@ -19,15 +21,17 @@ public class Agendamento implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
+   
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView({View.AgendamentoView.class, View.ChamadoView.class})
     @Column(name ="numero_agendamento")
     private Integer id;
 
-    @NotEmpty(message = "O Campo chamado é obrigatório")
+   
     @JsonView({View.AgendamentoView.class})
-    @OneToOne(mappedBy = "agendamento")
+    @OneToOne( cascade = {CascadeType.PERSIST , CascadeType.REFRESH})
     private Chamado chamadoAgendamento;
 
     @Column(name = "datahora_atendimento_agendamento", nullable = false)
@@ -46,6 +50,14 @@ public class Agendamento implements Serializable{
     @NotEmpty(message = "O Campo chamado é obrigatório")
     @JsonView({View.AgendamentoView.class, View.ChamadoView.class})
     private String localAtendimento;
+    
+    
+  
+    @JsonView({View.AgendamentoView.class})
+   // @OneToOne( cascade = {CascadeType.PERSIST , CascadeType.REFRESH,CascadeType.REMOVE})
+    private String numerosSerie;
+     
+    
     
     @PrePersist
     public void presPersist(){

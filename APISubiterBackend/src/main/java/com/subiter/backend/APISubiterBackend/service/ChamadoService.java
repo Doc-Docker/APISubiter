@@ -5,76 +5,92 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import com.subiter.backend.APISubiterBackend.model.entity.Chamado;
+import com.subiter.backend.APISubiterBackend.model.entity.EquipamentoSerie;
 import com.subiter.backend.APISubiterBackend.model.entity.TipoServico;
 import com.subiter.backend.APISubiterBackend.model.entity.Usuario;
 import com.subiter.backend.APISubiterBackend.model.repository.ChamadoRepository;
+import com.subiter.backend.APISubiterBackend.model.repository.EquipamentoSerieRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class ChamadoService {
 
-    @Autowired
-    private ChamadoRepository chamadoRepository;
-    
-    @Autowired
-    private UsuarioService usuarioService;
+	@Autowired
+	private ChamadoRepository chamadoRepository;
 
-    @Autowired
-    private TipoServicoService tipoServicoService;
+	@Autowired
+	private UsuarioService usuarioService;
 
-    public Chamado save(Chamado chamado){
+	@Autowired
+	private EquipamentoSerieRepository equipamentoSerie;
 
-        chamado.setId(null);
+	@Autowired
+	private TipoServicoService tipoServicoService;
 
-        Usuario usuario = usuarioService.getUserById(chamado.getUsuarioChamado().getId());
-        
-        chamado.setUsuarioChamado(usuario);
+	public Chamado save(Chamado chamado) {
 
-        TipoServico tipoChamado = tipoServicoService.getServicoById(chamado.getTipoChamado().getId());
+		chamado.setId(null);
 
-        chamado.setTipoChamado(tipoChamado);
-        
-        return chamadoRepository.save(chamado);
-    }
+		Usuario usuario = usuarioService.getUserById(chamado.getUsuarioChamado().getId());
 
-    public List<Chamado> getAllChamados (){
-        
-        return chamadoRepository.findAll();
-    }
-    
-    public Chamado getChamadoById(Integer id){
+		chamado.setUsuarioChamado(usuario);
 
-        return chamadoRepository.findById(id).orElseThrow(()-> 
-        new ResponseStatusException(HttpStatus.NOT_FOUND, "Chamado não encontrado."));
-    }
+		TipoServico tipoChamado = tipoServicoService.getServicoById(chamado.getTipoChamado().getId());
 
-    public Chamado updateChamadoById(Integer id, Chamado chamado){
-    	Chamado chamadoSelector = this.getChamadoById(id);
+		chamado.setTipoChamado(tipoChamado);
 
-    	chamadoSelector.setId(id);
+		return chamadoRepository.save(chamado);
+	}
 
-        chamadoSelector.setUsuarioChamado(chamado.getUsuarioChamado());
+	public List<Chamado> getAllChamados() {
 
-        chamadoSelector.setTipoChamado(chamado.getTipoChamado());
+		return chamadoRepository.findAll();
+	}
 
-        chamadoSelector.setCriticidadeChamado(chamado.getCriticidadeChamado());
+	public Chamado getChamadoById(Integer id) {
 
-        chamadoSelector.setDataChamado(chamado.getDataChamado());
+		return chamadoRepository.findById(id)
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Chamado não encontrado."));
+	}
 
-        chamadoSelector.setDescricaoChamado(chamado.getDescricaoChamado());
+	public Chamado updateChamadoById(Integer id, Chamado chamado) {
+		Chamado chamadoSelector = this.getChamadoById(id);
+		String Ns = "";
+		if(chamadoSelector.getAgendamento() != null) {
+			Ns = chamadoSelector.getAgendamento().getNumerosSerie();
+		}
+		
 
-        chamadoSelector.setSituacaoChamado(chamado.getSituacaoChamado());
+		EquipamentoSerie equipamentoSerie = this.equipamentoSerie.getById(Ns);
 
-        chamadoSelector.setSolucaoChamado(chamado.getSolucaoChamado());
+		if (chamado.getSituacaoChamado().equals("F") || chamado.getSituacaoChamado().equals("f")) {
 
-        chamadoSelector.setEncerramentoChamado(chamado.getEncerramentoChamado());
-    	
-    	return chamadoRepository.save(chamadoSelector);
-    }
-    
-    public void deleteChamadoById(Integer id){
+			equipamentoSerie.setDisponibilidade(true);
+			chamadoSelector.setEncerramentoChamado(LocalDate.now());
+			this.equipamentoSerie.save(equipamentoSerie);
 
-    	chamadoRepository.deleteById(id);
-    }
+		}
+
+		chamadoSelector.setCriticidadeChamado(chamado.getCriticidadeChamado());
+
+		chamadoSelector.setDataChamado(chamado.getDataChamado());
+
+		chamadoSelector.setDescricaoChamado(chamado.getDescricaoChamado());
+
+		chamadoSelector.setSituacaoChamado(chamado.getSituacaoChamado());
+
+		chamadoSelector.setSolucaoChamado(chamado.getSolucaoChamado());
+
+		
+
+		return chamadoRepository.save(chamadoSelector);
+	}
+
+	public void deleteChamadoById(Integer id) {
+		;
+
+		chamadoRepository.deleteById(id);
+	}
 }

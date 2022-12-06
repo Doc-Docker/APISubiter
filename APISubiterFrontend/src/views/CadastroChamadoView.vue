@@ -72,7 +72,7 @@
 <style scoped>
 .cadastroChamado {
   padding: 5rem;
-  background-color:#292A2F;
+  background-color:#e63808;
   background-size:cover
 }
 
@@ -82,11 +82,11 @@
   flex-direction:column;
   min-width:0;
   word-wrap:break-word;
-  background-color:#535459;
+  background-color:#ffffff;
   background-clip:border-box;
-  border:1px solid #535459;
+  border:1px solid #e63808;
   border-radius:.35rem;
-  color: #F4EDED;
+  color: #000000;
 }
 
 .font-title {
@@ -106,7 +106,7 @@
 }
 
 .btn-salvar {
-  background-color: #535459;
+  background-color: #6CEC90;
   border: 2px solid #6CEC90;
   width: 150px;
   border-radius: 13px
@@ -129,7 +129,7 @@
   padding: 7px 0 0 10px;
   transition: all 200ms;
   opacity: 0.9;
-  color: #fff;
+  color: rgb(2, 2, 2);
 }
 
 .form-control:focus + .form-control-placeholder,
@@ -143,7 +143,7 @@
 .form-control {
   border: 0;
   outline: 0;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid rgb(255, 38, 0);
   font-size: 16px;
   color: #CCC;
   background-color: transparent; 
@@ -152,7 +152,7 @@
 .form-control:focus {
   border: 0;
   color: #FFF;
-  background-color: #535459;
+  background-color: #e63808;
   border-color: #FFF;
   outline: 0;
   border-bottom: 2px solid #FFF;

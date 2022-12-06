@@ -35,6 +35,15 @@ public class EquipamentoSerieController {
 		return equipamentoSerieService.getAllEquipamentoSerie();
 
 	}
+    
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPORTE')")
+    @GetMapping("/disponivel")
+    @JsonView(View.EquipamentoSerieView.class)
+    public List<EquipamentoSerie> getAllEquipamentoSerieDisponivel() {
+
+		return equipamentoSerieService.getAllEquipamentoSerieDisponivel();
+
+	}
 
     @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping

@@ -30,6 +30,13 @@ public class EquipamentoSerieService {
 
         return equipamentoSerieRepository.findAll();
     }
+    
+    public List<EquipamentoSerie> getAllEquipamentoSerieDisponivel() {
+
+        return equipamentoSerieRepository.findByDisponibilidade(true);
+    }
+    
+    
 
     public EquipamentoSerie getUserById(String id) {
 
